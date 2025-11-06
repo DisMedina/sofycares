@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-light-gray hover:bg-beige-200 text-text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-200 border border-beige-300;
+  }
+  
+  .card {
+    @apply bg-secondary-50 rounded-xl shadow-lg border border-beige-300 p-6 transition-all duration-200 hover:shadow-xl;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #61137B 0%, #E97F72 50%, #B6C8A9 100%);
+  }
+}
