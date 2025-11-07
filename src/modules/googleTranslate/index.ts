@@ -1,0 +1,1 @@
+export { GoogleTranslateComponent } from './googleTranslate.ts';
