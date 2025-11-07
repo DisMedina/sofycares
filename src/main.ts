@@ -1,9 +1,11 @@
 import './style.css';
 import { CommingSoonComponent } from './modules/commingSoon';
+import { GoogleTranslateComponent } from './modules/googleTranslate';
 
 class SofyCaresApp {
   private app: HTMLElement;
   private currentComponent: CommingSoonComponent | null = null;
+  private translateComponent: GoogleTranslateComponent | null = null;
 
   constructor() {
     const appElement = document.getElementById('app');
@@ -16,6 +18,7 @@ class SofyCaresApp {
 
   private init(): void {
     this.loadCommingSoonPage();
+    this.initializeGoogleTranslate();
   }
 
   private loadCommingSoonPage(): void {
@@ -28,9 +31,17 @@ class SofyCaresApp {
     this.currentComponent = new CommingSoonComponent(this.app);
   }
 
+  private initializeGoogleTranslate(): void {
+    // Initialize Google Translate component
+    this.translateComponent = new GoogleTranslateComponent(this.app);
+  }
+
   public destroy(): void {
     if (this.currentComponent) {
       this.currentComponent.destroy();
+    }
+    if (this.translateComponent) {
+      this.translateComponent.destroy();
     }
   }
 }
