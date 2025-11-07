@@ -1,10 +1,10 @@
 import './style.css';
-import { CommingSoonComponent } from './modules/commingSoon';
+import { HomeComponent } from './modules/home';
 import { GoogleTranslateComponent } from './modules/googleTranslate';
 
 class SofyCaresApp {
   private app: HTMLElement;
-  private currentComponent: CommingSoonComponent | null = null;
+  private currentComponent: HomeComponent | null = null;
   private translateComponent: GoogleTranslateComponent | null = null;
 
   constructor() {
@@ -17,18 +17,18 @@ class SofyCaresApp {
   }
 
   private init(): void {
-    this.loadCommingSoonPage();
+    this.loadHomePage();
     this.initializeGoogleTranslate();
   }
 
-  private loadCommingSoonPage(): void {
+  private loadHomePage(): void {
     // Clean up previous component if exists
     if (this.currentComponent) {
       this.currentComponent.destroy();
     }
 
-    // Load the Coming Soon component
-    this.currentComponent = new CommingSoonComponent(this.app);
+    // Load the Home component
+    this.currentComponent = new HomeComponent(this.app);
   }
 
   private initializeGoogleTranslate(): void {
