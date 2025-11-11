@@ -1,83 +1,47 @@
-import { BannerComponent } from "./components/banner";
-import { HeaderComponent } from "./components/header";
-import { InfoSectionComponent } from "./components/infoSection";
-import { FooterComponent } from "../../shared/components/footer";
+// ? Components
+import { BannerComponent } from './components/banner';
+import { HeaderComponent } from './components/header';
+import { InfoSectionComponent } from './components/infoSection';
+import { FooterComponent } from '../../shared/components/footer';
 
+const Home = (): HTMLElement => {
+  // Create main container
+  const container = document.createElement('div');
+  container.className = 'min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50';
 
-export class HomeComponent {
-  private container: HTMLElement;
-  private headerComponent: HeaderComponent | null = null;
-  private bannerComponent: BannerComponent | null = null;
-  private infoSectionComponent: InfoSectionComponent | null = null;
-  private footerComponent: FooterComponent | null = null;
+  // Create sections
+  const header = document.createElement('header');
+  header.id = 'header-section';
+  
+  const bannerSection = document.createElement('section');
+  bannerSection.id = 'banner-section';
+  
+  const infoSection = document.createElement('main');
+  infoSection.id = 'info-section';
+  
+  const footer = document.createElement('footer');
+  footer.id = 'footer-section';
 
-  constructor(container: HTMLElement) {
-    this.container = container;
-    this.init();
-  }
+  // Initialize components and append to sections
+  const headerElement = HeaderComponent();
+  header.appendChild(headerElement);
 
-  private init(): void {
-    this.render();
-    this.initializeComponents();
-  }
+  const bannerElement = BannerComponent();
+  bannerSection.appendChild(bannerElement);
 
-  private render(): void {
-    this.container.innerHTML = `
-      <div class="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
-        <!-- Header Section -->
-        <header id="header-section"></header>
-        
-        <!-- Hero Banner Section -->
-        <section id="banner-section"></section>
-        
-        <!-- Info Sections -->
-        <main id="info-section"></main>
-        
-        <!-- Footer Section -->
-        <footer id="footer-section"></footer>
-      </div>
-    `;
-  }
+  const infoSectionElement = InfoSectionComponent();
+  infoSection.appendChild(infoSectionElement);
 
-  private initializeComponents(): void {
-    // Initialize Header
-    const headerSection = document.getElementById('header-section');
-    if (headerSection) {
-      this.headerComponent = new HeaderComponent(headerSection);
-    }
+  const footerElement = FooterComponent();
+  footer.appendChild(footerElement);
 
-    // Initialize Banner
-    const bannerSection = document.getElementById('banner-section');
-    if (bannerSection) {
-      this.bannerComponent = new BannerComponent(bannerSection);
-    }
+  // Append all sections to container
+  container.appendChild(header);
+  container.appendChild(bannerSection);
+  container.appendChild(infoSection);
+  container.appendChild(footer);
 
-    // Initialize Info Section
-    const infoSection = document.getElementById('info-section');
-    if (infoSection) {
-      this.infoSectionComponent = new InfoSectionComponent(infoSection);
-    }
+  return container;
+};
 
-    // Initialize Footer
-    const footerSection = document.getElementById('footer-section');
-    if (footerSection) {
-      this.footerComponent = new FooterComponent(footerSection);
-    }
-  }
-
-  public destroy(): void {
-    if (this.headerComponent) {
-      this.headerComponent.destroy();
-    }
-    if (this.bannerComponent) {
-      this.bannerComponent.destroy();
-    }
-    if (this.infoSectionComponent) {
-      this.infoSectionComponent.destroy();
-    }
-    if (this.footerComponent) {
-      this.footerComponent.destroy();
-    }
-    this.container.innerHTML = '';
-  }
-}
+export default Home;

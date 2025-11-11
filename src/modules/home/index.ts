@@ -1,4 +1,4 @@
-export { HomeComponent } from './home';
+export { default as Home } from './home';
 export { HeaderComponent } from './components/header';
 export { BannerComponent } from './components/banner';
 export { InfoSectionComponent } from './components/infoSection';
