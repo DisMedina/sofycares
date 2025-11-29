@@ -1,10 +1,13 @@
 import './style.css';
-import { CommingSoonComponent } from './modules/commingSoon';
+import { Home } from './modules/home';
+import { About } from './modules/about';
+import { Services } from './modules/services';
+import { Founder } from './modules/founder';
+import { Contact } from './modules/contact';
 import { GoogleTranslateComponent } from './modules/googleTranslate';
 
 class SofyCaresApp {
   private app: HTMLElement;
-  private currentComponent: CommingSoonComponent | null = null;
   private translateComponent: GoogleTranslateComponent | null = null;
 
   constructor() {
@@ -17,18 +20,64 @@ class SofyCaresApp {
   }
 
   private init(): void {
-    this.loadCommingSoonPage();
+    this.setupRouting();
+    this.loadInitialPage();
     this.initializeGoogleTranslate();
   }
 
-  private loadCommingSoonPage(): void {
-    // Clean up previous component if exists
-    if (this.currentComponent) {
-      this.currentComponent.destroy();
-    }
+  private setupRouting(): void {
+    // Set up global navigation function
+    (window as any).navigateTo = (path: string) => {
+      this.navigateToPage(path);
+      // Update URL without page reload
+      window.history.pushState({ path }, '', path);
+    };
 
-    // Load the Coming Soon component
-    this.currentComponent = new CommingSoonComponent(this.app);
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', (event) => {
+      const path = event.state?.path || window.location.pathname;
+      this.navigateToPage(path);
+    });
+  }
+
+  private loadInitialPage(): void {
+    const path = window.location.pathname;
+    this.navigateToPage(path);
+  }
+
+  private navigateToPage(path: string): void {
+    // Clear previous content
+    this.app.innerHTML = '';
+
+    // Route to appropriate page
+    switch (path) {
+      case '/about':
+      case '/nosotros':
+        const aboutElement = About();
+        this.app.appendChild(aboutElement);
+        break;
+      case '/services':
+      case '/servicios':
+        const servicesElement = Services();
+        this.app.appendChild(servicesElement);
+        break;
+      case '/founder':
+      case '/fundadora':
+        const founderElement = Founder();
+        this.app.appendChild(founderElement);
+        break;
+      case '/contact':
+      case '/contacto':
+        const contactElement = Contact();
+        this.app.appendChild(contactElement);
+        break;
+      case '/':
+      case '/home':
+      default:
+        const homeElement = Home();
+        this.app.appendChild(homeElement);
+        break;
+    }
   }
 
   private initializeGoogleTranslate(): void {
@@ -37,12 +86,10 @@ class SofyCaresApp {
   }
 
   public destroy(): void {
-    if (this.currentComponent) {
-      this.currentComponent.destroy();
-    }
     if (this.translateComponent) {
       this.translateComponent.destroy();
     }
+    this.app.innerHTML = '';
   }
 }
 
