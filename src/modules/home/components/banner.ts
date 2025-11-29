@@ -33,48 +33,58 @@ const renderBackgroundImage = (): HTMLElement => {
 // Helper function to create CTA buttons section
 const createCtaButtons = (): HTMLElement => {
   const container = document.createElement('div');
-  container.className = 'flex flex-col sm:flex-row gap-4 justify-center items-center';
+  container.className = 'flex flex-col items-center gap-4';
 
-  // Main CTA Button
-  const mainButton = document.createElement('button');
-  mainButton.id = 'main-cta-button';
-  mainButton.className = 'group bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl flex items-center space-x-3';
-  mainButton.innerHTML = `
-    <span>Start Now</span>
-    <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-    </svg>
-  `;
+  // Common button style
+  const buttonClass = 'bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-lg font-medium text-base transition-all duration-200 flex items-center space-x-2';
 
-  container.appendChild(mainButton);
+  // Top row: two buttons
+  const topRow = document.createElement('div');
+  topRow.className = 'flex flex-row gap-4 justify-center';
+
+  // Watch Full Video Button
+  const videoButton = document.createElement('button');
+  videoButton.className = buttonClass;
+  videoButton.innerHTML = `<span>Watch Full Video</span>`;
+  videoButton.addEventListener('click', () => {
+    // TODO: Add video modal or navigation logic
+    console.log('Watch Full Video clicked');
+  });
+  topRow.appendChild(videoButton);
+
+  // Schedule a Visit Button
+  const visitButton = document.createElement('button');
+  visitButton.className = buttonClass;
+  visitButton.innerHTML = `<span>Schedule a Visit</span>`;
+  visitButton.addEventListener('click', () => {
+    // TODO: Add scheduling logic
+    console.log('Schedule a Visit clicked');
+  });
+  topRow.appendChild(visitButton);
+
+  // Bottom row: one button centered
+  const bottomRow = document.createElement('div');
+  bottomRow.className = 'flex justify-center mt-2';
+
+  const contactButton = document.createElement('button');
+  contactButton.className = buttonClass;
+  contactButton.innerHTML = `<span>Contact Us</span>`;
+  contactButton.addEventListener('click', () => {
+    // TODO: Add contact logic
+    console.log('Contact Us clicked');
+  });
+  bottomRow.appendChild(contactButton);
+
+  container.appendChild(topRow);
+  container.appendChild(bottomRow);
 
   return container;
 };
 
 // Helper function to create trust indicators section
 const createTrustIndicators = (): HTMLElement => {
-  const container = document.createElement('div');
-  container.className = 'mt-12 flex flex-wrap justify-center items-center gap-8 text-white/80';
-
-  const indicators = [
-    { text: 'Certified Staff' },
-    { text: 'Available 24/7' },
-    { text: 'Flexible Plans' }
-  ];
-
-  indicators.forEach(indicator => {
-    const indicatorDiv = document.createElement('div');
-    indicatorDiv.className = 'flex items-center space-x-2';
-    indicatorDiv.innerHTML = `
-      <svg class="w-5 h-5 text-accent-300" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-      </svg>
-      <span class="text-sm font-medium">${indicator.text}</span>
-    `;
-    container.appendChild(indicatorDiv);
-  });
-
-  return container;
+  // Removed trust indicators section
+  return document.createElement('div');
 };
 
 // Helper function to render hero content section
@@ -82,26 +92,9 @@ const renderHeroContent = (): HTMLElement => {
   const heroContainer = document.createElement('div');
   heroContainer.className = 'relative z-20 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8';
 
-  // Main heading
-  const heading = document.createElement('h1');
-  heading.className = 'text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight';
-  heading.innerHTML = 'Care with <span class="text-accent-300 block">Heart</span>';
-
-  // Description
-  const description = document.createElement('p');
-  description.className = 'text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed';
-  description.textContent = 'Professional and compassionate care services for your loved ones. We provide personalized attention with the warmth of a family.';
-
-  // CTA Buttons
+  // Only CTA Buttons (no heading, description, trust indicators)
   const ctaContainer = createCtaButtons();
-
-  // Trust Indicators
-  const trustIndicators = createTrustIndicators();
-
-  heroContainer.appendChild(heading);
-  heroContainer.appendChild(description);
   heroContainer.appendChild(ctaContainer);
-  heroContainer.appendChild(trustIndicators);
 
   return heroContainer;
 };

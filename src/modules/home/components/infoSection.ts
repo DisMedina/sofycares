@@ -33,59 +33,33 @@ const setupInfoSectionEventListeners = (infoSection: HTMLElement): void => {
 // Helper function to render the about section
 const renderAboutSection = (): HTMLElement => {
   const section = document.createElement('section');
-  section.className = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20';
+  section.className = 'max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20';
 
-  const container = document.createElement('div');
-  container.className = 'grid lg:grid-cols-2 gap-12 items-center';
-
-  // Content side
-  const contentDiv = document.createElement('div');
-  contentDiv.className = 'order-2 lg:order-1';
-
-  const contentCard = document.createElement('div');
-  contentCard.className = 'bg-white rounded-2xl shadow-xl p-8 lg:p-12 border border-beige-200';
-
+  // Title
   const heading = document.createElement('h2');
-  heading.className = 'text-3xl lg:text-4xl font-bold text-text-primary mb-6';
-    heading.textContent = 'About Us';
+  heading.className = 'text-4xl font-bold text-text-primary mb-6 text-center';
+  heading.textContent = 'Discover Sofy Cares: Your Trusted Assisted Living Partner';
+  section.appendChild(heading);
 
-  const paragraph1 = document.createElement('p');
-  paragraph1.className = 'text-lg text-text-secondary mb-6 leading-relaxed';
-    paragraph1.textContent = 'At Sofy Cares, we believe that every person deserves quality care with dignity and respect. We are a family business dedicated to providing personal care and professional companionship services for seniors and people who need special assistance.';
+  // Introductory paragraph covering all requested topics
+  const intro = document.createElement('p');
+  intro.className = 'text-lg text-text-secondary mb-8 leading-relaxed text-center';
+  intro.textContent = `Located in the heart of our community, Sofy Cares is dedicated to providing exceptional assisted living services tailored to the needs of every resident. We offer a variety of living options, including independent and assisted living, as well as specialized memory care and nursing care. Our comprehensive services and amenities include comfortable accommodations, nutritious dining, engaging activities, and access to medical care. Residents enjoy a vibrant activity calendar, opportunities for social connection, and a welcoming environment that fosters well-being and peace of mind. Learn more about our community, our commitment to quality care, and how Sofy Cares can support you or your loved ones.`;
+  section.appendChild(intro);
 
-  const paragraph2 = document.createElement('p');
-  paragraph2.className = 'text-lg text-text-secondary mb-8 leading-relaxed';
-    paragraph2.textContent = 'Our team is made up of certified and trained professionals who understand the importance of creating a safe, comfortable, and loving environment for our clients and their families.';
-
-  const button = document.createElement('button');
-  button.className = 'bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2';
-  button.innerHTML = `
-      <span>Learn More</span>
+  // Read More button
+  const readMoreButton = document.createElement('button');
+  readMoreButton.className = 'bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2 mx-auto block';
+  readMoreButton.innerHTML = `
+    <span>Read More</span>
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
     </svg>
   `;
-
-  contentCard.appendChild(heading);
-  contentCard.appendChild(paragraph1);
-  contentCard.appendChild(paragraph2);
-  contentCard.appendChild(button);
-  contentDiv.appendChild(contentCard);
-
-  // Image side
-  const imageDiv = document.createElement('div');
-  imageDiv.className = 'order-1 lg:order-2';
-
-  const image = document.createElement('img');
-  image.src = 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-    image.alt = 'Professional caregiver helping a senior';
-  image.className = 'w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-xl';
-
-  imageDiv.appendChild(image);
-
-  container.appendChild(contentDiv);
-  container.appendChild(imageDiv);
-  section.appendChild(container);
+  readMoreButton.addEventListener('click', () => {
+    (window as any).navigateTo('/about');
+  });
+  section.appendChild(readMoreButton);
 
   return section;
 };
