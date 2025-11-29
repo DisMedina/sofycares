@@ -134,34 +134,34 @@ const renderServicesSection = (): HTMLElement => {
   const servicesGrid = document.createElement('div');
   servicesGrid.className = 'grid md:grid-cols-2 lg:grid-cols-3 gap-8';
 
-  // Service cards
-  const personalCareCard = createServiceCard(
-    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>',
+  // Service cards: Independent Living, Assisted Living, Levels of Care
+  const independentLivingCard = createServiceCard(
+    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>',
     'text-primary-600',
     'bg-primary-100',
-      'Personal Care',
-      'Assistance with daily activities such as bathing, dressing, eating, and mobility. Our caregivers provide respectful and professional support.'
+    'Independent Living',
+    'Enjoy a vibrant, maintenance-free lifestyle with access to amenities, activities, and a supportive community designed for independent seniors.'
   );
 
-  const companionshipCard = createServiceCard(
-    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>',
+  const assistedLivingCard = createServiceCard(
+    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>',
     'text-accent-600',
     'bg-accent-100',
-      'Companionship',
-      'Companionship services to combat loneliness and isolation. Includes conversation, recreational activities, and accompaniment.'
+    'Assisted Living',
+    'Personalized support with daily activities, medication management, and compassionate care in a safe, comfortable environment.'
   );
 
-  const homeSupportCard = createServiceCard(
-    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>',
+  const levelsOfCareCard = createServiceCard(
+    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6"></path>',
     'text-sage-600',
     'bg-sage-100',
-      'Home Support',
-      'Help with household chores, meal preparation, shopping, and organization to maintain a clean and safe environment.'
+    'Levels of Care',
+    'From independent living to specialized nursing and memory care, we offer a full spectrum of services tailored to individual needs.'
   );
 
-  servicesGrid.appendChild(personalCareCard);
-  servicesGrid.appendChild(companionshipCard);
-  servicesGrid.appendChild(homeSupportCard);
+  servicesGrid.appendChild(independentLivingCard);
+  servicesGrid.appendChild(assistedLivingCard);
+  servicesGrid.appendChild(levelsOfCareCard);
 
   // CTA button
   const ctaDiv = document.createElement('div');
@@ -278,6 +278,113 @@ export const InfoSectionComponent = (): HTMLElement => {
 
   const founderSection = renderFounderSection();
   infoSection.appendChild(founderSection);
+
+  // Recognitions/Awards Section
+  const awardsSection = document.createElement('section');
+  awardsSection.className = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12';
+
+  const awardsTitle = document.createElement('h2');
+  awardsTitle.className = 'text-3xl lg:text-4xl font-bold text-accent-700 mb-6 text-center';
+  awardsTitle.textContent = 'Recognitions & Awards';
+  awardsSection.appendChild(awardsTitle);
+
+  const awardsDesc = document.createElement('p');
+  awardsDesc.className = 'text-lg text-text-secondary mb-8 leading-relaxed text-center';
+  awardsDesc.textContent = 'Sofy Cares is proud to be recognized for excellence in senior care and community service. Our certifications and awards reflect our commitment to quality, safety, and compassion.';
+  awardsSection.appendChild(awardsDesc);
+
+  const awardsGrid = document.createElement('div');
+  awardsGrid.className = 'flex flex-wrap justify-center gap-8';
+
+  const awards = [
+    {
+      title: 'Certified Senior Care Provider',
+      img: 'https://cdn-icons-png.flaticon.com/512/190/190411.png',
+      desc: 'National certification for excellence in senior care.'
+    },
+    {
+      title: 'Community Service Award',
+      img: 'https://cdn-icons-png.flaticon.com/512/190/190406.png',
+      desc: 'Recognized for outstanding service to the local community.'
+    },
+    {
+      title: 'Health & Safety Excellence',
+      img: 'https://cdn-icons-png.flaticon.com/512/190/190408.png',
+      desc: 'Awarded for maintaining the highest standards in health and safety.'
+    }
+  ];
+
+  awards.forEach(award => {
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-xl shadow-lg p-6 flex flex-col items-center w-72';
+    const img = document.createElement('img');
+    img.src = award.img;
+    img.alt = award.title;
+    img.className = 'w-16 h-16 mb-4';
+    card.appendChild(img);
+    const cardTitle = document.createElement('h3');
+    cardTitle.className = 'text-xl font-semibold text-text-primary mb-2 text-center';
+    cardTitle.textContent = award.title;
+    card.appendChild(cardTitle);
+    const cardDesc = document.createElement('p');
+    cardDesc.className = 'text-text-secondary text-center';
+    cardDesc.textContent = award.desc;
+    card.appendChild(cardDesc);
+    awardsGrid.appendChild(card);
+  });
+
+  awardsSection.appendChild(awardsGrid);
+  infoSection.appendChild(awardsSection);
+
+  // Location Map & Contact Section
+  const locationSection = document.createElement('section');
+  locationSection.className = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12';
+
+  const locationTitle = document.createElement('h2');
+  locationTitle.className = 'text-3xl lg:text-4xl font-bold text-primary-700 mb-6 text-center';
+  locationTitle.textContent = 'Our Location & Contact';
+  locationSection.appendChild(locationTitle);
+
+  // Flex row for contact info and map
+  const locationRow = document.createElement('div');
+  locationRow.className = 'flex flex-col md:flex-row items-center md:items-start justify-center gap-8 mb-8';
+
+  // Contact Info (left)
+  const contactDiv = document.createElement('div');
+  contactDiv.className = 'flex flex-col items-start gap-4 md:w-1/2';
+
+  const address = document.createElement('p');
+  address.className = 'text-lg text-text-primary';
+  address.innerHTML = '<strong>Address:</strong> 123 Main St, Springfield, USA';
+  contactDiv.appendChild(address);
+
+  const email = document.createElement('p');
+  email.className = 'text-lg text-text-primary';
+  email.innerHTML = '<strong>Email:</strong> <a href="mailto:info@sofycares.com" class="text-primary-600 underline">info@sofycares.com</a>';
+  contactDiv.appendChild(email);
+
+  const phone = document.createElement('p');
+  phone.className = 'text-lg text-text-primary';
+  phone.innerHTML = '<strong>Phone:</strong> <a href="tel:+1234567890" class="text-primary-600 underline">+1 (234) 567-890</a>';
+  contactDiv.appendChild(phone);
+
+  // Map (right)
+  const mapDiv = document.createElement('div');
+  mapDiv.className = 'md:w-1/2 flex justify-center';
+  const mapIframe = document.createElement('iframe');
+  mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537363155047!3d-37.81627974202198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f1f1f1%3A0x5045675218ce6e0!2sSofy%20Cares!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus';
+  mapIframe.width = '600';
+  mapIframe.height = '350';
+  mapIframe.style.border = '0';
+  mapIframe.allowFullscreen = true;
+  mapIframe.loading = 'lazy';
+  mapIframe.referrerPolicy = 'no-referrer-when-downgrade';
+  mapDiv.appendChild(mapIframe);
+
+  locationRow.appendChild(contactDiv);
+  locationRow.appendChild(mapDiv);
+  locationSection.appendChild(locationRow);
+  infoSection.appendChild(locationSection);
 
   // Set up event listeners
   setupInfoSectionEventListeners(infoSection);
