@@ -10,19 +10,19 @@ const createImageCarousel = (): HTMLElement => {
   const images = [
     {
       src: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Cuidador profesional ayudando a adulto mayor'
+  alt: 'Professional caregiver helping a senior'
     },
     {
       src: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Equipo de profesionales de la salud'
+  alt: 'Team of healthcare professionals'
     },
     {
       src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Ambiente familiar y acogedor'
+  alt: 'Welcoming family environment'
     },
     {
       src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Cuidado personalizado'
+  alt: 'Personalized care'
     }
   ];
 
@@ -75,13 +75,13 @@ const createCompanyContent = (): HTMLElement => {
   // Title
   const title = document.createElement('h1');
   title.className = 'text-4xl lg:text-5xl font-bold text-text-primary mb-8';
-  title.textContent = 'Sobre Nosotros';
+  title.textContent = 'About Us';
 
   // Mission section
   const missionSection = document.createElement('div');
   const missionTitle = document.createElement('h2');
   missionTitle.className = 'text-2xl font-semibold text-text-primary mb-4';
-  missionTitle.textContent = 'Nuestra Misión';
+  missionTitle.textContent = 'Our Mission';
 
   const missionText = document.createElement('p');
   missionText.className = 'text-lg text-text-secondary leading-relaxed';
@@ -94,7 +94,7 @@ const createCompanyContent = (): HTMLElement => {
   const valuesSection = document.createElement('div');
   const valuesTitle = document.createElement('h2');
   valuesTitle.className = 'text-2xl font-semibold text-text-primary mb-4';
-  valuesTitle.textContent = 'Nuestros Valores';
+  valuesTitle.textContent = 'Our Values';
 
   const valuesList = document.createElement('ul');
   valuesList.className = 'space-y-3 text-lg text-text-secondary';
@@ -104,7 +104,7 @@ const createCompanyContent = (): HTMLElement => {
     'Sunt in culpa qui officia deserunt mollit anim',
     'Sed ut perspiciatis unde omnis iste natus error',
     'At vero eos et accusamus et iusto odio dignissimos'
-  ];
+  ]; // These are already in Latin placeholder text
 
   values.forEach(value => {
     const listItem = document.createElement('li');
@@ -125,7 +125,7 @@ const createCompanyContent = (): HTMLElement => {
   const historySection = document.createElement('div');
   const historyTitle = document.createElement('h2');
   historyTitle.className = 'text-2xl font-semibold text-text-primary mb-4';
-  historyTitle.textContent = 'Nuestra Historia';
+  historyTitle.textContent = 'Our History';
 
   const historyText1 = document.createElement('p');
   historyText1.className = 'text-lg text-text-secondary leading-relaxed mb-4';
@@ -143,7 +143,7 @@ const createCompanyContent = (): HTMLElement => {
   const ctaButton = document.createElement('button');
   ctaButton.className = 'bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex items-center space-x-3';
   ctaButton.innerHTML = `
-    <span>Contáctanos</span>
+    <span>Contact Us</span>
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
     </svg>

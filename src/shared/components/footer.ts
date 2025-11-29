@@ -86,14 +86,14 @@ export const FooterComponent = (): HTMLElement => {
 
     const title = document.createElement('h3');
     title.className = 'text-2xl font-bold';
-    title.textContent = 'Sofy Cares';
+      title.textContent = 'Sofy Cares';
 
     header.appendChild(logo);
     header.appendChild(title);
 
     const description = document.createElement('p');
     description.className = 'text-white/80 mb-6 leading-relaxed';
-    description.textContent = 'Brindamos servicios de cuidado personal y compañía profesional con el amor y la atención que su familia merece.';
+      description.textContent = 'We provide personal care and professional companionship services with the love and attention your family deserves.';
 
     const socialLinks = createSocialLinks();
 
@@ -133,17 +133,17 @@ export const FooterComponent = (): HTMLElement => {
 
     const title = document.createElement('h4');
     title.className = 'text-lg font-semibold mb-6';
-    title.textContent = 'Enlaces Rápidos';
+      title.textContent = 'Quick Links';
 
     const list = document.createElement('ul');
     list.className = 'space-y-4';
 
     const links = [
-      { href: '/', text: 'Inicio' },
-      { href: '/about', text: 'Nosotros' },
-      { href: '/services', text: 'Servicios' },
-      { href: '/contact', text: 'Contacto' },
-      { href: '#careers', text: 'Trabaja con Nosotros' }
+        { href: '/', text: 'Home' },
+        { href: '/about', text: 'About Us' },
+        { href: '/services', text: 'Services' },
+        { href: '/contact', text: 'Contact' },
+        { href: '#careers', text: 'Careers' }
     ];
 
     links.forEach(linkData => {
@@ -176,17 +176,17 @@ export const FooterComponent = (): HTMLElement => {
 
     const title = document.createElement('h4');
     title.className = 'text-lg font-semibold mb-6';
-    title.textContent = 'Servicios';
+      title.textContent = 'Services';
 
     const list = document.createElement('ul');
     list.className = 'space-y-4';
 
     const services = [
-      { href: '#personal-care', text: 'Cuidado Personal' },
-      { href: '#companionship', text: 'Compañía' },
-      { href: '#home-support', text: 'Apoyo Doméstico' },
-      { href: '#respite-care', text: 'Cuidado de Relevo' },
-      { href: '#specialized', text: 'Cuidado Especializado' }
+        { href: '#personal-care', text: 'Personal Care' },
+        { href: '#companionship', text: 'Companionship' },
+        { href: '#home-support', text: 'Home Support' },
+        { href: '#respite-care', text: 'Respite Care' },
+        { href: '#specialized', text: 'Specialized Care' }
     ];
 
     services.forEach(service => {
@@ -210,7 +210,7 @@ export const FooterComponent = (): HTMLElement => {
 
     const title = document.createElement('h4');
     title.className = 'text-lg font-semibold mb-6';
-    title.textContent = 'Contacto';
+      title.textContent = 'Contact';
 
     const contactContainer = document.createElement('div');
     contactContainer.className = 'space-y-4';
@@ -263,10 +263,10 @@ export const FooterComponent = (): HTMLElement => {
     availabilityDiv.className = 'mt-6';
     const availabilityTitle = document.createElement('p');
     availabilityTitle.className = 'text-accent-300 font-medium mb-2';
-    availabilityTitle.textContent = 'Disponible 24/7';
+      availabilityTitle.textContent = 'Available 24/7';
     const availabilityDesc = document.createElement('p');
     availabilityDesc.className = 'text-white/80 text-sm';
-    availabilityDesc.textContent = 'Siempre aquí cuando nos necesites';
+      availabilityDesc.textContent = 'Always here when you need us';
     availabilityDiv.appendChild(availabilityTitle);
     availabilityDiv.appendChild(availabilityDesc);
 
@@ -292,15 +292,15 @@ export const FooterComponent = (): HTMLElement => {
 
     const copyright = document.createElement('div');
     copyright.className = 'text-white/60 text-sm';
-    copyright.textContent = '© 2025 Sofy Cares Services. Todos los derechos reservados.';
+      copyright.textContent = '© 2025 Sofy Cares Services. All rights reserved.';
 
     const legalLinks = document.createElement('div');
     legalLinks.className = 'flex space-x-6 text-sm';
 
     const legalLinksData = [
-      { href: '#privacy', text: 'Política de Privacidad' },
-      { href: '#terms', text: 'Términos de Servicio' },
-      { href: '#accessibility', text: 'Accesibilidad' }
+        { href: '#privacy', text: 'Privacy Policy' },
+        { href: '#terms', text: 'Terms of Service' },
+        { href: '#accessibility', text: 'Accessibility' }
     ];
 
     legalLinksData.forEach(linkData => {

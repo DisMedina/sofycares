@@ -7,21 +7,21 @@ const setupInfoSectionEventListeners = (infoSection: HTMLElement): void => {
       e.preventDefault();
       const buttonText = button.textContent?.trim();
       
-      // Navigate to About page for "Conocer Más" button
-      if (buttonText === 'Conocer Más') {
-        (window as any).navigateTo('/about');
-      }
-      // Navigate to Services page for "Más información" buttons
-      else if (buttonText === 'Más información') {
-        (window as any).navigateTo('/services');
-      }
-      // Navigate to Services page for "Ver Todos los Servicios" button
-      else if (buttonText === 'Ver Todos los Servicios') {
-        (window as any).navigateTo('/services');
-      }
-      // Navigate to Founder page for "Conocer Su Historia" button
-      else if (buttonText === 'Conocer Su Historia') {
-        (window as any).navigateTo('/founder');
+          // Navigate to About page for "Learn More" button
+          if (buttonText === 'Learn More') {
+            (window as any).navigateTo('/about');
+          }
+          // Navigate to Services page for "More Info" buttons
+          else if (buttonText === 'More Info') {
+            (window as any).navigateTo('/services');
+          }
+          // Navigate to Services page for "View All Services" button
+          else if (buttonText === 'View All Services') {
+            (window as any).navigateTo('/services');
+          }
+          // Navigate to Founder page for "See Her Story" button
+          else if (buttonText === 'See Her Story') {
+            (window as any).navigateTo('/founder');
       } else {
         console.log('Button clicked:', buttonText);
         // TODO: Add navigation logic for other buttons when implemented
@@ -47,20 +47,20 @@ const renderAboutSection = (): HTMLElement => {
 
   const heading = document.createElement('h2');
   heading.className = 'text-3xl lg:text-4xl font-bold text-text-primary mb-6';
-  heading.textContent = 'Sobre Nosotros';
+    heading.textContent = 'About Us';
 
   const paragraph1 = document.createElement('p');
   paragraph1.className = 'text-lg text-text-secondary mb-6 leading-relaxed';
-  paragraph1.textContent = 'En Sofy Cares, creemos que cada persona merece recibir atención de calidad con dignidad y respeto. Somos una empresa familiar dedicada a proporcionar servicios de cuidado personal y compañía profesional para adultos mayores y personas que necesitan asistencia especial.';
+    paragraph1.textContent = 'At Sofy Cares, we believe that every person deserves quality care with dignity and respect. We are a family business dedicated to providing personal care and professional companionship services for seniors and people who need special assistance.';
 
   const paragraph2 = document.createElement('p');
   paragraph2.className = 'text-lg text-text-secondary mb-8 leading-relaxed';
-  paragraph2.textContent = 'Nuestro equipo está compuesto por profesionales certificados y capacitados que entienden la importancia de crear un ambiente seguro, cómodo y lleno de cariño para nuestros clientes y sus familias.';
+    paragraph2.textContent = 'Our team is made up of certified and trained professionals who understand the importance of creating a safe, comfortable, and loving environment for our clients and their families.';
 
   const button = document.createElement('button');
   button.className = 'bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2';
   button.innerHTML = `
-    <span>Conocer Más</span>
+      <span>Learn More</span>
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
     </svg>
@@ -78,7 +78,7 @@ const renderAboutSection = (): HTMLElement => {
 
   const image = document.createElement('img');
   image.src = 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-  image.alt = 'Cuidador profesional ayudando a adulto mayor';
+    image.alt = 'Professional caregiver helping a senior';
   image.className = 'w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-xl';
 
   imageDiv.appendChild(image);
@@ -147,11 +147,11 @@ const renderServicesSection = (): HTMLElement => {
 
   const heading = document.createElement('h2');
   heading.className = 'text-3xl lg:text-4xl font-bold text-text-primary mb-4';
-  heading.textContent = 'Nuestros Servicios';
+    heading.textContent = 'Our Services';
 
   const description = document.createElement('p');
   description.className = 'text-lg text-text-secondary max-w-2xl mx-auto';
-  description.textContent = 'Ofrecemos una amplia gama de servicios de cuidado diseñados para satisfacer las necesidades únicas de cada cliente y su familia.';
+    description.textContent = 'We offer a wide range of care services designed to meet the unique needs of each client and their family.';
 
   headerDiv.appendChild(heading);
   headerDiv.appendChild(description);
@@ -165,24 +165,24 @@ const renderServicesSection = (): HTMLElement => {
     '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>',
     'text-primary-600',
     'bg-primary-100',
-    'Cuidado Personal',
-    'Asistencia con actividades diarias como baño, vestido, alimentación y movilidad. Nuestros cuidadores brindan apoyo respetuoso y profesional.'
+      'Personal Care',
+      'Assistance with daily activities such as bathing, dressing, eating, and mobility. Our caregivers provide respectful and professional support.'
   );
 
   const companionshipCard = createServiceCard(
     '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>',
     'text-accent-600',
     'bg-accent-100',
-    'Compañía',
-    'Servicios de compañía para combatir la soledad y el aislamiento. Incluye conversación, actividades recreativas y acompañamiento.'
+      'Companionship',
+      'Companionship services to combat loneliness and isolation. Includes conversation, recreational activities, and accompaniment.'
   );
 
   const homeSupportCard = createServiceCard(
     '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>',
     'text-sage-600',
     'bg-sage-100',
-    'Apoyo Doméstico',
-    'Ayuda con tareas del hogar, preparación de comidas, compras y organización para mantener un ambiente limpio y seguro.'
+      'Home Support',
+      'Help with household chores, meal preparation, shopping, and organization to maintain a clean and safe environment.'
   );
 
   servicesGrid.appendChild(personalCareCard);
@@ -195,7 +195,7 @@ const renderServicesSection = (): HTMLElement => {
 
   const ctaButton = document.createElement('button');
   ctaButton.className = 'bg-accent-500 hover:bg-accent-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200';
-  ctaButton.textContent = 'Ver Todos los Servicios';
+    ctaButton.textContent = 'View All Services';
 
   ctaDiv.appendChild(ctaButton);
 
@@ -219,7 +219,7 @@ const renderFounderSection = (): HTMLElement => {
   const imageDiv = document.createElement('div');
   const image = document.createElement('img');
   image.src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-  image.alt = 'Fundadora de Sofy Cares';
+    image.alt = 'Founder of Sofy Cares';
   image.className = 'w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-xl';
   imageDiv.appendChild(image);
 
@@ -230,15 +230,15 @@ const renderFounderSection = (): HTMLElement => {
 
   const heading = document.createElement('h2');
   heading.className = 'text-3xl lg:text-4xl font-bold text-text-primary mb-6';
-  heading.textContent = 'Nuestra Fundadora';
+    heading.textContent = 'Our Founder';
 
   const paragraph1 = document.createElement('p');
   paragraph1.className = 'text-lg text-text-secondary mb-6 leading-relaxed';
-  paragraph1.textContent = 'Sofia Martinez fundó Sofy Cares con una visión clara: brindar el mismo nivel de cuidado que ella desearía para su propia familia. Con más de 15 años de experiencia en el sector de la salud y el cuidado de adultos mayores.';
+    paragraph1.textContent = 'Sofia Martinez founded Sofy Cares with a clear vision: to provide the same level of care she would want for her own family. With more than 15 years of experience in the health and senior care sector.';
 
   const paragraph2 = document.createElement('p');
   paragraph2.className = 'text-lg text-text-secondary mb-6 leading-relaxed';
-  paragraph2.textContent = 'Su pasión por ayudar a otros y su compromiso con la excelencia la llevaron a crear una empresa que se distingue por su enfoque personalizado y su dedicación genuina al bienestar de cada cliente.';
+    paragraph2.textContent = 'Her passion for helping others and her commitment to excellence led her to create a company distinguished by its personalized approach and genuine dedication to the well-being of every client.';
 
   // Profile section
   const profileDiv = document.createElement('div');
@@ -258,10 +258,10 @@ const renderFounderSection = (): HTMLElement => {
   const profileInfo = document.createElement('div');
   const name = document.createElement('p');
   name.className = 'text-lg font-semibold text-text-primary';
-  name.textContent = 'Sofia Martinez';
+    name.textContent = 'Sofia Martinez';
   const title = document.createElement('p');
   title.className = 'text-text-secondary';
-  title.textContent = 'Fundadora & CEO';
+    title.textContent = 'Founder & CEO';
   profileInfo.appendChild(name);
   profileInfo.appendChild(title);
 
@@ -271,7 +271,7 @@ const renderFounderSection = (): HTMLElement => {
   const button = document.createElement('button');
   button.className = 'bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2';
   button.innerHTML = `
-    <span>Conocer Su Historia</span>
+      <span>See Her Story</span>
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
     </svg>

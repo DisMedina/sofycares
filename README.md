@@ -1,98 +1,98 @@
 # Sofy Cares Services
 
-Una página web moderna y profesional para servicios de cuidado, construida con TypeScript y Tailwind CSS.
+A modern and professional website for care services, built with TypeScript and Tailwind CSS.
 
-## 🚀 Inicio Rápido
+## 🚀 Quick Start
 
-### Prerrequisitos
-- Node.js 18+ 
-- npm o yarn
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-### Instalación
+### Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
 ```bash
 git clone https://github.com/DisMedina/sofycares.git
 cd sofycares
 ```
 
-2. Instala las dependencias:
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Inicia el servidor de desarrollo:
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Abre tu navegador en `http://localhost:3000`
+4. Open your browser at `http://localhost:3000`
 
-## 🛠️ Scripts Disponibles
+## 🛠️ Available Scripts
 
-- `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye la aplicación para producción
-- `npm run preview` - Previsualiza la construcción de producción
-- `npm run serve` - Sirve la aplicación en puerto 3000
+- `npm run dev` - Start the development server
+- `npm run build` - Build the app for production
+- `npm run preview` - Preview the production build
+- `npm run serve` - Serve the app on port 3000
 
-## 🏗️ Estructura del Proyecto
+## 🏗️ Project Structure
 
 ```
 sofycares/
-├── public/           # Archivos estáticos
-├── src/             # Código fuente
-│   ├── main.ts      # Punto de entrada principal
-│   └── style.css    # Estilos CSS con Tailwind
-├── index.html       # Plantilla HTML principal
-├── package.json     # Dependencias y scripts
-├── tailwind.config.js # Configuración de Tailwind
-├── vite.config.ts   # Configuración de Vite
-└── tsconfig.json    # Configuración de TypeScript
+├── public/           # Static files
+├── src/              # Source code
+│   ├── main.ts       # Main entry point
+│   └── style.css     # CSS styles with Tailwind
+├── index.html        # Main HTML template
+├── package.json      # Dependencies and scripts
+├── tailwind.config.js # Tailwind configuration
+├── vite.config.ts    # Vite configuration
+└── tsconfig.json     # TypeScript configuration
 ```
 
-## 🎨 Características
+## 🎨 Features
 
-- ✅ TypeScript para desarrollo tipado
-- ✅ Tailwind CSS para estilos modernos
-- ✅ Diseño responsivo y accesible
-- ✅ Animaciones fluidas y partículas interactivas
-- ✅ Formulario de notificaciones por email
-- ✅ Contador regresivo dinámico
-- ✅ Configuración lista para producción
+- ✅ TypeScript for typed development
+- ✅ Tailwind CSS for modern styles
+- ✅ Responsive and accessible design
+- ✅ Smooth animations and interactive particles
+- ✅ Email notification form
+- ✅ Dynamic countdown timer
+- ✅ Ready for production configuration
 
-## 🚀 Despliegue
+## 🚀 Deployment
 
 ### Netlify
-1. Construye el proyecto: `npm run build`
-2. Sube la carpeta `dist` a Netlify
-3. Configura redirects si es necesario
+1. Build the project: `npm run build`
+2. Upload the `dist` folder to Netlify
+3. Configure redirects if needed
 
 ### Vercel
-1. Conecta tu repositorio a Vercel
-2. Vercel detectará automáticamente Vite
-3. La configuración de construcción es automática
+1. Connect your repository to Vercel
+2. Vercel will automatically detect Vite
+3. Build configuration is automatic
 
 ### GitHub Pages
-1. Construye el proyecto: `npm run build`
-2. Sube el contenido de `dist` a la rama `gh-pages`
+1. Build the project: `npm run build`
+2. Upload the contents of `dist` to the `gh-pages` branch
 
-## 📱 Soporte de Navegadores
+## 📱 Browser Support
 
-- Chrome (última versión)
-- Firefox (última versión)
-- Safari (última versión)
-- Edge (última versión)
+- Chrome (latest version)
+- Firefox (latest version)
+- Safari (latest version)
+- Edge (latest version)
 
-## 🔧 Personalización
+## 🔧 Customization
 
-### Colores
-Edita `tailwind.config.js` para cambiar los colores primarios y secundarios.
+### Colors
+Edit `tailwind.config.js` to change primary and secondary colors.
 
-### Contenido
-Modifica `src/main.ts` para cambiar el contenido y la funcionalidad.
+### Content
+Modify `src/main.ts` to change content and functionality.
 
-### Estilos
-Personaliza `src/style.css` para agregar estilos personalizados.
+### Styles
+Customize `src/style.css` to add custom styles.
 
 ## 📄 Licencia
 

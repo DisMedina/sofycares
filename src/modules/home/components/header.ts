@@ -86,10 +86,10 @@ export const HeaderComponent = (): HTMLElement => {
     nav.className = 'hidden md:flex items-center space-x-8';
 
     const navItems = [
-      { href: '/', text: 'Inicio' },
-      { href: '/about', text: 'Nosotros' },
-      { href: '/services', text: 'Servicios' },
-      { href: '/contact', text: 'Contacto' }
+      { href: '/', text: 'Home' },
+      { href: '/about', text: 'About Us' },
+      { href: '/services', text: 'Services' },
+      { href: '/contact', text: 'Contact' }
     ];
 
     navItems.forEach(item => {
@@ -111,7 +111,7 @@ export const HeaderComponent = (): HTMLElement => {
 
     const ctaButton = document.createElement('button');
     ctaButton.className = 'bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200';
-    ctaButton.textContent = 'Donar';
+  ctaButton.textContent = 'Donate';
     ctaButton.addEventListener('click', () => {
       (window as any).navigateTo('/founder');
     });
@@ -146,10 +146,10 @@ export const HeaderComponent = (): HTMLElement => {
     menuContainer.className = 'px-4 py-3 space-y-3';
 
     const navItems = [
-      { href: '/', text: 'Inicio' },
-      { href: '/about', text: 'Nosotros' },
-      { href: '/services', text: 'Servicios' },
-      { href: '/contact', text: 'Contacto' }
+      { href: '/', text: 'Home' },
+      { href: '/about', text: 'About Us' },
+      { href: '/services', text: 'Services' },
+      { href: '/contact', text: 'Contact' }
     ];
 
     navItems.forEach(item => {
@@ -171,7 +171,7 @@ export const HeaderComponent = (): HTMLElement => {
 
     const ctaButton = document.createElement('button');
     ctaButton.className = 'w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 mt-2';
-    ctaButton.textContent = 'Donar';
+  ctaButton.textContent = 'Donate';
     ctaButton.addEventListener('click', () => {
       (window as any).navigateTo('/founder');
     });

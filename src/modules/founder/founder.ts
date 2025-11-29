@@ -10,19 +10,19 @@ const createFounderImageCarousel = (): HTMLElement => {
   const images = [
     {
       src: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Sofia Martinez - Fundadora de Sofy Cares'
+  alt: 'Sofia Martinez - Founder of Sofy Cares'
     },
     {
       src: 'https://images.unsplash.com/photo-1594824475317-8c78e1b0b157?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Sofia Martinez en el trabajo'
+  alt: 'Sofia Martinez at work'
     },
     {
       src: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Sofia Martinez con el equipo'
+  alt: 'Sofia Martinez with the team'
     },
     {
       src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      alt: 'Sofia Martinez - Líder en cuidado de salud'
+  alt: 'Sofia Martinez - Leader in health care'
     }
   ];
 
@@ -75,18 +75,18 @@ const createFounderContent = (): HTMLElement => {
   // Title
   const title = document.createElement('h1');
   title.className = 'text-4xl lg:text-5xl font-bold text-text-primary mb-8';
-  title.textContent = 'Nuestra Fundadora';
+  title.textContent = 'Our Founder';
 
   // Subtitle with name
   const subtitle = document.createElement('h2');
   subtitle.className = 'text-2xl font-semibold text-primary-600 mb-6';
-  subtitle.textContent = 'Sofia Martinez - CEO & Fundadora';
+  subtitle.textContent = 'Sofia Martinez - CEO & Founder';
 
   // Personal story section
   const personalSection = document.createElement('div');
   const personalTitle = document.createElement('h3');
   personalTitle.className = 'text-xl font-semibold text-text-primary mb-4';
-  personalTitle.textContent = 'Su Historia Personal';
+  personalTitle.textContent = 'Her Personal Story';
 
   const personalText = document.createElement('p');
   personalText.className = 'text-lg text-text-secondary leading-relaxed';
@@ -99,7 +99,7 @@ const createFounderContent = (): HTMLElement => {
   const professionalSection = document.createElement('div');
   const professionalTitle = document.createElement('h3');
   professionalTitle.className = 'text-xl font-semibold text-text-primary mb-4';
-  professionalTitle.textContent = 'Experiencia Profesional';
+  professionalTitle.textContent = 'Professional Experience';
 
   const professionalText1 = document.createElement('p');
   professionalText1.className = 'text-lg text-text-secondary leading-relaxed mb-4';
@@ -117,7 +117,7 @@ const createFounderContent = (): HTMLElement => {
   const visionSection = document.createElement('div');
   const visionTitle = document.createElement('h3');
   visionTitle.className = 'text-xl font-semibold text-text-primary mb-4';
-  visionTitle.textContent = 'Su Visión para Sofy Cares';
+  visionTitle.textContent = 'Her Vision for Sofy Cares';
 
   const visionText = document.createElement('p');
   visionText.className = 'text-lg text-text-secondary leading-relaxed';
@@ -130,7 +130,7 @@ const createFounderContent = (): HTMLElement => {
   const achievementsSection = document.createElement('div');
   const achievementsTitle = document.createElement('h3');
   achievementsTitle.className = 'text-xl font-semibold text-text-primary mb-4';
-  achievementsTitle.textContent = 'Logros y Reconocimientos';
+  achievementsTitle.textContent = 'Achievements and Recognitions';
 
   const achievementsList = document.createElement('ul');
   achievementsList.className = 'space-y-3 text-lg text-text-secondary';
@@ -161,7 +161,7 @@ const createFounderContent = (): HTMLElement => {
   const ctaButton = document.createElement('button');
   ctaButton.className = 'bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex items-center space-x-3';
   ctaButton.innerHTML = `
-    <span>Realiza Donaciones Aquí</span>
+    <span>Donate Here</span>
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
     </svg>

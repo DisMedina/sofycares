@@ -40,7 +40,7 @@ const createCtaButtons = (): HTMLElement => {
   mainButton.id = 'main-cta-button';
   mainButton.className = 'group bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl flex items-center space-x-3';
   mainButton.innerHTML = `
-    <span>Comenzar Ahora</span>
+    <span>Start Now</span>
     <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
     </svg>
@@ -57,9 +57,9 @@ const createTrustIndicators = (): HTMLElement => {
   container.className = 'mt-12 flex flex-wrap justify-center items-center gap-8 text-white/80';
 
   const indicators = [
-    { text: 'Personal Certificado' },
-    { text: 'Disponible 24/7' },
-    { text: 'Planes Flexibles' }
+    { text: 'Certified Staff' },
+    { text: 'Available 24/7' },
+    { text: 'Flexible Plans' }
   ];
 
   indicators.forEach(indicator => {
@@ -85,12 +85,12 @@ const renderHeroContent = (): HTMLElement => {
   // Main heading
   const heading = document.createElement('h1');
   heading.className = 'text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight';
-  heading.innerHTML = 'Cuidado con <span class="text-accent-300 block">Corazón</span>';
+  heading.innerHTML = 'Care with <span class="text-accent-300 block">Heart</span>';
 
   // Description
   const description = document.createElement('p');
   description.className = 'text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed';
-  description.textContent = 'Servicios de cuidado profesional y compasivo para tus seres queridos. Brindamos atención personalizada con la calidez de una familia.';
+  description.textContent = 'Professional and compassionate care services for your loved ones. We provide personalized attention with the warmth of a family.';
 
   // CTA Buttons
   const ctaContainer = createCtaButtons();

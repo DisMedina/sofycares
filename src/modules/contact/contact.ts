@@ -14,11 +14,11 @@ const VALIDATION_PATTERNS = {
 
 // Form validation messages
 const VALIDATION_MESSAGES = {
-  required: 'Este campo es obligatorio',
-  email: 'Por favor ingrese un email válido',
-  phone: 'Por favor ingrese un teléfono válido',
-  name: 'El nombre debe tener entre 2 y 50 caracteres',
-  message: 'El mensaje debe tener al menos 10 caracteres'
+  required: 'This field is required',
+  email: 'Please enter a valid email',
+  phone: 'Please enter a valid phone number',
+  name: 'Name must be between 2 and 50 characters',
+  message: 'Message must be at least 10 characters'
 };
 
 interface ContactFormData {
@@ -96,15 +96,15 @@ const showFieldError = (fieldElement: HTMLElement, message: string | null): void
 // Helper function to handle form submission
 const handleFormSubmission = (formData: ContactFormData): void => {
   // Create mailto link with form data
-  const subject = encodeURIComponent(`Consulta: ${formData.subject}`);
+  const subject = encodeURIComponent(`Inquiry: ${formData.subject}`);
   const body = encodeURIComponent(`
-Nombre: ${formData.firstName} ${formData.lastName}
+Name: ${formData.firstName} ${formData.lastName}
 Email: ${formData.email}
-Teléfono: ${formData.phone}
-Tipo de Servicio: ${formData.serviceType}
-Método de Contacto Preferido: ${formData.preferredContact}
+Phone: ${formData.phone}
+Service Type: ${formData.serviceType}
+Preferred Contact Method: ${formData.preferredContact}
 
-Mensaje:
+Message:
 ${formData.message}
   `);
 
@@ -118,7 +118,7 @@ ${formData.message}
     showSuccessMessage();
   } catch (error) {
     console.error('Error opening email client:', error);
-    showErrorMessage('Error al abrir el cliente de email. Por favor contacte directamente a: ' + CONTACT_EMAIL);
+  showErrorMessage('Error opening email client. Please contact directly at: ' + CONTACT_EMAIL);
   }
 };
 
@@ -131,7 +131,7 @@ const showSuccessMessage = (): void => {
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
       </svg>
-      <span>Formulario enviado correctamente. Se abrirá su cliente de email.</span>
+  <span>Form sent successfully. Your email client will open.</span>
     </div>
   `;
   
@@ -193,11 +193,11 @@ const createContactBanner = (): HTMLElement => {
 
   const title = document.createElement('h1');
   title.className = 'text-4xl md:text-5xl lg:text-6xl font-bold mb-6';
-  title.textContent = 'Contáctanos';
+  title.textContent = 'Contact Us';
 
   const subtitle = document.createElement('p');
   subtitle.className = 'text-xl md:text-2xl text-white/90 max-w-2xl mx-auto';
-  subtitle.textContent = 'Estamos aquí para ayudarte. Envíanos tu consulta y nos pondremos en contacto contigo pronto.';
+  subtitle.textContent = 'We are here to help you. Send us your inquiry and we will contact you soon.';
 
   content.appendChild(title);
   content.appendChild(subtitle);
@@ -216,7 +216,7 @@ const createContactInfoSection = (): HTMLElement => {
 
   const title = document.createElement('h2');
   title.className = 'text-3xl font-bold text-center text-text-primary mb-12';
-  title.textContent = 'Información de Contacto';
+  title.textContent = 'Contact Information';
 
   const grid = document.createElement('div');
   grid.className = 'grid grid-cols-1 md:grid-cols-3 gap-8';
@@ -226,26 +226,26 @@ const createContactInfoSection = (): HTMLElement => {
       icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
       </svg>`,
-      title: 'Teléfono',
-      content: '(123) 456-7890',
-      description: 'Disponible 24/7 para emergencias'
+  title: 'Phone',
+  content: '(123) 456-7890',
+  description: 'Available 24/7 for emergencies'
     },
     {
       icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
       </svg>`,
-      title: 'Email',
-      content: CONTACT_EMAIL,
-      description: 'Respuesta dentro de 24 horas'
+  title: 'Email',
+  content: CONTACT_EMAIL,
+  description: 'Response within 24 hours'
     },
     {
       icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
       </svg>`,
-      title: 'Ubicación',
-      content: '123 Care Street, Ciudad',
-      description: 'Área de servicio metropolitana'
+  title: 'Location',
+  content: '123 Care Street, City',
+  description: 'Metropolitan service area'
     }
   ];
 
@@ -293,7 +293,7 @@ const createContactForm = (): HTMLElement => {
 
   const title = document.createElement('h2');
   title.className = 'text-3xl font-bold text-center text-text-primary mb-12';
-  title.textContent = 'Envíanos tu Consulta';
+  title.textContent = 'Send Us Your Inquiry';
 
   const form = document.createElement('form');
   form.className = 'space-y-6';
@@ -305,21 +305,21 @@ const createContactForm = (): HTMLElement => {
 
   // First Name Field
   const firstNameField = createFormField(
-    'firstName',
-    'Nombre *',
-    'text',
-    'Ingrese su nombre',
-    true
+  'firstName',
+  'First Name *',
+  'text',
+  'Enter your first name',
+  true
   );
   personalRow.appendChild(firstNameField);
 
   // Last Name Field
   const lastNameField = createFormField(
-    'lastName',
-    'Apellido *',
-    'text',
-    'Ingrese su apellido',
-    true
+  'lastName',
+  'Last Name *',
+  'text',
+  'Enter your last name',
+  true
   );
   personalRow.appendChild(lastNameField);
 
@@ -331,21 +331,21 @@ const createContactForm = (): HTMLElement => {
 
   // Email Field
   const emailField = createFormField(
-    'email',
-    'Email *',
-    'email',
-    'ejemplo@email.com',
-    true
+  'email',
+  'Email *',
+  'email',
+  'example@email.com',
+  true
   );
   contactRow.appendChild(emailField);
 
   // Phone Field
   const phoneField = createFormField(
-    'phone',
-    'Teléfono',
-    'tel',
-    '+1 (555) 123-4567',
-    false
+  'phone',
+  'Phone',
+  'tel',
+  '+1 (555) 123-4567',
+  false
   );
   contactRow.appendChild(phoneField);
 
@@ -358,15 +358,15 @@ const createContactForm = (): HTMLElement => {
   // Service Type Select
   const serviceTypeField = createSelectField(
     'serviceType',
-    'Tipo de Servicio *',
+    'Service Type *',
     [
-      { value: '', text: 'Seleccione un servicio' },
-      { value: 'personal-care', text: 'Cuidado Personal' },
-      { value: 'companionship', text: 'Compañía' },
-      { value: 'home-support', text: 'Apoyo Doméstico' },
-      { value: 'respite-care', text: 'Cuidado de Relevo' },
-      { value: 'specialized', text: 'Cuidado Especializado' },
-      { value: 'consultation', text: 'Consulta General' }
+      { value: '', text: 'Select a service' },
+      { value: 'personal-care', text: 'Personal Care' },
+      { value: 'companionship', text: 'Companionship' },
+      { value: 'home-support', text: 'Home Support' },
+      { value: 'respite-care', text: 'Respite Care' },
+      { value: 'specialized', text: 'Specialized Care' },
+      { value: 'consultation', text: 'General Consultation' }
     ],
     true
   );
@@ -375,11 +375,11 @@ const createContactForm = (): HTMLElement => {
   // Preferred Contact Method
   const contactMethodField = createSelectField(
     'preferredContact',
-    'Método de Contacto Preferido',
+    'Preferred Contact Method',
     [
       { value: 'email', text: 'Email' },
-      { value: 'phone', text: 'Teléfono' },
-      { value: 'either', text: 'Cualquiera' }
+      { value: 'phone', text: 'Phone' },
+      { value: 'either', text: 'Either' }
     ],
     false
   );
@@ -390,20 +390,20 @@ const createContactForm = (): HTMLElement => {
 
   // Subject Field
   const subjectField = createFormField(
-    'subject',
-    'Asunto *',
-    'text',
-    'Breve descripción de su consulta',
-    true
+  'subject',
+  'Subject *',
+  'text',
+  'Brief description of your inquiry',
+  true
   );
   form.appendChild(subjectField);
 
   // Message Field
   const messageField = createTextareaField(
-    'message',
-    'Mensaje *',
-    'Describa detalladamente su consulta o necesidades...',
-    true
+  'message',
+  'Message *',
+  'Describe your inquiry or needs in detail...',
+  true
   );
   form.appendChild(messageField);
 
@@ -414,7 +414,7 @@ const createContactForm = (): HTMLElement => {
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
   submitButton.className = 'bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2';
-  submitButton.textContent = 'Enviar Consulta';
+  submitButton.textContent = 'Send Inquiry';
 
   submitContainer.appendChild(submitButton);
   form.appendChild(submitContainer);

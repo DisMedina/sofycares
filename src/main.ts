@@ -49,25 +49,21 @@ class SofyCaresApp {
     // Clear previous content
     this.app.innerHTML = '';
 
-    // Route to appropriate page
+    // Route to appropriate page (English only)
     switch (path) {
       case '/about':
-      case '/nosotros':
         const aboutElement = About();
         this.app.appendChild(aboutElement);
         break;
       case '/services':
-      case '/servicios':
         const servicesElement = Services();
         this.app.appendChild(servicesElement);
         break;
       case '/founder':
-      case '/fundadora':
         const founderElement = Founder();
         this.app.appendChild(founderElement);
         break;
       case '/contact':
-      case '/contacto':
         const contactElement = Contact();
         this.app.appendChild(contactElement);
         break;
