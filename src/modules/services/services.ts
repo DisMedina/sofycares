@@ -1,5 +1,6 @@
 // ? Components
 import { HeaderComponent } from '../home/components/header';
+import { EmergencyInfoComponent } from '../../shared/components/EmergencyInfo';
 import { FooterComponent } from '../../shared/components/footer';
 
 // Helper function to create services banner
@@ -165,6 +166,9 @@ const Services = (): HTMLElement => {
   const header = document.createElement('header');
   const headerElement = HeaderComponent();
   header.appendChild(headerElement);
+  // Insert EmergencyInfoComponent after header
+  const emergencyInfoSection = EmergencyInfoComponent();
+  header.appendChild(emergencyInfoSection);
 
   // Services banner section (no wrapper, directly like home page)
   const bannerSection = document.createElement('section');

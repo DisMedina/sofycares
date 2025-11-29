@@ -142,42 +142,81 @@ export const HeaderComponent = (): HTMLElement => {
     menu.id = 'mobile-menu';
     menu.className = 'hidden md:hidden bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg border border-beige-200';
 
-    const menuContainer = document.createElement('div');
-    menuContainer.className = 'px-4 py-3 space-y-3';
+    // Flex container for logo and nav
+    const flexContainer = document.createElement('div');
+    flexContainer.className = 'flex items-center';
 
-    const navItems = [
-      { href: '/', text: 'Home' },
-      { href: '/about', text: 'About Us' },
-      { href: '/services', text: 'Services' },
-      { href: '/contact', text: 'Contact' }
-    ];
+    // Navigation (right)
+    const nav = document.createElement('div');
+    nav.className = 'flex flex-col space-y-2';
 
-    navItems.forEach(item => {
-      const link = document.createElement('a');
-      link.href = item.href;
-      link.className = 'block text-text-primary hover:text-primary-600 transition-colors duration-200 font-medium py-2';
-      link.textContent = item.text;
-      
-      // Add navigation event listener for routed pages
-      if (item.href.startsWith('/')) {
+    // Helper to create dropdown
+    function createDropdown(label: string, items: { href: string, text: string }[]): HTMLElement {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'relative group';
+      const button = document.createElement('button');
+      button.className = 'text-text-primary hover:text-primary-600 font-medium px-2 py-1 w-full text-left';
+      button.textContent = label;
+      wrapper.appendChild(button);
+      const dropdown = document.createElement('div');
+      dropdown.className = 'absolute left-0 mt-2 w-48 bg-white border border-beige-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-50';
+      items.forEach(item => {
+        const link = document.createElement('a');
+        link.href = item.href;
+        link.className = 'block px-4 py-2 text-text-primary hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors duration-200';
+        link.textContent = item.text;
         link.addEventListener('click', (e) => {
           e.preventDefault();
           (window as any).navigateTo(item.href);
         });
-      }
-      
-      menuContainer.appendChild(link);
-    });
+        dropdown.appendChild(link);
+      });
+      wrapper.appendChild(dropdown);
+      return wrapper;
+    }
+
+    nav.appendChild(createDropdown('Why choose Assisted Living', [
+      { href: '/services', text: 'Services' },
+      { href: '/food', text: 'Food' },
+      { href: '/amenities', text: 'Amenities' },
+      { href: '/personalized-care', text: 'Personalized Care' }
+    ]));
+    nav.appendChild(createDropdown('Living Options', [
+      { href: '/independent', text: 'Independent Living' },
+      { href: '/assisted', text: 'Assisted Living' }
+    ]));
+    nav.appendChild(createDropdown('About', [
+      { href: '/about', text: 'Our Story' },
+      { href: '/team', text: 'Meet the Team' }
+    ]));
+    nav.appendChild(createDropdown('Health Services', [
+      { href: '/health', text: 'Medical Care' },
+      { href: '/wellness', text: 'Wellness Programs' }
+    ]));
+    nav.appendChild(createDropdown('Events', [
+      { href: '/events', text: 'Upcoming Events' },
+      { href: '/calendar', text: 'Event Calendar' }
+    ]));
+    nav.appendChild(createDropdown('Gallery', [
+      { href: '/gallery', text: 'Photo Gallery' },
+      { href: '/virtual-tour', text: 'Virtual Tour' }
+    ]));
+    nav.appendChild(createDropdown('Contact', [
+      { href: '/contact', text: 'Contact Form' },
+      { href: '/location', text: 'Location & Hours' }
+    ]));
 
     const ctaButton = document.createElement('button');
-    ctaButton.className = 'w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 mt-2';
-  ctaButton.textContent = 'Donate';
+    ctaButton.className = 'bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 mt-2';
+    ctaButton.textContent = 'Donate';
     ctaButton.addEventListener('click', () => {
       (window as any).navigateTo('/founder');
     });
-    menuContainer.appendChild(ctaButton);
+    nav.appendChild(ctaButton);
 
-    menu.appendChild(menuContainer);
+    flexContainer.appendChild(nav);
+    menu.appendChild(flexContainer);
+
     return menu;
   };
 
