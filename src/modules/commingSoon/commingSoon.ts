@@ -164,17 +164,22 @@ export class CommingSoonComponent {
 
   private startCountdown(): void {
     // Set launch date to December 1, 2025
-    const launchDate = new Date('2025-12-01T00:00:00');
-    
+    const launchDate = new Date("2025-12-15T00:00:00");
+
     const updateCountdown = (): void => {
       const now = new Date().getTime();
       const timeLeft = launchDate.getTime() - now;
-      
+
       if (timeLeft > 0) {
         const time = this.calculateTimeLeft(timeLeft);
         this.updateCountdownDisplay(time);
       } else {
-        this.updateCountdownDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        this.updateCountdownDisplay({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        });
       }
     };
 
@@ -184,30 +189,36 @@ export class CommingSoonComponent {
 
   private calculateTimeLeft(timeLeft: number): CountdownTime {
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(
+      (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-    
+
     return { days, hours, minutes, seconds };
   }
 
   private updateCountdownDisplay(time: CountdownTime): void {
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
 
-    if (daysEl) daysEl.textContent = time.days.toString().padStart(2, '0');
-    if (hoursEl) hoursEl.textContent = time.hours.toString().padStart(2, '0');
-    if (minutesEl) minutesEl.textContent = time.minutes.toString().padStart(2, '0');
-    if (secondsEl) secondsEl.textContent = time.seconds.toString().padStart(2, '0');
+    if (daysEl) daysEl.textContent = time.days.toString().padStart(2, "0");
+    if (hoursEl) hoursEl.textContent = time.hours.toString().padStart(2, "0");
+    if (minutesEl)
+      minutesEl.textContent = time.minutes.toString().padStart(2, "0");
+    if (secondsEl)
+      secondsEl.textContent = time.seconds.toString().padStart(2, "0");
   }
 
   private initParticles(): void {
-    const canvas = document.getElementById('particles-canvas') as HTMLCanvasElement;
+    const canvas = document.getElementById(
+      "particles-canvas"
+    ) as HTMLCanvasElement;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = (): void => {
@@ -216,7 +227,7 @@ export class CommingSoonComponent {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     // Create particles
     for (let i = 0; i < 50; i++) {
@@ -225,8 +236,8 @@ export class CommingSoonComponent {
 
     const animate = (): void => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      this.particles.forEach(particle => {
+
+      this.particles.forEach((particle) => {
         particle.update(canvas.width, canvas.height);
         particle.draw(ctx);
       });
@@ -263,8 +274,8 @@ class Particle {
     this.vy = (Math.random() - 0.5) * 0.5;
     this.size = Math.random() * 3 + 1;
     this.opacity = Math.random() * 0.5 + 0.1;
-    
-    const colors = ['#61137B', '#E97F72', '#B6C8A9', '#6C7A47'];
+
+    const colors = ["#61137B", "#E97F72", "#B6C8A9", "#6C7A47"];
     this.color = colors[Math.floor(Math.random() * colors.length)];
   }
 
