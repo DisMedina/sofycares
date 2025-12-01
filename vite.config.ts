@@ -1,32 +1,38 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
 export default defineConfig({
-  root: '.',
-  publicDir: 'public',
+  plugins: [react()],
+  root: ".",
+  publicDir: "public",
+
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+    outDir: "dist",
+    assetsDir: "assets",
     sourcemap: true,
-    minify: 'terser',
+    minify: "terser",
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html')
-      }
-    }
+        main: resolve(__dirname, "index.html"),
+      },
+    },
   },
+
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
+
   server: {
     port: 3000,
     host: true,
-    open: true
+    open: true,
   },
+
   preview: {
     port: 3000,
-    host: true
-  }
+    host: true,
+  },
 });

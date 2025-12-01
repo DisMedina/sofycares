@@ -1,1 +1,0 @@
-export { CommingSoonComponent } from './commingSoon.ts';
