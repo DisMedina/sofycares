@@ -1,5 +1,5 @@
-import Banner from "../modules/home/components/Banner";
-import InfoSection from "@/modules/home/components/infoSection/InfoSection";
+import Banner from "@/pages/Home/Banner";
+import InfoSection from "@/pages/Home/infoSection/InfoSection";
 
 export default function Home() {
   return (

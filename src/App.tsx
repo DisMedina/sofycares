@@ -2,14 +2,14 @@ import { Routes, Route } from "react-router-dom";
 
 import MainLayout from "@/layout/MainLayout";
 
-import Home from "@/pages/Home";
-import About from "@/pages/About";
-import Services from "@/pages/Services";
-import Founder from "@/pages/Founder";
-import Contact from "@/pages/Contact";
+import Home from "./pages/Home/Home";
+import About from "@/pages/AboutUs/About";
+import Services from "@/pages/HealthcareServices/Services";
+import Founder from "@/pages/AboutUs/Founder";
+import Contact from "@/pages/Contact/Contact";
 import ComingSoon from "@/pages/CommingSoon";
 
-import AssistedLiving from "@/pages/AssistedLiving";
+import AssistedLiving from "@/pages/AssistedLiving/AssistedLiving";
 import IndependentLiving from "@/pages/IndependentLiving";
 import LevelsOfCare from "@/pages/LevelsOfCare";
 
