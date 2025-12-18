@@ -39,12 +39,12 @@ export class CommingSoonComponent {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                 </svg>
               </div>
-              <h1 class="text-2xl font-bold text-text-primary">Sofy Cares</h1>
-            </div>
-            <div class="flex items-center space-x-4">
-              <span class="text-sm text-olive-600">Próximamente</span>
-              <div class="w-3 h-3 bg-accent-400 rounded-full animate-pulse"></div>
-            </div>
+                <h1 class="text-2xl font-bold text-text-primary">Sofy Cares</h1>
+              </div>
+              <div class="flex items-center space-x-4">
+                <span class="text-sm text-olive-600">Coming Soon</span>
+                <div class="w-3 h-3 bg-accent-400 rounded-full animate-pulse"></div>
+              </div>
           </nav>
         </header>
 
@@ -57,7 +57,7 @@ export class CommingSoonComponent {
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              Sitio en Desarrollo
+                Site Under Development
             </div>
 
             <!-- Main Heading -->
@@ -68,9 +68,9 @@ export class CommingSoonComponent {
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-xl md:text-2xl text-olive-700 mb-8 max-w-2xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
-              Estamos trabajando en algo increíble para transformar los servicios de cuidado profesional.
-            </p>
+              <p class="text-xl md:text-2xl text-olive-700 mb-8 max-w-2xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
+                We are working on something amazing to transform professional care services.
+              </p>
 
             <!-- Features Preview -->
             <div class="grid md:grid-cols-3 gap-6 mb-12 animate-slide-up" style="animation-delay: 0.4s;">
@@ -80,8 +80,8 @@ export class CommingSoonComponent {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-text-primary mb-2">Cuidado Profesional</h3>
-                <p class="text-olive-600 text-sm">Servicios especializados de cuidado con personal calificado</p>
+                  <h3 class="font-semibold text-text-primary mb-2">Professional Care</h3>
+                  <p class="text-olive-600 text-sm">Specialized care services with qualified staff</p>
               </div>
               
               <div class="card">
@@ -90,8 +90,8 @@ export class CommingSoonComponent {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-text-primary mb-2">Disponibilidad 24/7</h3>
-                <p class="text-olive-600 text-sm">Atención y soporte las 24 horas del día</p>
+                  <h3 class="font-semibold text-text-primary mb-2">24/7 Availability</h3>
+                  <p class="text-olive-600 text-sm">Support and attention 24 hours a day</p>
               </div>
               
               <div class="card">
@@ -100,30 +100,30 @@ export class CommingSoonComponent {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-text-primary mb-2">Confianza Total</h3>
-                <p class="text-olive-600 text-sm">Personal certificado y servicios de calidad garantizada</p>
+                  <h3 class="font-semibold text-text-primary mb-2">Total Trust</h3>
+                  <p class="text-olive-600 text-sm">Certified staff and guaranteed quality services</p>
               </div>
             </div>
 
             <!-- Countdown Timer -->
             <div class="mb-12 animate-slide-up" style="animation-delay: 0.6s;">
-              <h3 class="text-lg font-semibold text-olive-700 mb-4">Lanzamiento estimado en:</h3>
+                <h3 class="text-lg font-semibold text-olive-700 mb-4">Estimated launch in:</h3>
               <div id="countdown" class="flex justify-center space-x-4 text-center">
                 <div class="bg-secondary-50 rounded-lg shadow-lg p-4 min-w-[80px] border border-beige-300">
                   <div id="days" class="text-3xl font-bold text-primary-600">--</div>
-                  <div class="text-sm text-olive-600">Días</div>
+                    <div class="text-sm text-olive-600">Days</div>
                 </div>
                 <div class="bg-secondary-50 rounded-lg shadow-lg p-4 min-w-[80px] border border-beige-300">
                   <div id="hours" class="text-3xl font-bold text-primary-600">--</div>
-                  <div class="text-sm text-olive-600">Horas</div>
+                    <div class="text-sm text-olive-600">Hours</div>
                 </div>
                 <div class="bg-secondary-50 rounded-lg shadow-lg p-4 min-w-[80px] border border-beige-300">
                   <div id="minutes" class="text-3xl font-bold text-primary-600">--</div>
-                  <div class="text-sm text-olive-600">Min</div>
+                    <div class="text-sm text-olive-600">Min</div>
                 </div>
                 <div class="bg-secondary-50 rounded-lg shadow-lg p-4 min-w-[80px] border border-beige-300">
                   <div id="seconds" class="text-3xl font-bold text-primary-600">--</div>
-                  <div class="text-sm text-olive-600">Seg</div>
+                    <div class="text-sm text-olive-600">Sec</div>
                 </div>
               </div>
             </div>
@@ -133,9 +133,9 @@ export class CommingSoonComponent {
 
         <!-- Footer -->
         <footer class="relative z-10 text-center py-8 px-6 border-t border-beige-300 bg-secondary-50/80 backdrop-blur-sm">
-          <p class="text-olive-600 text-sm">
-            © 2025 Sofy Cares Services. Todos los derechos reservados.
-          </p>
+            <p class="text-olive-600 text-sm">
+              © 2025 Sofy Cares Services. All rights reserved.
+            </p>
           <div class="flex justify-center space-x-6 mt-4">
             <a href="https://www.facebook.com/sofycaressma/" target="_blank" rel="noopener noreferrer" class="text-olive-500 hover:text-primary-600 transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
