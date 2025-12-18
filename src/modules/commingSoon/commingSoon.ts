@@ -164,7 +164,7 @@ export class CommingSoonComponent {
 
   private startCountdown(): void {
     // Set launch date to December 1, 2025
-    const launchDate = new Date("2025-12-15T00:00:00");
+    const launchDate = new Date("2026-01-15T00:00:00");
 
     const updateCountdown = (): void => {
       const now = new Date().getTime();
