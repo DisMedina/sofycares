@@ -115,7 +115,7 @@ function DesktopNavigation() {
         className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition"
         onClick={() => navigate("/founder")}
       >
-        Donate
+        Give Care
       </button>
     </div>
   );
@@ -207,7 +207,7 @@ function MobileMenu({
             window.location.href = "/founder";
           }}
         >
-          Donate
+          Give Care
         </button>
       </div>
     </div>

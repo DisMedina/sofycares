@@ -48,7 +48,7 @@ const DonateStickyButton = () => {
         active:translate-y-0 active:scale-95
       `}
     >
-      💖 Donate
+      💖 Give Care
     </button>
   );
 };

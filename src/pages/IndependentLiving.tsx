@@ -1,30 +1,238 @@
+import { livingOptions, servicesAndAmenities } from "@/data/content";
+
 export default function IndependentLiving() {
+  const independentLivingOption = livingOptions.options.find(
+    (option) => option.title === "Independent Living"
+  );
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl font-bold text-text-primary mb-6 text-center">
-        Independent Living
-      </h1>
+    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-center">
+            Independent Living
+          </h1>
+          <p className="text-xl lg:text-2xl text-center max-w-4xl mx-auto leading-relaxed">
+            {independentLivingOption?.description}
+          </p>
+        </div>
+      </section>
 
-      <p className="text-lg text-text-secondary mb-8 leading-relaxed text-center">
-        Our independent living spaces offer a vibrant, maintenance-free
-        lifestyle for seniors who value freedom and community. Residents enjoy
-        spacious accommodations, beautiful common areas, and access to amenities
-        and activities.
-      </p>
+      {/* Key Features Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+          What Independent Living Includes
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {independentLivingOption?.features.map((feature, index) => (
+            <FeatureCard key={index} feature={feature} />
+          ))}
+        </div>
+      </section>
 
-      <div className="flex flex-wrap justify-center gap-6 mb-8">
-        <img
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-          className="w-80 h-56 object-cover rounded-xl shadow-lg"
-          alt="Independent Living Space"
-        />
+      {/* Lifestyle Description */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold text-text-primary mb-6">
+              A Vibrant, Maintenance-Free Lifestyle
+            </h2>
+            <p className="text-xl text-text-secondary leading-relaxed mb-8">
+              Our Independent Living program offers older adults the freedom to
+              live their daily lives privately, with the comfort, safety, and
+              sense of community of a supportive home. Residents enjoy spacious
+              rooms, daily meals, social interaction, and optional assistance
+              whenever needed—ideal for those who value autonomy and peace of
+              mind.
+            </p>
+            <p className="text-xl text-text-secondary leading-relaxed">
+              Independent Living at Sofy Cares promotes dignity, comfort, and a
+              natural, fulfilling lifestyle. With activities, outings, and a
+              caring team always nearby, residents can enjoy life at their own
+              pace.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <img
-          src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
-          className="w-80 h-56 object-cover rounded-xl shadow-lg"
-          alt="Independent Living Space"
-        />
+      {/* Amenities Highlight */}
+      <section className="bg-gradient-to-br from-sage-50 to-secondary-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+            Amenities & Services
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Nutrition */}
+            <AmenityHighlight
+              title="Nutrition"
+              description="Three nutritious and balanced meals daily, plus snacks. Menus designed by a certified nutritionist and prepared by our chef."
+              icon="nutrition"
+            />
+            {/* Pool */}
+            <AmenityHighlight
+              title="Heated Swimming Pool"
+              description="Year-round access to our therapeutic heated pool for relaxation and exercise."
+              icon="pool"
+            />
+            {/* Activities */}
+            <AmenityHighlight
+              title="Arts & Activities"
+              description="Engaging activities including arts and crafts, knitting, and seasonal projects."
+              icon="activity"
+            />
+            {/* Rooftop */}
+            <AmenityHighlight
+              title="Multi-purpose Rooftop"
+              description="Perfect for birthdays, family gatherings, outdoor picnics, and special events."
+              icon="rooftop"
+            />
+            {/* Beauty */}
+            <AmenityHighlight
+              title="Beauty & Spa Services"
+              description="On-site salon, barbershop, and spa services including massages and nail care."
+              icon="spa"
+            />
+            {/* Library */}
+            <AmenityHighlight
+              title="On-site Library"
+              description="Access to books and scheduled visits to the local library."
+              icon="library"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+          Your Independent Living Home
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+            className="w-full h-64 object-cover rounded-xl shadow-lg"
+            alt="Independent Living Space"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+            className="w-full h-64 object-cover rounded-xl shadow-lg"
+            alt="Independent Living Space"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80"
+            className="w-full h-64 object-cover rounded-xl shadow-lg"
+            alt="Independent Living Community"
+          />
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-br from-primary-600 to-accent-600 text-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Experience Independent Living at Sofy Cares
+          </h2>
+          <p className="text-xl mb-8">
+            Schedule a visit to see our community and meet our team.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:4151177643"
+              className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              <span>Call: 415 117 7643</span>
+            </a>
+            <a
+              href="mailto:sofycaressma@gmail.com"
+              className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <span>Email Us</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function FeatureCard({ feature }: { feature: string }) {
+  return (
+    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-primary-100">
+      <div className="flex items-start">
+        <svg
+          className="w-8 h-8 text-primary-600 mr-4 flex-shrink-0 mt-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <p className="text-lg text-text-primary font-medium">{feature}</p>
       </div>
-    </section>
+    </div>
+  );
+}
+
+function AmenityHighlight({
+  title,
+  description,
+  icon,
+}: {
+  title: string;
+  description: string;
+  icon: string;
+}) {
+  return (
+    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6">
+      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-8 h-8 text-primary-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+      </div>
+      <h3 className="text-xl font-bold text-text-primary mb-3">{title}</h3>
+      <p className="text-text-secondary leading-relaxed">{description}</p>
+    </div>
   );
 }

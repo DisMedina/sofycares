@@ -162,9 +162,9 @@ export default function Footer() {
                 </svg>
 
                 <p className="text-white/80">
-                  123 Care Street
+                  Juan José Torres Landa No. 14
                   <br />
-                  Ciudad, Estado 12345
+                  San Miguel de Allende, GTO 37797
                 </p>
               </div>
 
@@ -184,10 +184,10 @@ export default function Footer() {
                 </svg>
 
                 <a
-                  href="tel:+1234567890"
+                  href="tel:4151177643"
                   className="text-white/80 hover:text-white transition-colors duration-200"
                 >
-                  (123) 456-7890
+                  415 117 7643
                 </a>
               </div>
 
@@ -207,10 +207,10 @@ export default function Footer() {
                 </svg>
 
                 <a
-                  href="mailto:info@sofycares.com"
+                  href="mailto:sofycaressma@gmail.com"
                   className="text-white/80 hover:text-white transition-colors duration-200"
                 >
-                  info@sofycares.com
+                  sofycaressma@gmail.com
                 </a>
               </div>
 

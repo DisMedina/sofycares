@@ -92,11 +92,27 @@ export default function Header2() {
 
 function DesktopNavigation() {
   const navItems = [
-    { text: "Assisted Living", to: "#", hasDropdown: true },
-    { text: "Lifestyle Options", to: "#", hasDropdown: true },
-    { text: "About Us", to: "/about", hasDropdown: true },
-    { text: "Healthcare Services", to: "#", hasDropdown: true },
-    { text: "Events", to: "#", hasDropdown: true },
+    {
+      text: "Living Options",
+      to: "#",
+      hasDropdown: true,
+      dropdownItems: [
+        { text: "Independent Living", to: "/independent-living" },
+        { text: "Assisted Living", to: "/assisted-living" }
+      ]
+    },
+    { text: "About Us", to: "/about", hasDropdown: false },
+    {
+      text: "Healthcare Services",
+      to: "/services",
+      hasDropdown: true,
+      dropdownItems: [
+        { text: "Health & Medical Services", to: "/services#health-medical-services" },
+        { text: "Levels of Care", to: "/services#levels-of-care" },
+        { text: "Services & Amenities", to: "/services#services-amenities" }
+      ]
+    },
+    { text: "Events", to: "#", hasDropdown: false },
     { text: "Gallery", to: "#", hasDropdown: false },
   ];
 
@@ -122,36 +138,27 @@ function DesktopNavigation() {
               </Link>
 
               {/* DROPDOWN */}
-              {item.hasDropdown && (
+              {item.hasDropdown && item.dropdownItems && (
                 <div
                   className="
-                    absolute left-1/2 -translate-x-1/2 mt-2
-                    bg-white rounded-lg shadow-lg border border-beige-200 
-                    opacity-0 pointer-events-none translate-y-3
+                    absolute left-1/2 -translate-x-1/2 pt-2
+                    opacity-0 pointer-events-none
                     transition-all duration-300
                     group-hover:opacity-100 group-hover:pointer-events-auto
-                    group-hover:translate-y-0
-                    w-48 py-3 z-50
+                    z-50
                   "
                 >
-                  <Link
-                    className="block px-4 py-2 hover:bg-primary-50 text-text-primary"
-                    to="#"
-                  >
-                    Item 1
-                  </Link>
-                  <Link
-                    className="block px-4 py-2 hover:bg-primary-50 text-text-primary"
-                    to="#"
-                  >
-                    Item 2
-                  </Link>
-                  <Link
-                    className="block px-4 py-2 hover:bg-primary-50 text-text-primary"
-                    to="#"
-                  >
-                    Item 3
-                  </Link>
+                  <div className="bg-white rounded-lg shadow-lg border border-beige-200 w-56 py-3">
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.to}
+                        className="block px-4 py-2 hover:bg-primary-50 text-text-primary transition-colors duration-200"
+                        to={dropdownItem.to}
+                      >
+                        {dropdownItem.text}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </li>
@@ -185,31 +192,54 @@ function MobileMenu({
 }: {
   setMobileOpen: (v: boolean) => void;
 }) {
-  const navItems = [
-    { text: "Assisted Living", to: "#" },
-    { text: "Lifestyle Options", to: "#" },
-    { text: "About Us", to: "/about" },
-    { text: "Healthcare Services", to: "#" },
-    { text: "Events", to: "#" },
-    { text: "Gallery", to: "#" },
-  ];
-
   return (
     <div
       id="mobile-menu"
       className="md:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
     >
       {/* MENU ITEMS */}
-      {navItems.map((item) => (
-        <Link
-          key={item.text}
-          to={item.to}
-          className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
-          onClick={() => setMobileOpen(false)}
-        >
-          {item.text}
-        </Link>
-      ))}
+      <MobileDropdown
+        label="Living Options"
+        items={[
+          { to: "/independent-living", text: "Independent Living" },
+          { to: "/assisted-living", text: "Assisted Living" },
+        ]}
+        setMobileOpen={setMobileOpen}
+      />
+
+      <Link
+        to="/about"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        onClick={() => setMobileOpen(false)}
+      >
+        About Us
+      </Link>
+
+      <MobileDropdown
+        label="Healthcare Services"
+        items={[
+          { to: "/services#health-medical-services", text: "Health & Medical Services" },
+          { to: "/services#levels-of-care", text: "Levels of Care" },
+          { to: "/services#services-amenities", text: "Services & Amenities" },
+        ]}
+        setMobileOpen={setMobileOpen}
+      />
+
+      <Link
+        to="#"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        onClick={() => setMobileOpen(false)}
+      >
+        Events
+      </Link>
+
+      <Link
+        to="#"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        onClick={() => setMobileOpen(false)}
+      >
+        Gallery
+      </Link>
 
       {/* SPACER */}
       <div className="mt-3 mb-1">
@@ -225,5 +255,40 @@ function MobileMenu({
         Contact
       </Link>
     </div>
+  );
+}
+
+/* ---------------------------------------
+   MOBILE DROPDOWN
+--------------------------------------- */
+
+function MobileDropdown({
+  label,
+  items,
+  setMobileOpen,
+}: {
+  label: string;
+  items: { to: string; text: string }[];
+  setMobileOpen: (v: boolean) => void;
+}) {
+  return (
+    <details className="group">
+      <summary className="cursor-pointer list-none text-text-primary hover:text-primary-600 font-medium px-2 py-3 text-lg">
+        {label}
+      </summary>
+
+      <div className="ml-4 mt-2 flex flex-col space-y-1">
+        {items.map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            className="block px-2 py-2 rounded-lg hover:bg-primary-50 text-text-primary"
+            onClick={() => setMobileOpen(false)}
+          >
+            {item.text}
+          </Link>
+        ))}
+      </div>
+    </details>
   );
 }

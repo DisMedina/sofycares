@@ -1,88 +1,115 @@
-import ServiceCard from "./ServiceCard";
+import { useNavigate } from "react-router-dom";
+import { livingOptions } from "@/data/content";
 
 export default function ServicesSection() {
-  const services = [
-    {
-      title: "Independent Living",
-      description:
-        "Enjoy a vibrant, maintenance-free lifestyle with amenities, activities, and a supportive community.",
-      bgColor: "bg-primary-100",
-      iconColor: "text-primary-600",
-      icon: (
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 4v16m8-8H4"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: "Assisted Living",
-      description:
-        "Personalized support with daily activities, medication management, and compassionate care.",
-      bgColor: "bg-accent-100",
-      iconColor: "text-accent-600",
-      icon: (
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: "Levels of Care",
-      description:
-        "From independent living to specialized nursing and memory care, tailored to each resident.",
-      bgColor: "bg-sage-100",
-      iconColor: "text-sage-600",
-      icon: (
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6"
-          />
-        </svg>
-      ),
-    },
-  ];
+  const navigate = useNavigate();
 
   return (
-    <section className="bg-gradient-to-br from-sage-50 to-secondary-50 py-16">
+    <section className="bg-gradient-to-br from-sage-50 to-secondary-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Our Services
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+            {livingOptions.title}
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            We offer a wide range of personalized care services for every
-            resident.
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+            {livingOptions.subtitle}
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+        {/* Living Options Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {livingOptions.options.map((option, index) => (
+            <LivingOptionCard
+              key={index}
+              {...option}
+              navigate={navigate}
+              index={index}
+            />
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <button className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">
-            View All Services
-          </button>
         </div>
       </div>
     </section>
+  );
+}
+
+function LivingOptionCard({
+  title,
+  description,
+  features,
+  link,
+  navigate,
+  index,
+}: {
+  title: string;
+  description: string;
+  features: string[];
+  link: string;
+  navigate: (path: string) => void;
+  index: number;
+}) {
+  const bgColorClass =
+    index === 0 ? "bg-gradient-to-br from-primary-50 to-primary-100" : "bg-gradient-to-br from-accent-50 to-accent-100";
+  const borderColorClass = index === 0 ? "border-primary-200" : "border-accent-200";
+  const buttonColorClass =
+    index === 0
+      ? "bg-primary-600 hover:bg-primary-700"
+      : "bg-accent-600 hover:bg-accent-700";
+
+  return (
+    <div
+      className={`${bgColorClass} ${borderColorClass} border-2 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8`}
+    >
+      {/* Title */}
+      <h3 className="text-3xl font-bold text-text-primary mb-4">{title}</h3>
+
+      {/* Description */}
+      <p className="text-lg text-text-secondary mb-6 leading-relaxed">
+        {description}
+      </p>
+
+      {/* Features List */}
+      <ul className="space-y-3 mb-8">
+        {features.map((feature, idx) => (
+          <li key={idx} className="flex items-start">
+            <svg
+              className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <span className="text-text-secondary">{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA Button */}
+      <button
+        onClick={() => navigate(link)}
+        className={`${buttonColorClass} text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 w-full flex items-center justify-center space-x-2 shadow-md hover:shadow-lg`}
+      >
+        <span>Learn More</span>
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+      </button>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { contactInfo } from "@/data/content";
 
 const EmergencyInfo2: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -33,12 +34,12 @@ const EmergencyInfo2: React.FC = () => {
           </span>
         </div>
 
-        {/* Donate button (right) */}
+        {/* Give Care button (right) */}
         <button
           className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg font-medium transition"
           onClick={() => navigate("/founder")}
         >
-          Donate
+          Give Care
         </button>
       </div>
 
@@ -60,10 +61,10 @@ const EmergencyInfo2: React.FC = () => {
             <p className="text-lg text-text-primary">
               <strong>General Information:</strong>{" "}
               <a
-                href="tel:+1234567890"
-                className="text-primary-700 hover:underline"
+                href={`tel:${contactInfo.phone.raw}`}
+                className="text-primary-700 hover:underline font-semibold"
               >
-                (123) 456-7890
+                {contactInfo.phone.display}
               </a>
             </p>
           </div>
@@ -71,12 +72,12 @@ const EmergencyInfo2: React.FC = () => {
           {/* Emergency */}
           <div className="bg-primary-100 px-4 py-2 hover:bg-primary-200 transition-colors shadow-md">
             <p className="text-lg text-red-700">
-              <strong>Emergency:</strong>{" "}
+              <strong>Emergency Contact:</strong>{" "}
               <a
-                href="tel:+1987654321"
-                className="text-red-700 hover:underline"
+                href={`tel:${contactInfo.emergency.raw}`}
+                className="text-red-700 hover:underline font-semibold"
               >
-                (987) 654-3210
+                {contactInfo.emergency.display}
               </a>
             </p>
           </div>

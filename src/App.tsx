@@ -14,11 +14,13 @@ import IndependentLiving from "@/pages/IndependentLiving";
 import LevelsOfCare from "@/pages/LevelsOfCare";
 
 import GoogleTranslate from "@/shared/components/GoogleTranslate";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function App() {
   return (
     <>
       <GoogleTranslate />
+      <ScrollToTop />
 
       <Routes>
         <Route element={<MainLayout />}>
