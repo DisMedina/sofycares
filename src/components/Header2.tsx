@@ -61,7 +61,7 @@ export default function Header2() {
           {/* MOBILE TOGGLE */}
           <button
             id="mobile-menu-toggle"
-            className="md:hidden text-text-primary hover:text-primary-600 p-3 rounded-lg focus:outline-none"
+            className="min-[950px]:hidden text-text-primary hover:text-primary-600 p-3 rounded-lg focus:outline-none"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             <svg
@@ -98,8 +98,8 @@ function DesktopNavigation() {
       hasDropdown: true,
       dropdownItems: [
         { text: "Independent Living", to: "/independent-living" },
-        { text: "Assisted Living", to: "/assisted-living" }
-      ]
+        { text: "Assisted Living", to: "/assisted-living" },
+      ],
     },
     { text: "About Us", to: "/about", hasDropdown: false },
     {
@@ -107,27 +107,34 @@ function DesktopNavigation() {
       to: "/services",
       hasDropdown: true,
       dropdownItems: [
-        { text: "Health & Medical Services", to: "/services#health-medical-services" },
+        {
+          text: "Health & Medical Services",
+          to: "/services#health-medical-services",
+        },
         { text: "Levels of Care", to: "/services#levels-of-care" },
-        { text: "Services & Amenities", to: "/services#services-amenities" }
-      ]
+        { text: "Services & Amenities", to: "/services#services-amenities" },
+      ],
     },
     { text: "Events", to: "#", hasDropdown: false },
     { text: "Gallery", to: "#", hasDropdown: false },
   ];
 
   return (
-    <div className="hidden md:flex flex-1 items-center justify-between">
+    <div className="hidden min-[950px]:flex flex-1 items-center justify-between gap-4">
       {/* CENTER MENU */}
       <div className="flex flex-1 justify-center">
-        <ul className="flex items-center space-x-4 text-base text-center font-medium">
+        <ul className="flex items-stretch gap-1 text-[17px] text-center font-medium">
           {navItems.map((item) => (
-            <li key={item.text} className="relative group">
+            <li
+              key={item.text}
+              className="relative group h-20 flex items-stretch"
+            >
               {/* ITEM */}
               <Link
                 to={item.to}
                 className="
-                  py-1
+                  h-full flex items-center
+                  px-4
                   text-text-primary
                   transition-colors duration-200
                   hover:bg-primary-50
@@ -175,6 +182,7 @@ function DesktopNavigation() {
           text-white px-6 py-3 rounded-full
           font-semibold text-base
           transition
+          shrink-0
         "
       >
         CONTACT
@@ -195,7 +203,7 @@ function MobileMenu({
   return (
     <div
       id="mobile-menu"
-      className="md:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
+      className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
     >
       {/* MENU ITEMS */}
       <MobileDropdown
@@ -218,7 +226,10 @@ function MobileMenu({
       <MobileDropdown
         label="Healthcare Services"
         items={[
-          { to: "/services#health-medical-services", text: "Health & Medical Services" },
+          {
+            to: "/services#health-medical-services",
+            text: "Health & Medical Services",
+          },
           { to: "/services#levels-of-care", text: "Levels of Care" },
           { to: "/services#services-amenities", text: "Services & Amenities" },
         ]}
