@@ -30,11 +30,11 @@ const quickLinks = [
 ];
 
 const servicesList = [
-  { href: "#personal-care", text: "Personal Care" },
-  { href: "#companionship", text: "Companionship" },
-  { href: "#home-support", text: "Home Support" },
-  { href: "#respite-care", text: "Respite Care" },
-  { href: "#specialized", text: "Specialized Care" },
+  { href: "/independent-living", text: "Independent Living" },
+  { href: "/assisted-living", text: "Assisted Living" },
+  { href: "/services#health-medical-services", text: "Health & Medical Services" },
+  { href: "/services#levels-of-care", text: "Levels of Care" },
+  { href: "/services#services-amenities", text: "Services & Amenities" },
 ];
 
 const legalLinks = [
