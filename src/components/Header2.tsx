@@ -148,12 +148,12 @@ function DesktopNavigation() {
               {item.hasDropdown && item.dropdownItems && (
                 <div
                   className="
-                    absolute left-1/2 -translate-x-1/2 pt-2
-                    opacity-0 pointer-events-none
-                    transition-all duration-300
-                    group-hover:opacity-100 group-hover:pointer-events-auto
-                    z-50
-                  "
+      absolute top-full left-1/2 -translate-x-1/2
+      opacity-0 pointer-events-none
+      transition-all duration-200
+      group-hover:opacity-100 group-hover:pointer-events-auto
+      z-50
+    "
                 >
                   <div className="bg-white rounded-lg shadow-lg border border-beige-200 w-56 py-3">
                     {item.dropdownItems.map((dropdownItem) => (

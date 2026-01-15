@@ -1,4 +1,5 @@
 import { eventsAndCommunity } from "@/data/content";
+import { JSX } from "react";
 
 export default function EventsAndCommunitySection() {
   return (
