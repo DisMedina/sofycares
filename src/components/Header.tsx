@@ -104,7 +104,7 @@ function DesktopNavigation() {
       ],
     },
     { text: "Events", to: "#", hasDropdown: false },
-    { text: "Gallery", to: "#", hasDropdown: false },
+    { text: "Gallery", to: "/gallery", hasDropdown: false },
   ];
 
   return (
@@ -233,7 +233,7 @@ function MobileMenu({
       </Link>
 
       <Link
-        to="#"
+        to="/gallery"
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >

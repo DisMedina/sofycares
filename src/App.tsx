@@ -12,6 +12,7 @@ import ComingSoon from "@/pages/CommingSoon";
 import AssistedLiving from "@/pages/AssistedLiving/AssistedLiving";
 import IndependentLiving from "@/pages/IndependentLiving";
 import LevelsOfCare from "@/pages/LevelsOfCare";
+import Gallery from "@/pages/Gallery/Gallery";
 
 import GoogleTranslate from "@/shared/components/GoogleTranslate";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/assisted-living" element={<AssistedLiving />} />
           <Route path="/independent-living" element={<IndependentLiving />} />
           <Route path="/levels-of-care" element={<LevelsOfCare />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Route>
       </Routes>
     </>
