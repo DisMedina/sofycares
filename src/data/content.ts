@@ -66,12 +66,14 @@ export const livingOptions = {
   options: [
     {
       title: "Independent Living",
-      description: "For older adults who wish to maintain independence while enjoying community living, included meals, and optional support services.",
+      description: "For people like you, who want to enjoy a carefree lifestyle inside our community without the responsibilities of living on your own.",
       features: [
         "Spacious private rooms",
-        "Three chef-prepared meals daily",
-        "Social activities and community events",
-        "Housekeeping and maintenance included",
+        "Housekeeping and maintenance",
+        "A full calendar of social activities and community events",
+        "Rich and balanced chef-prepared meals",
+        "Transportation",
+        "24/7 medical care for emergencies",
         "Optional assistance as needed",
         "Freedom to live at your own pace"
       ],
@@ -79,7 +81,7 @@ export const livingOptions = {
     },
     {
       title: "Assisted Living",
-      description: "For residents who require daily assistance with personal care, medication management, mobility, feeding, and medical coordination. Our trained caregivers provide respectful and attentive support 24/7.",
+      description: "We are here for you, at the right place and at the right time. Our trained caregivers will give you the extra help you need to live your life at your fullest.",
       features: [
         "24/7 compassionate care",
         "Medication management",

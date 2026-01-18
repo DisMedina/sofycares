@@ -14,15 +14,48 @@ export default function AssistedLiving() {
             Assisted Living
           </h1>
           <p className="text-xl lg:text-2xl text-center max-w-4xl mx-auto leading-relaxed">
-            {assistedLivingOption?.description}
+            We are here for you, at the right place and at the right time. Our
+            trained caregivers will give you the extra help you need to live
+            your life at your fullest.
           </p>
+        </div>
+      </section>
+
+      {/* A Hand You Can Reach Any Time */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold text-text-primary mb-6">
+              A Hand You Can Reach Any Time
+            </h2>
+            <p className="text-xl text-text-secondary leading-relaxed mb-8">
+              Sofy Cares Assisted Living program is the place for the moment you
+              need a professional on your daily routine. With a schedule made to
+              cover your specific needs, our caregivers will assist you or your
+              loved ones at the same time as we provide you with a dignified
+              lifestyle.
+            </p>
+            <p className="text-xl text-text-secondary leading-relaxed mb-8">
+              We will take care of your medical appointments, medications,
+              special services and dietary requirements for you to focus on the
+              most important thing: yourself.
+            </p>
+            <p className="text-xl text-text-secondary leading-relaxed mb-8">
+              With a diverse range of physical and mental activities, you will
+              enjoy every moment at the same time you're taken care of.
+            </p>
+            <p className="text-xl text-text-secondary leading-relaxed">
+              Here in Sofy Cares, our main goal is to provide you with the help
+              you need.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Key Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
-          What Makes Our Assisted Living Special
+          Our Assisted Living Special
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {assistedLivingOption?.features.map((feature, index) => (

@@ -1,10 +1,4 @@
-import { livingOptions } from "@/data/content";
-
 export default function IndependentLiving() {
-  const independentLivingOption = livingOptions.options.find(
-    (option) => option.title === "Independent Living"
-  );
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
       {/* Hero Section */}
@@ -14,7 +8,8 @@ export default function IndependentLiving() {
             Independent Living
           </h1>
           <p className="text-xl lg:text-2xl text-center max-w-4xl mx-auto leading-relaxed">
-            {independentLivingOption?.description}
+            For people like you, who want to enjoy a carefree lifestyle inside
+            our community without the responsibilities of living on your own.
           </p>
         </div>
       </section>
@@ -22,10 +17,19 @@ export default function IndependentLiving() {
       {/* Key Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
-          What Independent Living Includes
+          Independent Living Services
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {independentLivingOption?.features.map((feature, index) => (
+          {[
+            "Spacious private rooms",
+            "Housekeeping and maintenance",
+            "A full calendar of social activities and community events",
+            "Rich and balanced chef-prepared meals",
+            "Transportation",
+            "24/7 medical care for emergencies",
+            "Optional assistance as needed",
+            "Freedom to live at your own pace",
+          ].map((feature, index) => (
             <FeatureCard key={index} feature={feature} />
           ))}
         </div>
@@ -36,21 +40,22 @@ export default function IndependentLiving() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
-              A Vibrant, Maintenance-Free Lifestyle
+              A Senior Lifestyle Built for You
             </h2>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
-              Our Independent Living program offers older adults the freedom to
-              live their daily lives privately, with the comfort, safety, and
-              sense of community of a supportive home. Residents enjoy spacious
-              rooms, daily meals, social interaction, and optional assistance
-              whenever needed—ideal for those who value autonomy and peace of
-              mind.
+              Sofy Cares Independent Living program offers you a space where you
+              can move freely and have the experience you desire with all the
+              care and amenities you need. Meet other people, exercise, join our
+              community activities and explore San Miguel Allende.
+            </p>
+            <p className="text-xl text-text-secondary leading-relaxed mb-8">
+              With customized living, your stay can evolve to cover your needs
+              for you to have the appropriate level of care whether it is a
+              strict diet, medical appointments, memory care or specialized care
+              for the next chapter in your life.
             </p>
             <p className="text-xl text-text-secondary leading-relaxed">
-              Independent Living at Sofy Cares promotes dignity, comfort, and a
-              natural, fulfilling lifestyle. With activities, outings, and a
-              caring team always nearby, residents can enjoy life at their own
-              pace.
+              Sofy Cares has all you need and more, join us now!
             </p>
           </div>
         </div>
