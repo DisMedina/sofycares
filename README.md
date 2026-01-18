@@ -42,7 +42,7 @@ sofycares/
 ├── public/                 # Static files
 ├── src/
 │   ├── components/         # Reusable components
-│   │   ├── Header2.tsx          # Main navigation header
+│   │   ├── Header.tsx          # Main navigation header
 │   │   ├── Footer.tsx           # Footer with links and contact info
 │   │   ├── EmergencyInfo2.tsx   # Emergency phone directory bar
 │   │   ├── DonateStickyButton.tsx # Floating "Give Care" button
@@ -178,7 +178,7 @@ colors: {
 Modify `src/data/content.ts` to update contact information and other content.
 
 ### Navigation
-Update navigation structure in `src/components/Header2.tsx`:
+Update navigation structure in `src/components/Header.tsx`:
 ```typescript
 const navItems = [
   { text: "Menu Item", to: "/path", hasDropdown: false },
@@ -194,7 +194,7 @@ Add or modify routes in `src/App.tsx`:
 
 ## 🧩 Key Components
 
-### Header2
+### Header
 Main navigation component with responsive dropdowns for Living Options and Healthcare Services.
 
 ### ScrollToTop

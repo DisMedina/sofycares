@@ -27,44 +27,33 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
-    <nav className="relative z-10 bg-white/90 backdrop-blur-sm shadow-lg border-b border-beige-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="relative z-10 bg-white/90 backdrop-blur-sm shadow-md border-b border-beige-200">
+      <div className="mx-auto px-6">
+        {" "}
+        {/* TOP BAR */}
+        <div className="flex justify-between items-center h-20">
+          {" "}
           {/* LOGO */}
           <div
-            className="flex items-center space-x-3 cursor-pointer"
+            className="flex items-center cursor-pointer"
             onClick={() => navigate("/")}
           >
-            <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-            </div>
-
-            <h1 className="text-2xl font-bold text-text-primary">Sofy Cares</h1>
+            <img
+              src="/logo/logo-tll.svg"
+              alt="Sofy Cares"
+              className="h-14"
+            />
           </div>
-
-          {/* DESKTOP */}
+          {/* DESKTOP NAV */}
           <DesktopNavigation />
-
           {/* MOBILE TOGGLE */}
           <button
             id="mobile-menu-toggle"
-            className="md:hidden text-text-primary hover:text-primary-600 p-2 rounded-lg focus:outline-none"
+            className="min-[950px]:hidden text-text-primary hover:text-primary-600 p-3 rounded-lg focus:outline-none"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             <svg
-              className="w-6 h-6"
+              className="w-7 h-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -78,7 +67,6 @@ export default function Header() {
             </svg>
           </button>
         </div>
-
         {/* MOBILE MENU */}
         {mobileOpen && <MobileMenu setMobileOpen={setMobileOpen} />}
       </div>
@@ -86,44 +74,115 @@ export default function Header() {
   );
 }
 
-/* --------------------------
+/* ---------------------------------------
    DESKTOP NAVIGATION
--------------------------- */
-function DesktopNavigation() {
-  const navigate = useNavigate();
+--------------------------------------- */
 
+function DesktopNavigation() {
   const navItems = [
-    { to: "/", text: "Home" },
-    { to: "/about", text: "About Us" },
-    { to: "/services", text: "Services" },
-    { to: "/contact", text: "Contact" },
+    {
+      text: "Living Options",
+      to: "#",
+      hasDropdown: true,
+      dropdownItems: [
+        { text: "Independent Living", to: "/independent-living" },
+        { text: "Assisted Living", to: "/assisted-living" },
+      ],
+    },
+    { text: "About Us", to: "/about", hasDropdown: false },
+    {
+      text: "Healthcare Services",
+      to: "/services",
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          text: "Health & Medical Services",
+          to: "/services#health-medical-services",
+        },
+        { text: "Levels of Care", to: "/services#levels-of-care" },
+        { text: "Services & Amenities", to: "/services#services-amenities" },
+      ],
+    },
+    { text: "Events", to: "#", hasDropdown: false },
+    { text: "Gallery", to: "#", hasDropdown: false },
   ];
 
   return (
-    <div className="hidden md:flex items-center space-x-8">
-      {navItems.map((item) => (
-        <Link
-          key={item.to}
-          to={item.to}
-          className="text-text-primary hover:text-primary-600 transition font-medium"
-        >
-          {item.text}
-        </Link>
-      ))}
+    <div className="hidden min-[950px]:flex flex-1 items-center justify-between gap-4">
+      {/* CENTER MENU */}
+      <div className="flex flex-1 justify-center">
+        <ul className="flex items-stretch gap-1 text-[17px] text-center font-medium">
+          {navItems.map((item) => (
+            <li
+              key={item.text}
+              className="relative group h-20 flex items-stretch"
+            >
+              {/* ITEM */}
+              <Link
+                to={item.to}
+                className="
+                  h-full flex items-center
+                  px-4
+                  text-text-primary
+                  transition-colors duration-200
+                  hover:bg-primary-50
+                  rounded-md
+                "
+              >
+                {item.text}
+              </Link>
 
-      <button
-        className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition"
-        onClick={() => navigate("/founder")}
+              {/* DROPDOWN */}
+              {item.hasDropdown && item.dropdownItems && (
+                <div
+                  className="
+      absolute top-full left-1/2 -translate-x-1/2
+      opacity-0 pointer-events-none
+      transition-all duration-200
+      group-hover:opacity-100 group-hover:pointer-events-auto
+      z-50
+    "
+                >
+                  <div className="bg-white rounded-lg shadow-lg border border-beige-200 w-56 py-3">
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.to}
+                        className="block px-4 py-2 hover:bg-primary-50 text-text-primary transition-colors duration-200"
+                        to={dropdownItem.to}
+                      >
+                        {dropdownItem.text}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* RIGHT BUTTON */}
+      <Link
+        to="/contact"
+        className="
+          hidden md:block
+          bg-primary-600 hover:bg-primary-700
+          text-white px-6 py-3 rounded-full
+          font-semibold text-base
+          transition
+          shrink-0
+        "
       >
-        Give Care
-      </button>
+        CONTACT
+      </Link>
     </div>
   );
 }
 
-/* --------------------------
+/* ---------------------------------------
    MOBILE MENU
--------------------------- */
+--------------------------------------- */
+
 function MobileMenu({
   setMobileOpen,
 }: {
@@ -132,91 +191,76 @@ function MobileMenu({
   return (
     <div
       id="mobile-menu"
-      className="md:hidden bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg border border-beige-200 p-4"
+      className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
     >
-      <div className="flex flex-col space-y-2">
-        <MobileDropdown
-          label="Why choose Assisted Living"
-          items={[
-            { to: "/services", text: "Services" },
-            { to: "/food", text: "Food" },
-            { to: "/amenities", text: "Amenities" },
-            { to: "/personalized-care", text: "Personalized Care" },
-          ]}
-          setMobileOpen={setMobileOpen}
-        />
+      {/* MENU ITEMS */}
+      <MobileDropdown
+        label="Living Options"
+        items={[
+          { to: "/independent-living", text: "Independent Living" },
+          { to: "/assisted-living", text: "Assisted Living" },
+        ]}
+        setMobileOpen={setMobileOpen}
+      />
 
-        <MobileDropdown
-          label="Living Options"
-          items={[
-            { to: "/independent", text: "Independent Living" },
-            { to: "/assisted", text: "Assisted Living" },
-          ]}
-          setMobileOpen={setMobileOpen}
-        />
+      <Link
+        to="/about"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        onClick={() => setMobileOpen(false)}
+      >
+        About Us
+      </Link>
 
-        <MobileDropdown
-          label="About"
-          items={[
-            { to: "/about", text: "Our Story" },
-            { to: "/team", text: "Meet the Team" },
-          ]}
-          setMobileOpen={setMobileOpen}
-        />
+      <MobileDropdown
+        label="Healthcare Services"
+        items={[
+          {
+            to: "/services#health-medical-services",
+            text: "Health & Medical Services",
+          },
+          { to: "/services#levels-of-care", text: "Levels of Care" },
+          { to: "/services#services-amenities", text: "Services & Amenities" },
+        ]}
+        setMobileOpen={setMobileOpen}
+      />
 
-        <MobileDropdown
-          label="Health Services"
-          items={[
-            { to: "/health", text: "Medical Care" },
-            { to: "/wellness", text: "Wellness Programs" },
-          ]}
-          setMobileOpen={setMobileOpen}
-        />
+      <Link
+        to="#"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        onClick={() => setMobileOpen(false)}
+      >
+        Events
+      </Link>
 
-        <MobileDropdown
-          label="Events"
-          items={[
-            { to: "/events", text: "Upcoming Events" },
-            { to: "/calendar", text: "Event Calendar" },
-          ]}
-          setMobileOpen={setMobileOpen}
-        />
+      <Link
+        to="#"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        onClick={() => setMobileOpen(false)}
+      >
+        Gallery
+      </Link>
 
-        <MobileDropdown
-          label="Gallery"
-          items={[
-            { to: "/gallery", text: "Photo Gallery" },
-            { to: "/virtual-tour", text: "Virtual Tour" },
-          ]}
-          setMobileOpen={setMobileOpen}
-        />
-
-        <MobileDropdown
-          label="Contact"
-          items={[
-            { to: "/contact", text: "Contact Form" },
-            { to: "/location", text: "Location & Hours" },
-          ]}
-          setMobileOpen={setMobileOpen}
-        />
-
-        <button
-          className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 mt-2"
-          onClick={() => {
-            setMobileOpen(false);
-            window.location.href = "/founder";
-          }}
-        >
-          Give Care
-        </button>
+      {/* SPACER */}
+      <div className="mt-3 mb-1">
+        <hr className="border-primary-200" />
       </div>
+
+      {/* CONTACT BUTTON */}
+      <Link
+        to="/contact"
+        className="block mx-auto text-center bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium text-lg transition w-[150px]"
+        onClick={() => setMobileOpen(false)}
+      >
+        Contact
+      </Link>
     </div>
   );
 }
 
-/* --------------------------
+/* ---------------------------------------
    MOBILE DROPDOWN
--------------------------- */
+--------------------------------------- */
+
 function MobileDropdown({
   label,
   items,
@@ -228,7 +272,7 @@ function MobileDropdown({
 }) {
   return (
     <details className="group">
-      <summary className="cursor-pointer list-none text-text-primary hover:text-primary-600 font-medium px-2 py-1">
+      <summary className="cursor-pointer list-none text-text-primary hover:text-primary-600 font-medium px-2 py-3 text-lg">
         {label}
       </summary>
 
@@ -237,7 +281,7 @@ function MobileDropdown({
           <Link
             key={item.to}
             to={item.to}
-            className="block px-2 py-1 rounded-lg hover:bg-primary-50 text-text-primary"
+            className="block px-2 py-2 rounded-lg hover:bg-primary-50 text-text-primary"
             onClick={() => setMobileOpen(false)}
           >
             {item.text}

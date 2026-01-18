@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { healthServices } from "@/data/content";
 
 export default function HealthServicesSection() {

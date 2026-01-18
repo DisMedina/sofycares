@@ -1,4 +1,4 @@
-import { livingOptions, servicesAndAmenities } from "@/data/content";
+import { livingOptions } from "@/data/content";
 
 export default function IndependentLiving() {
   const independentLivingOption = livingOptions.options.find(
@@ -208,7 +208,6 @@ function FeatureCard({ feature }: { feature: string }) {
 function AmenityHighlight({
   title,
   description,
-  icon,
 }: {
   title: string;
   description: string;
