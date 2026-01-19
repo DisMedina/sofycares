@@ -154,9 +154,9 @@ export default function Footer() {
                 </svg>
 
                 <p className="text-white/80">
-                  Juan José Torres Landa No. 14
+                  Juan José Torres Landa Torre A
                   <br />
-                  San Miguel de Allende, GTO 37797
+                  37797 San Miguel de Allende, Gto.
                 </p>
               </div>
 
@@ -176,10 +176,10 @@ export default function Footer() {
                 </svg>
 
                 <a
-                  href="tel:4151177643"
+                  href="tel:+524151177643"
                   className="text-white/80 hover:text-white transition-colors duration-200"
                 >
-                  415 117 7643
+                  +52 415 117 7643
                 </a>
               </div>
 

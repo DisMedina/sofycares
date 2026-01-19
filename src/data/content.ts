@@ -469,15 +469,15 @@ export const founderInfo = {
 
 export const contactInfo = {
   address: {
-    street: "Juan José Torres Landa No. 14",
-    building: "Condominios San Miguel Allende",
-    city: "Guanajuato",
-    postalCode: "CP 37797",
+    street: "Juan José Torres Landa Torre A",
+    building: "",
+    city: "37797 San Miguel de Allende, Gto.",
+    postalCode: "",
     country: "Mexico",
   },
   phone: {
-    display: "415 117 7643",
-    raw: "4151177643",
+    display: "+52 415 117 7643",
+    raw: "+524151177643",
     label: "General Information",
   },
   emergency: {
@@ -502,7 +502,7 @@ export const contactInfo = {
       url: "https://www.tiktok.com/@sofycaressma",
     },
   },
-  googleMapsUrl: "https://maps.app.goo.gl/HrkTzXtuqd7GWy5y6?g_st=iw",
+  googleMapsUrl: "https://www.google.com/maps/place/Sofy+Cares+SMA/@20.9031404,-100.7565095,17z/data=!3m1!4b1!4m6!3m5!1s0x842b51e693122229:0x492c3d728c86bcec!8m2!3d20.9031404!4d-100.7565095!16s%2Fg%2F11xvtnh7_x?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D",
 };
 
 export const recognitions = {

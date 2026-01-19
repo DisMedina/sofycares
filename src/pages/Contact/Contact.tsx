@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { Phone, Mail, MapPin, AlertTriangle, XCircle } from "lucide-react";
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '@/config/emailjs';
+import { useEmailUsage } from '@/hooks/useEmailUsage';
 
-const CONTACT_EMAIL = "vzlamfab@gmail.com";
+const CONTACT_EMAIL = "sofycaressma@gmail.com";
 
 const VALIDATION_PATTERNS = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -172,6 +176,8 @@ function TextAreaField({
 // MAIN COMPONENT
 // ------------------------------------
 export default function Contact() {
+  const emailUsage = useEmailUsage();
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -188,6 +194,7 @@ export default function Contact() {
     type: "success" | "error";
     message: string;
   } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Hide toast after 4 seconds
   const showToast = (type: "success" | "error", message: string) => {
@@ -231,8 +238,14 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    // Check if email limit is reached
+    if (emailUsage.isLimitReached) {
+      showToast("error", "Monthly email limit reached. Please contact us directly via phone or email.");
+      return;
+    }
 
     const newErrors: any = {};
     Object.keys(form).forEach((key) => {
@@ -247,33 +260,44 @@ export default function Contact() {
       return;
     }
 
-    // MAILTO
-    const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      "Inquiry: " + form.subject
-    )}&body=${encodeURIComponent(`
-Name: ${form.firstName} ${form.lastName}
-Email: ${form.email}
-Phone: ${form.phone}
-Service Type: ${form.serviceType}
-Preferred Contact: ${form.preferredContact}
+    // EmailJS Integration
+    setIsSubmitting(true);
 
-Message:
-${form.message}
-    `)}`;
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          phone: form.phone || 'Not provided',
+          subject: form.subject,
+          message: form.message,
+          serviceType: form.serviceType,
+          preferredContact: form.preferredContact,
+          to_email: CONTACT_EMAIL
+        },
+        EMAILJS_CONFIG.publicKey
+      );
 
-    window.location.href = mailtoLink;
-
-    showToast("success", "Form sent! Your email client will open now.");
-    setForm({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-      serviceType: "",
-      preferredContact: "email",
-    });
+      showToast("success", "Email sent successfully! We'll get back to you soon.");
+      setForm({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        serviceType: "",
+        preferredContact: "email",
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      showToast("error", "Failed to send email. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -321,62 +345,39 @@ ${form.message}
           {[
             {
               title: "Phone",
-              content: "(123) 456-7890",
+              content: "+52 415 117 7643",
               desc: "Available 24/7",
-              icon: (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 5a2 2 0 012-2h3.28l1.5 4.5-2.25 1.1a11 11 0 005.5 5.5l1.1-2.25 4.5 1.5V19a2 2 0 01-2 2H6C4 21 3 14 3 6V5z"
-                />
-              ),
+              icon: Phone,
             },
             {
               title: "Email",
               content: CONTACT_EMAIL,
               desc: "Response within 24 hours",
-              icon: (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 8l7.9 4.3a2 2 0 002.2 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              ),
+              icon: Mail,
             },
             {
               title: "Location",
-              content: "123 Care Street, City",
-              desc: "Metropolitan area",
-              icon: (
-                <>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"
-                  />
-                  <circle cx="12" cy="10" r="3" />
-                </>
-              ),
+              content: "Juan José Torres Landa Torre A",
+              desc: "37797 San Miguel de Allende, Gto.",
+              icon: MapPin,
             },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition"
-            >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor">
-                  {item.icon}
-                </svg>
-              </div>
+          ].map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={i}
+                className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
+                  <Icon className="w-8 h-8" />
+                </div>
 
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-primary-600 font-medium">{item.content}</p>
-              <p className="text-gray-600 mt-1">{item.desc}</p>
-            </div>
-          ))}
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-primary-600 font-medium">{item.content}</p>
+                <p className="text-gray-600 mt-1">{item.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -386,6 +387,59 @@ ${form.message}
           <h2 className="text-3xl font-bold text-center text-text-primary mb-12">
             Send Us Your Inquiry
           </h2>
+
+          {/* Email Usage Warnings */}
+          {emailUsage.isLimitReached && (
+            <div className="mb-8 bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+              <div className="flex items-start">
+                <XCircle className="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-bold text-red-800 mb-2">
+                    Contact Form Temporarily Unavailable
+                  </h3>
+                  <p className="text-red-700 mb-3">
+                    We've reached our monthly email limit ({emailUsage.used}/{emailUsage.limit} emails sent).
+                    Please contact us directly using the information below:
+                  </p>
+                  <div className="space-y-2 text-red-800">
+                    <p className="font-medium">📧 Email: {CONTACT_EMAIL}</p>
+                    <p className="font-medium">📞 Phone: +52 415 117 7643</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {emailUsage.isCriticalLevel && !emailUsage.isLimitReached && (
+            <div className="mb-8 bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
+              <div className="flex items-start">
+                <AlertTriangle className="w-6 h-6 text-orange-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-bold text-orange-800 mb-2">
+                    High Email Usage Alert
+                  </h3>
+                  <p className="text-orange-700">
+                    We're approaching our monthly email limit ({emailUsage.used}/{emailUsage.limit} emails sent).
+                    If you need an immediate response, please call us at +52 415 117 7643.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {emailUsage.isWarningLevel && !emailUsage.isCriticalLevel && (
+            <div className="mb-8 bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg">
+              <div className="flex items-start">
+                <AlertTriangle className="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-yellow-800">
+                    <strong>Note:</strong> We're experiencing high email volume ({emailUsage.used}/{emailUsage.limit} emails sent this month).
+                    Your message will be delivered, but for urgent matters, please call +52 415 117 7643.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* PERSONAL INFO */}
@@ -491,8 +545,16 @@ ${form.message}
             />
 
             <div className="flex justify-center">
-              <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg transition">
-                Send Inquiry
+              <button
+                type="submit"
+                disabled={isSubmitting || emailUsage.isLimitReached}
+                className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+              >
+                {emailUsage.isLimitReached
+                  ? 'Form Unavailable - Contact Us Directly'
+                  : isSubmitting
+                  ? 'Sending...'
+                  : 'Send Inquiry'}
               </button>
             </div>
           </form>

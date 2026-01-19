@@ -43,9 +43,9 @@ export default function LocationSection() {
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-text-primary mb-2">Address</h3>
                   <p className="text-text-secondary leading-relaxed">
-                    {contactInfo.address.street}, {contactInfo.address.building}
+                    {contactInfo.address.street}
                     <br />
-                    {contactInfo.address.city}, {contactInfo.address.postalCode}
+                    {contactInfo.address.city}
                   </p>
                 </div>
               </div>
@@ -115,7 +115,7 @@ export default function LocationSection() {
           <div className="h-full min-h-[500px]">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-2 border border-primary-100 h-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537363155047!3d-37.81627974202198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f1f1f1%3A0x5045675218ce6e0!2sSofy%20Cares!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.4648574082694!2d-100.7565095!3d20.9031404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842b51e693122229%3A0x492c3d728c86bcec!2sSofy%20Cares%20SMA!5e0!3m2!1sen!2smx!4v1700000000000!5m2!1sen!2smx"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '480px' }}
