@@ -14,8 +14,6 @@ const galleryImages = [
   { src: "/images/SC_122.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_130.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_149.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_152.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_161.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_167.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_221.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_224.jpg", alt: "Sofy Cares Activity" },
