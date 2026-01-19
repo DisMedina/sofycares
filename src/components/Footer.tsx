@@ -1,4 +1,5 @@
 // Footer.tsx
+import { Link } from "react-router-dom";
 
 const socialLinks = [
   {
@@ -26,7 +27,6 @@ const quickLinks = [
   { href: "/about", text: "About Us" },
   { href: "/services", text: "Services" },
   { href: "/contact", text: "Contact" },
-  { href: "#careers", text: "Careers" },
 ];
 
 const servicesList = [
@@ -90,18 +90,21 @@ export default function Footer() {
             <ul className="space-y-4">
               {quickLinks.map((link, i) => (
                 <li key={i}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      if (link.href.startsWith("/")) {
-                        e.preventDefault();
-                        (window as any).navigateTo(link.href);
-                      }
-                    }}
-                    className="text-white/80 hover:text-white transition-colors duration-200"
-                  >
-                    {link.text}
-                  </a>
+                  {link.href.startsWith("#") ? (
+                    <a
+                      href={link.href}
+                      className="text-white/80 hover:text-white transition-colors duration-200"
+                    >
+                      {link.text}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-white/80 hover:text-white transition-colors duration-200"
+                    >
+                      {link.text}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -113,12 +116,12 @@ export default function Footer() {
             <ul className="space-y-4">
               {servicesList.map((service, i) => (
                 <li key={i}>
-                  <a
-                    href={service.href}
+                  <Link
+                    to={service.href}
                     className="text-white/80 hover:text-white transition-colors duration-200"
                   >
                     {service.text}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

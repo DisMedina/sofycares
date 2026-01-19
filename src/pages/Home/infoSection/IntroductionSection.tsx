@@ -1,6 +1,8 @@
 import { heroContent } from "@/data/content";
+import { useNavigate } from "react-router-dom";
 
 export default function IntroductionSection() {
+  const navigate = useNavigate();
   return (
     <section className="relative bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50 overflow-hidden">
       {/* Decorative Background Elements */}
@@ -53,27 +55,8 @@ export default function IntroductionSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col items-center gap-8">
           <div className="flex flex-col sm:flex-row gap-6 justify-center w-full sm:w-auto">
-            <a
-              href={`tel:${heroContent.cta.primary.phoneRaw}`}
-              className="group relative bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl hover:shadow-accent-500/50 hover:scale-105 transform"
-            >
-              <svg
-                className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span>{heroContent.cta.primary.text}</span>
-            </a>
-            <a
-              href={`mailto:${heroContent.cta.secondary.email}`}
+            <button
+              onClick={() => navigate("/contact")}
               className="group relative bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl hover:shadow-primary-500/50 hover:scale-105 transform"
             >
               <svg
@@ -90,7 +73,7 @@ export default function IntroductionSection() {
                 />
               </svg>
               <span>{heroContent.cta.secondary.text}</span>
-            </a>
+            </button>
           </div>
 
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg border border-primary-100">

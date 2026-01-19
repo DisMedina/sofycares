@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
+  const navigate = useNavigate();
   const images = [
     {
       src: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80",
@@ -131,7 +133,10 @@ export default function About() {
             </section>
 
             {/* CTA BUTTON */}
-            <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex items-center space-x-3 w-fit">
+            <button
+              onClick={() => navigate("/contact")}
+              className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex items-center space-x-3 w-fit"
+            >
               <span>Contact Us</span>
               <svg
                 className="w-6 h-6"
