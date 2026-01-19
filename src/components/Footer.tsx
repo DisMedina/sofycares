@@ -1,24 +1,25 @@
 // Footer.tsx
 import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const socialLinks = [
   {
-    href: "#",
-    icon: "M24 4.557c-.883.392-1.832.656-2.828.775...",
-  },
-  {
-    href: "https://www.facebook.com/sofycaresservices",
-    icon: "M24 12.073c0-6.627-5.373-12-12-12S0...",
+    href: "https://www.facebook.com/sofycaressma/?locale=es_LA",
+    icon: FaFacebook,
+    label: "Facebook",
     target: "_blank",
   },
   {
-    href: "https://www.instagram.com/sofycaresservices",
-    icon: "M12.017 0C5.396 0 .029 5.367.029 11.987...",
+    href: "https://www.instagram.com/sofycaressma/",
+    icon: FaInstagram,
+    label: "Instagram",
     target: "_blank",
   },
   {
-    href: "#",
-    icon: "M20.447 20.452h-3.554v-5.569c0-1.328...",
+    href: "https://www.youtube.com/@SofyCaresSMA",
+    icon: FaYoutube,
+    label: "YouTube",
+    target: "_blank",
   },
 ];
 
@@ -65,22 +66,21 @@ export default function Footer() {
             </p>
 
             <div className="flex space-x-4">
-              {socialLinks.map((s, i) => (
-                <a
-                  key={i}
-                  href={s.href}
-                  target={s.target}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors duration-200"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+              {socialLinks.map((s, i) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={i}
+                    href={s.href}
+                    target={s.target}
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors duration-200"
                   >
-                    <path d={s.icon}></path>
-                  </svg>
-                </a>
-              ))}
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
