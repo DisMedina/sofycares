@@ -13,6 +13,7 @@ import AssistedLiving from "@/pages/AssistedLiving/AssistedLiving";
 import IndependentLiving from "@/pages/IndependentLiving";
 import LevelsOfCare from "@/pages/LevelsOfCare";
 import Gallery from "@/pages/Gallery/Gallery";
+import Events from "@/pages/Events/Events";
 
 import GoogleTranslate from "@/shared/components/GoogleTranslate";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/independent-living" element={<IndependentLiving />} />
           <Route path="/levels-of-care" element={<LevelsOfCare />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/events" element={<Events />} />
         </Route>
       </Routes>
     </>

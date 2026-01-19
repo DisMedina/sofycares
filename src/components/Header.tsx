@@ -103,7 +103,7 @@ function DesktopNavigation() {
         { text: "Services & Amenities", to: "/services#services-amenities" },
       ],
     },
-    { text: "Events", to: "#", hasDropdown: false },
+    { text: "Events", to: "/events", hasDropdown: false },
     { text: "Gallery", to: "/gallery", hasDropdown: false },
   ];
 
@@ -225,7 +225,7 @@ function MobileMenu({
       />
 
       <Link
-        to="#"
+        to="/events"
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >

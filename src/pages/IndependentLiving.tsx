@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function IndependentLiving() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
       {/* Hero Section */}
@@ -141,28 +144,9 @@ export default function IndependentLiving() {
           <p className="text-xl mb-8">
             Schedule a visit to see our community and meet our team.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:4151177643"
-              className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span>Call: 415 117 7643</span>
-            </a>
-            <a
-              href="mailto:sofycaressma@gmail.com"
+          <div className="flex justify-center">
+            <button
+              onClick={() => navigate("/contact")}
               className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
             >
               <svg
@@ -178,8 +162,8 @@ export default function IndependentLiving() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <span>Email Us</span>
-            </a>
+              <span>Contact Us</span>
+            </button>
           </div>
         </div>
       </section>
