@@ -23,29 +23,30 @@ export default function FounderSection() {
             </h2>
 
             <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-              Sofia Martinez founded Sofy Cares with a clear vision: to provide
-              the same level of care she would want for her own family. With
-              more than 15 years of experience in the health and senior care
-              sector.
+              Sofia Toledo Soto founded Sofy Cares with a clear vision: to
+              provide the same leel of care, warmth, and attention she would
+              want for her own family.
             </p>
 
             <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-              Her passion for helping others and her commitment to excellence
-              led her to create a company distinguished by its personalized
-              approach and genuine dedication to the well-being of every client.
+              With more than 15 years of experience in the health and senior
+              care field, she created Sofy Cares as a place where compassion,
+              dignity, and personalized care come first. Her commitment to
+              thoughtful, human-centered care shapes every part of life at Sofy
+              Cares.
             </p>
 
             {/* Profile */}
             <div className="flex items-center space-x-4 mb-6">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-600 font-bold text-lg">SM</span>
+                  <span className="text-primary-600 font-bold text-lg">ST</span>
                 </div>
               </div>
 
               <div>
                 <p className="text-lg font-semibold text-text-primary">
-                  Sofia Martinez
+                  Sofia Toledo
                 </p>
                 <p className="text-text-secondary">Founder & CEO</p>
               </div>

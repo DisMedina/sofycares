@@ -35,7 +35,7 @@ export const whyChooseSofyCares = {
     {
       title: "Respect for Independence & Dignity",
       description:
-        "We honor each resident’s independence and personal choices while providing compassionate, respectful support.",
+        "We honor each resident's independence and personal choices while providing compassionate, respectful support.",
       icon: "heart",
     },
     {
@@ -47,19 +47,19 @@ export const whyChooseSofyCares = {
     {
       title: "Safe, Supportive & Welcoming Environment",
       description:
-        "Our home-like setting promotes comfort, security, and a sense of belonging.",
+        "Our home-like setting promotes comfort, security, and a true sense of belonging.",
       icon: "home",
     },
     {
       title: "Experienced & Compassionate Staff",
       description:
-        "Our team brings decades of professional healthcare experience and genuine care.",
+        "Our team brings decades of professional healthcare experience, paired with genuine compassion and attentiveness.",
       icon: "users",
     },
     {
       title: "U.S. Care Standards with Mexican Warmth",
       description:
-        "We combine the best of American healthcare practices with the warmth of Mexican hospitality.",
+        "We combine high U.S. care standards with the warmth and hospitality of Mexican culture.",
       icon: "globe",
     },
   ],
@@ -406,7 +406,7 @@ export const eventsAndCommunity = {
     {
       title: "Immersive Culture in San Miguel de Allende",
       description:
-        "We have staff dedicated to researching community and private events in SMA, handling reservations and accompanying residents to events of their interest.",
+        "Our team researches local and private events in San Miguel de Allende, handling reservations and accompanying residents to activities that match their interests.",
       icon: "calendar",
     },
     {
@@ -418,19 +418,19 @@ export const eventsAndCommunity = {
     {
       title: "Assisted Travel & Trips",
       description:
-        "Annual trip planning that respects residents' conditions and wishes, promoting recreation with assisted travel.",
+        "Thoughtfully planned trips that respect residents’ needs and wishes, offering recreation with assisted travel and support.",
       icon: "plane",
     },
     {
       title: "Daily Activities",
       description:
-        "Engaging activities including arts and crafts, group exercises, games, and social gatherings.",
+        "Engaging daily activities including arts and crafts, group exercises, games, and social gatherings.",
       icon: "activity",
     },
     {
       title: "Family Events",
       description:
-        "We welcome and encourage family visits and host special events for families to gather with their loved ones.",
+        "We welcome and encourage family visits, hosting special events where families can gather and spend meaningful time with their loved ones. ",
       icon: "home",
     },
   ],
