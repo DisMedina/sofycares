@@ -3,19 +3,19 @@ import { useEffect, useState } from "react";
 const founderImages = [
   {
     src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Sofia Martinez - Founder of Sofy Cares",
+    alt: "Sofia Toledo Soto - Founder of Sofy Cares",
   },
   {
     src: "https://images.unsplash.com/photo-1594824475317-8c78e1b0b157?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Sofia Martinez at work",
+    alt: "Sofia Toledo Soto at work",
   },
   {
     src: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Sofia Martinez with the team",
+    alt: "Sofia Toledo Soto with the team",
   },
   {
     src: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Sofia Martinez - Leader in health care",
+    alt: "Sofia Toledo Soto - Leader in health care",
   },
 ];
 
@@ -79,7 +79,7 @@ function FounderContent() {
       </h1>
 
       <h2 className="text-2xl font-semibold text-primary-600 mb-6">
-        Sofia Martinez – CEO & Founder
+        Sofia Toledo Soto – Founder & CEO
       </h2>
 
       {/* Personal Story */}
@@ -87,11 +87,11 @@ function FounderContent() {
         <h3 className="text-xl font-semibold text-text-primary mb-4">
           Her Personal Story
         </h3>
+        <p className="text-lg text-text-secondary leading-relaxed mb-4">
+          Sofia Toledo Soto has always been someone who leads with service. Long before Sofy Cares existed, people naturally turned to her for support, guidance, and steadiness. She has an instinctive way of putting others first-something that has defined her relationships, her work, and ultimately her life's path.
+        </p>
         <p className="text-lg text-text-secondary leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Over the years, through personal experiences and professional encounters, Sofia became increasingly aware of how easily certain people are overlooked-especially older adults whose families may feel overwhelmed, unprepared, or unsure of how to care for them well. What stayed with her was not a single moment, but a growing recognition that many individuals simply need someone willing to show up consistently, listen closely, and take responsibility for their care with sincerity and patience. Sofy Cares grew out of that understanding.
         </p>
       </section>
 
@@ -101,15 +101,10 @@ function FounderContent() {
           Professional Experience
         </h3>
         <p className="text-lg text-text-secondary leading-relaxed mb-4">
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-          officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-          omnis iste natus error sit voluptatem accusantium doloremque
-          laudantium.
+          Sofia brings more than 15 years of experience across caregiving, health-related services, and client-centered work. Even during periods when she stepped away from direct caregiving-working in fields such as real estate-her approach remained the same: prioritize people, stay accessible, and follow through.
         </p>
         <p className="text-lg text-text-secondary leading-relaxed">
-          Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-          vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-          sit aspernatur aut odit aut fugit.
+          Her professional strength lies not only in formal experience, but in her ability to communicate openly, answer questions honestly, and remain present for those who rely on her. She is known for being approachable, responsive, and deeply attentive-qualities that shape both her leadership style and the daily operations of Sofy Cares.
         </p>
       </section>
 
@@ -118,24 +113,27 @@ function FounderContent() {
         <h3 className="text-xl font-semibold text-text-primary mb-4">
           Her Vision for Sofy Cares
         </h3>
+        <p className="text-lg text-text-secondary leading-relaxed mb-4">
+          Sofia's vision for Sofy Cares is rooted in responsibility and presence. She believes care should never feel distant, rushed, or transactional. Instead, it should feel steady, responsive, and grounded in real human connection.
+        </p>
         <p className="text-lg text-text-secondary leading-relaxed">
-          Eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+          She envisioned a place where residents are not managed, but supported-where families feel informed rather than shut out, and where trust is built through transparency, consistency, and genuine availability. Sofy Cares was designed to be a community where people feel safe asking questions, expressing needs, and being met with respect at every stage.
         </p>
       </section>
 
       {/* Achievements */}
       <section>
         <h3 className="text-xl font-semibold text-text-primary mb-4">
-          Achievements & Recognitions
+          Achievements & Commitments
         </h3>
 
         <ul className="space-y-3 text-lg text-text-secondary">
           {[
-            "Lorem ipsum dolor sit amet consectetur",
-            "Adipiscing elit sed do eiusmod tempor",
-            "Incididunt ut labore et dolore magna",
-            "Aliqua enim ad minim veniam quis",
+            "Over 15 years of experience in caregiving and health-related services",
+            "Founder of a community-based care home in San Miguel de Allende",
+            "Known for hands-on leadership, accessibility, and clear communication",
+            "Deep commitment to serving individuals who are often overlooked or underserved",
+            "Dedicated to creating an environment built on trust, presence, and accountability",
           ].map((text, i) => (
             <li className="flex items-start space-x-3" key={i}>
               <svg

@@ -78,10 +78,17 @@ export default function About() {
                 Our Mission
               </h2>
               <p className="text-lg text-text-secondary leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                At Sofy Cares, our mission is to provide compassionate, personalized care in a safe and home-like environment where every individual is treated with dignity and respect. We are committed to supporting residents' physical, emotional, and social well-being while honoring their independence and personal choices.
+              </p>
+            </section>
+
+            {/* Vision */}
+            <section>
+              <h2 className="text-2xl font-semibold text-text-primary mb-4">
+                Our Vision
+              </h2>
+              <p className="text-lg text-text-secondary leading-relaxed">
+                We envision Sofy Cares as a place where people feel truly at home-supported by attentive care, meaningful connection, and a strong sense of community. Our goal is to set a standard for senior care that balances professional excellence with warmth, humanity, and trust.
               </p>
             </section>
 
@@ -92,10 +99,12 @@ export default function About() {
               </h2>
               <ul className="space-y-3 text-lg text-text-secondary">
                 {[
-                  "Excepteur sint occaecat cupidatat non proident",
-                  "Sunt in culpa qui officia deserunt mollit anim",
-                  "Sed ut perspiciatis unde omnis iste natus error",
-                  "At vero eos et accusamus et iusto odio dignissimos",
+                  { title: "Dignity & Respect", description: "We honor each resident as an individual, valuing their life experiences, preferences, and autonomy." },
+                  { title: "Compassionate Care", description: "We approach every interaction with empathy, patience, and genuine concern." },
+                  { title: "Safety & Trust", description: "We provide a secure environment where residents and families feel confident and at ease." },
+                  { title: "Personalized Attention", description: "Care is never one-size-fits-all; we adapt our services to meet each resident's unique needs." },
+                  { title: "Family & Community", description: "We foster strong relationships with families and encourage connection, involvement, and shared moments." },
+                  { title: "Professional Excellence", description: "Our team upholds high standards of care through experience, training and accountability." },
                 ].map((value, i) => (
                   <li key={i} className="flex items-start space-x-3">
                     <svg
@@ -109,26 +118,33 @@ export default function About() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    <span>{value}</span>
+                    <span>
+                      <strong>{value.title}</strong> - {value.description}
+                    </span>
                   </li>
                 ))}
               </ul>
             </section>
 
-            {/* History */}
+            {/* Story */}
             <section>
               <h2 className="text-2xl font-semibold text-text-primary mb-4">
-                Our History
+                Our Story
               </h2>
 
-              <p className="text-lg text-text-secondary leading-relaxed mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className="text-lg text-text-secondary leading-relaxed">
+                Sofy Cares was created to offer an alternative to large, impersonal care facilities. From the beginning, our focus has been on building a smaller, more intentional community where residents receive attentive care and feel genuinely supported. By combining professional healthcare practices with a warm, welcoming atmosphere, Sofy Cares provides a space where people can live with comfort, confidence, and peace of mind.
               </p>
+            </section>
+
+            {/* Team */}
+            <section>
+              <h2 className="text-2xl font-semibold text-text-primary mb-4">
+                Our Team
+              </h2>
 
               <p className="text-lg text-text-secondary leading-relaxed">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur.
+                Our caregivers and staff are carefully selected for both their professional experience and their commitment to compassionate service. We believe quality care comes from people who are attentive, respectful, and deeply invested in the well-being of those they serve. At Sofy Cares, our team works collaboratively to ensure residents receive consistent, thoughtful care every day.
               </p>
             </section>
 
