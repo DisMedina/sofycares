@@ -1,0 +1,165 @@
+/* ---- Donate: always-on soft particle emit ---- */
+
+@keyframes donate-emit {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.85);
+  }
+  15% {
+    opacity: 0.55;
+  }
+  55% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--dx), var(--dy), 0) scale(1.15);
+  }
+}
+
+@keyframes donate-drift {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(14deg);
+  }
+}
+
+/* contenedor del halo */
+.donate-sparkles {
+  position: absolute;
+  display: block;
+  inset: -18px; /* que quede pegado al botón */
+  pointer-events: none;
+  border-radius: 24px;
+  mix-blend-mode: normal;
+  opacity: 1; /* controlamos opacidad dentro de cada capa */
+}
+
+/* 3 capas: cada una “emite” en un ciclo diferente */
+.donate-sparkles::before,
+.donate-sparkles::after,
+.donate-sparkles > i {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-repeat: no-repeat;
+
+  /* cada partícula es un “sprite” chico para que position funcione */
+  background-size: 18px 18px, 16px 16px, 14px 14px, 12px 12px, 16px 16px,
+    14px 14px, 12px 12px, 14px 14px, 12px 12px;
+
+  /* dots con tus colores (con transparencia suave) */
+  /* Primary: #662d91, Secondary: #af70af, Accent: #e3aaaa */
+  background-image: radial-gradient(
+      circle,
+      rgba(102, 45, 145, 0.75) 0px,
+      rgba(102, 45, 145, 0.75) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(227, 170, 170, 0.75) 0px,
+      rgba(227, 170, 170, 0.75) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(175, 112, 175, 0.75) 0px,
+      rgba(175, 112, 175, 0.75) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(102, 45, 145, 0.6) 0px,
+      rgba(102, 45, 145, 0.6) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(227, 170, 170, 0.6) 0px,
+      rgba(227, 170, 170, 0.6) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(175, 112, 175, 0.6) 0px,
+      rgba(175, 112, 175, 0.6) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(102, 45, 145, 0.45) 0px,
+      rgba(102, 45, 145, 0.45) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(227, 170, 170, 0.45) 0px,
+      rgba(227, 170, 170, 0.45) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle,
+      rgba(175, 112, 175, 0.45) 0px,
+      rgba(175, 112, 175, 0.45) 2px,
+      transparent 3px
+    );
+
+  /* posiciones alrededor del botón */
+  background-position: 10% 25%, 20% 85%, 36% 10%, 55% 92%, 78% 18%, 90% 55%,
+    92% 76%, 62% 8%, 42% 62%;
+
+  filter: drop-shadow(0 0 8px rgba(102, 45, 145, 0.08))
+    drop-shadow(0 0 8px rgba(227, 170, 170, 0.08))
+    drop-shadow(0 0 8px rgba(175, 112, 175, 0.08));
+
+  /* cada capa “sale” hacia un vector distinto */
+  --dx: 10px;
+  --dy: -12px;
+}
+
+/* Capa 1 */
+.donate-sparkles::before {
+  --dx: 10px;
+  --dy: -10px;
+  animation: donate-emit 1.9s ease-out infinite;
+}
+
+/* Capa 2 */
+.donate-sparkles::after {
+  --dx: -12px;
+  --dy: -6px;
+  animation: donate-emit 2.4s ease-out infinite;
+  animation-delay: 0.35s;
+  opacity: 0.9;
+}
+
+/* Capa 3 (un “i” interno para tener tercera capa real) */
+.donate-sparkles > i {
+  --dx: 6px;
+  --dy: 12px;
+  animation: donate-emit 2.8s ease-out infinite;
+  animation-delay: 0.8s;
+  opacity: 0.75;
+  transform: rotate(10deg);
+}
+
+/* drift sutil del contenedor (para que parezca menos repetitivo) */
+.donate-sparkles {
+  animation: donate-drift 6s ease-in-out infinite alternate;
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .donate-sparkles,
+  .donate-sparkles::before,
+  .donate-sparkles::after,
+  .donate-sparkles > i {
+    animation: none !important;
+    opacity: 0.18 !important;
+    filter: none !important;
+  }
+}

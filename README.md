@@ -1,113 +1,197 @@
 # Sofy Cares Services
 
-Una página web moderna y profesional para servicios de cuidado, construida con TypeScript y Tailwind CSS.
+A modern and professional website for assisted living and care services in San Miguel de Allende, built with React, TypeScript, and Tailwind CSS.
 
-## 🚀 Inicio Rápido
+## Quick Start
 
-### Prerrequisitos
-- Node.js 18+ 
-- npm o yarn
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-### Instalación
+### Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
 ```bash
 git clone https://github.com/DisMedina/sofycares.git
 cd sofycares
 ```
 
-2. Instala las dependencias:
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Inicia el servidor de desarrollo:
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Abre tu navegador en `http://localhost:3000`
+4. Open your browser at `http://localhost:5173`
 
-## 🛠️ Scripts Disponibles
+## Available Scripts
 
-- `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye la aplicación para producción
-- `npm run preview` - Previsualiza la construcción de producción
-- `npm run serve` - Sirve la aplicación en puerto 3000
+- `npm run dev` - Start the development server
+- `npm run build` - Build the app for production
+- `npm run preview` - Preview the production build
+- `npm run serve` - Serve the app on port 3000
 
-## 🏗️ Estructura del Proyecto
+## Project Structure
 
 ```
 sofycares/
-├── public/           # Archivos estáticos
-├── src/             # Código fuente
-│   ├── main.ts      # Punto de entrada principal
-│   └── style.css    # Estilos CSS con Tailwind
-├── index.html       # Plantilla HTML principal
-├── package.json     # Dependencias y scripts
-├── tailwind.config.js # Configuración de Tailwind
-├── vite.config.ts   # Configuración de Vite
-└── tsconfig.json    # Configuración de TypeScript
+├── public/
+│   ├── images/             # Gallery and page images (SC_*.jpg)
+│   └── logo/               # Logo assets
+├── src/
+│   ├── components/         # Reusable components
+│   │   ├── Header.tsx          # Main navigation header
+│   │   ├── Footer.tsx          # Footer with links and contact info
+│   │   ├── EmergencyInfo2.tsx  # Phone directory bar
+│   │   ├── DonateStickyButton.tsx # Floating "Give Care" button
+│   │   └── ScrollToTop.tsx     # Auto-scroll handler
+│   ├── pages/
+│   │   ├── Home/               # Home page
+│   │   │   ├── Home.tsx
+│   │   │   ├── Banner.tsx
+│   │   │   └── infoSection/
+│   │   │       ├── IntroductionSection.tsx
+│   │   │       ├── AboutSection.tsx
+│   │   │       ├── ServicesSection.tsx
+│   │   │       ├── HealthServicesSection.tsx
+│   │   │       ├── LevelsOfCareSection.tsx
+│   │   │       ├── AmenitiesSection.tsx
+│   │   │       ├── EventsAndCommunitySection.tsx
+│   │   │       ├── FounderSection.tsx
+│   │   │       ├── LocationSection.tsx
+│   │   │       └── AwardsSection.tsx
+│   │   ├── AboutUs/
+│   │   │   ├── About.tsx       # About Us page
+│   │   │   └── Founder.tsx     # Founder biography
+│   │   ├── HealthcareServices/
+│   │   │   └── Services.tsx    # Healthcare services page
+│   │   ├── AssistedLiving/
+│   │   │   └── AssistedLiving.tsx
+│   │   ├── IndependentLiving.tsx
+│   │   ├── LevelsOfCare.tsx
+│   │   ├── Gallery/
+│   │   │   └── Gallery.tsx     # Photo gallery with lightbox
+│   │   ├── Events/
+│   │   │   └── Events.tsx      # Events page
+│   │   ├── Contact/
+│   │   │   └── Contact.tsx     # Contact form and info
+│   │   └── CommingSoon.tsx     # Placeholder page
+│   ├── layout/
+│   │   └── MainLayout.tsx      # Main layout wrapper
+│   ├── shared/
+│   │   └── components/
+│   │       └── GoogleTranslate.tsx
+│   ├── data/
+│   │   └── content.ts          # Centralized content and contact info
+│   ├── App.tsx                 # Main app component with routes
+│   ├── main.tsx                # Entry point
+│   └── index.css               # Global styles
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── vite.config.ts
+└── tsconfig.json
 ```
 
-## 🎨 Características
+## Features
 
-- ✅ TypeScript para desarrollo tipado
-- ✅ Tailwind CSS para estilos modernos
-- ✅ Diseño responsivo y accesible
-- ✅ Animaciones fluidas y partículas interactivas
-- ✅ Formulario de notificaciones por email
-- ✅ Contador regresivo dinámico
-- ✅ Configuración lista para producción
+- **React 19** with TypeScript
+- **React Router v7** for client-side routing
+- **Tailwind CSS** for responsive design
+- **Custom brand color palette** (purple, lavender, blush pink)
+- **Responsive navigation** with desktop dropdowns and mobile menu
+- **Sticky elements** (phone directory bar, "Give Care" button)
+- **Photo gallery** with lightbox modal
+- **Google Translate** integration
+- **Smooth scrolling** with hash navigation
 
-## 🚀 Despliegue
+## Pages
+
+### Main Pages
+- **Home** (`/`) - Landing page with overview sections
+- **About Us** (`/about`) - Company information
+- **Founder** (`/founder`) - Sofia Toledo Soto biography
+- **Contact** (`/contact`) - Contact form and information
+- **Gallery** (`/gallery`) - Photo gallery
+- **Events** (`/events`) - Community events
+
+### Living Options
+- **Independent Living** (`/independent-living`) - Independent living services
+- **Assisted Living** (`/assisted-living`) - Assisted living care
+
+### Healthcare Services (`/services`)
+- Health & Medical Services
+- Levels of Care
+- Services & Amenities
+
+## Design System
+
+### Color Palette
+- **Primary Purple** (`#662d91`) - Main brand color
+- **Secondary Lavender** (`#af70af`) - Soft accent
+- **Accent Blush Pink** (`#e3aaaa`) - Warm accent for highlights
+- **Sage Green** (`#B6C8A9`) - Natural accent
+- **Olive Green** (`#6C7A47`) - Earth tone
+- **Beige** (`#E9DFC9`) - Warm neutral
+- **Text Primary** (`#2B1E34`) - Main text color
+
+### Typography
+- **Font Family**: Inter (sans-serif)
+- Custom animations: fade-in, slide-up, pulse-slow
+
+## Deployment
 
 ### Netlify
-1. Construye el proyecto: `npm run build`
-2. Sube la carpeta `dist` a Netlify
-3. Configura redirects si es necesario
+1. Build: `npm run build`
+2. Upload the `dist` folder
+3. Add redirect rule: `/* /index.html 200`
 
 ### Vercel
-1. Conecta tu repositorio a Vercel
-2. Vercel detectará automáticamente Vite
-3. La configuración de construcción es automática
+1. Connect repository to Vercel
+2. Auto-detected Vite configuration
 
-### GitHub Pages
-1. Construye el proyecto: `npm run build`
-2. Sube el contenido de `dist` a la rama `gh-pages`
+## Key Components
 
-## 📱 Soporte de Navegadores
+### Header
+Responsive navigation with dropdowns for Living Options and Healthcare Services.
 
-- Chrome (última versión)
-- Firefox (última versión)
-- Safari (última versión)
-- Edge (última versión)
+### DonateStickyButton
+Floating "Give Care" button that links to external donation page (sofycares.app).
 
-## 🔧 Personalización
+### EmergencyInfo2
+Collapsible phone directory with general and emergency contact numbers.
 
-### Colores
-Edita `tailwind.config.js` para cambiar los colores primarios y secundarios.
+### Gallery
+Masonry grid photo gallery with lightbox modal for enlarged viewing.
 
-### Contenido
-Modifica `src/main.ts` para cambiar el contenido y la funcionalidad.
+### Footer
+Links, contact information, and social media (Facebook, Instagram, TikTok).
 
-### Estilos
-Personaliza `src/style.css` para agregar estilos personalizados.
+## Customization
 
-## 📄 Licencia
+### Colors
+Edit `tailwind.config.js` to modify the color palette.
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+### Content
+Modify `src/data/content.ts` to update contact information and page content.
 
-## 👥 Contribuciones
+### Navigation
+Update navigation in `src/components/Header.tsx`.
 
-Las contribuciones son bienvenidas. Por favor:
+### Routes
+Add or modify routes in `src/App.tsx`.
 
-1. Fork el proyecto
-2. Crea una rama para tu feature
-3. Commit tus cambios
-4. Push a la rama
-5. Abre un Pull Request
+## Contact
 
-## 📞 Contacto
+- **Email**: sofycaressma@gmail.com
+- **Phone**: +52 415 117 7643
+- **Emergency**: 415 111 2213
+- **Location**: San Miguel de Allende, Gto., Mexico
 
-Para consultas sobre el proyecto, contacta a través de los issues de GitHub.
+## License
+
+This project is under the MIT License.
