@@ -313,11 +313,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-beige-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {toast && <Toast type={toast.type} message={toast.message} />}
 
       {/* BANNER */}
-      <section className="relative h-80 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 flex items-center justify-center overflow-hidden">
+      <section className="relative h-80 bg-gradient-to-br from-primary-600 via-primary-500 to-secondary-500 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100">
             <defs>
@@ -348,7 +348,7 @@ export default function Contact() {
       </section>
 
       {/* INFO */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-secondary-50">
         <h2 className="text-3xl font-bold text-center text-text-primary mb-12">
           Contact Information
         </h2>
@@ -378,9 +378,9 @@ export default function Contact() {
             return (
               <div
                 key={i}
-                className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition"
+                className="bg-primary-50 rounded-lg shadow-md p-6 text-center hover:shadow-lg transition border border-primary-200"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-200 flex items-center justify-center text-primary-700">
                   <Icon className="w-8 h-8" />
                 </div>
 
@@ -394,7 +394,7 @@ export default function Contact() {
       </section>
 
       {/* FORM */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-text-primary mb-12">
             Send Us Your Inquiry

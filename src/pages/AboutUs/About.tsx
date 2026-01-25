@@ -34,7 +34,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50 pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 pt-24 pb-16">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* 👉 LEFT: IMAGE CAROUSEL */}
@@ -67,7 +67,7 @@ export default function About() {
           </div>
 
           {/* 👉 RIGHT: COMPANY CONTENT */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12 border border-beige-200 space-y-10">
+          <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300 space-y-10">
             <h1 className="text-4xl lg:text-5xl font-bold text-text-primary">
               About Us
             </h1>
@@ -108,7 +108,7 @@ export default function About() {
                 ].map((value, i) => (
                   <li key={i} className="flex items-start space-x-3">
                     <svg
-                      className="w-6 h-6 text-accent-500 mt-0.5 flex-shrink-0"
+                      className="w-6 h-6 text-primary-600 mt-0.5 flex-shrink-0"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >

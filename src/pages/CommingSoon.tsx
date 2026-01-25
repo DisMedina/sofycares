@@ -77,8 +77,8 @@ export default function ComingSoon() {
     resize();
     window.addEventListener("resize", resize);
 
-    // Create particles
-    const colors = ["#61137B", "#E97F72", "#B6C8A9", "#6C7A47"];
+    // Create particles - Using brand colors
+    const colors = ["#662d91", "#af70af", "#e3aaaa", "#5c2883"];
     particlesRef.current = Array.from({ length: 50 }).map(() => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -126,7 +126,7 @@ export default function ComingSoon() {
   // JSX UI
   // -----------------------
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 relative overflow-hidden">
       {/* PARTICLES CANVAS */}
       <canvas
         ref={canvasRef}

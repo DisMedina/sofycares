@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function IndependentLiving() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +39,7 @@ export default function IndependentLiving() {
       </section>
 
       {/* Lifestyle Description */}
-      <section className="bg-white py-16">
+      <section className="bg-secondary-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
@@ -173,7 +173,7 @@ export default function IndependentLiving() {
 
 function FeatureCard({ feature }: { feature: string }) {
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-primary-100">
+    <div className="bg-primary-50 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-primary-200 hover:border-primary-400">
       <div className="flex items-start">
         <svg
           className="w-8 h-8 text-primary-600 mr-4 flex-shrink-0 mt-1"
@@ -203,8 +203,8 @@ function AmenityHighlight({
   icon: string;
 }) {
   return (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6">
-      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+    <div className="bg-accent-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-secondary-200 hover:border-primary-300">
+      <div className="w-12 h-12 bg-primary-200 rounded-lg flex items-center justify-center mb-4">
         <svg
           className="w-8 h-8 text-primary-600"
           fill="none"

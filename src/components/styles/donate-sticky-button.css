@@ -52,58 +52,59 @@
     14px 14px, 12px 12px, 14px 14px, 12px 12px;
 
   /* dots con tus colores (con transparencia suave) */
+  /* Primary: #662d91, Secondary: #af70af, Accent: #e3aaaa */
   background-image: radial-gradient(
       circle,
-      rgba(97, 19, 123, 0.75) 0px,
-      rgba(97, 19, 123, 0.75) 2px,
+      rgba(102, 45, 145, 0.75) 0px,
+      rgba(102, 45, 145, 0.75) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(233, 127, 114, 0.75) 0px,
-      rgba(233, 127, 114, 0.75) 2px,
+      rgba(227, 170, 170, 0.75) 0px,
+      rgba(227, 170, 170, 0.75) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(182, 200, 169, 0.75) 0px,
-      rgba(182, 200, 169, 0.75) 2px,
+      rgba(175, 112, 175, 0.75) 0px,
+      rgba(175, 112, 175, 0.75) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(97, 19, 123, 0.6) 0px,
-      rgba(97, 19, 123, 0.6) 2px,
+      rgba(102, 45, 145, 0.6) 0px,
+      rgba(102, 45, 145, 0.6) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(233, 127, 114, 0.6) 0px,
-      rgba(233, 127, 114, 0.6) 2px,
+      rgba(227, 170, 170, 0.6) 0px,
+      rgba(227, 170, 170, 0.6) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(182, 200, 169, 0.6) 0px,
-      rgba(182, 200, 169, 0.6) 2px,
+      rgba(175, 112, 175, 0.6) 0px,
+      rgba(175, 112, 175, 0.6) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(97, 19, 123, 0.45) 0px,
-      rgba(97, 19, 123, 0.45) 2px,
+      rgba(102, 45, 145, 0.45) 0px,
+      rgba(102, 45, 145, 0.45) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(233, 127, 114, 0.45) 0px,
-      rgba(233, 127, 114, 0.45) 2px,
+      rgba(227, 170, 170, 0.45) 0px,
+      rgba(227, 170, 170, 0.45) 2px,
       transparent 3px
     ),
     radial-gradient(
       circle,
-      rgba(182, 200, 169, 0.45) 0px,
-      rgba(182, 200, 169, 0.45) 2px,
+      rgba(175, 112, 175, 0.45) 0px,
+      rgba(175, 112, 175, 0.45) 2px,
       transparent 3px
     );
 
@@ -111,9 +112,9 @@
   background-position: 10% 25%, 20% 85%, 36% 10%, 55% 92%, 78% 18%, 90% 55%,
     92% 76%, 62% 8%, 42% 62%;
 
-  filter: drop-shadow(0 0 8px rgba(97, 19, 123, 0.08))
-    drop-shadow(0 0 8px rgba(233, 127, 114, 0.08))
-    drop-shadow(0 0 8px rgba(182, 200, 169, 0.08));
+  filter: drop-shadow(0 0 8px rgba(102, 45, 145, 0.08))
+    drop-shadow(0 0 8px rgba(227, 170, 170, 0.08))
+    drop-shadow(0 0 8px rgba(175, 112, 175, 0.08));
 
   /* cada capa “sale” hacia un vector distinto */
   --dx: 10px;

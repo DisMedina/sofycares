@@ -22,7 +22,7 @@ export default function HealthServicesSection() {
       </div>
 
       {/* Note */}
-      <div className="bg-primary-50 border-l-4 border-primary-600 rounded-lg p-6 text-center">
+      <div className="bg-primary-100 border-l-4 border-primary-600 rounded-lg p-6 text-center">
         <p className="text-lg text-text-primary font-medium">
           {healthServices.note}
         </p>
@@ -84,10 +84,10 @@ function ServiceCategory({
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-2 border-gray-100">
+    <div className="bg-secondary-50 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border-2 border-secondary-300 hover:border-primary-300">
       {/* Category Header */}
       <div className="flex items-center mb-6">
-        <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mr-4 text-accent-600">
+        <div className="w-12 h-12 bg-primary-200 rounded-lg flex items-center justify-center mr-4 text-primary-700">
           {iconMap[icon]}
         </div>
         <h3 className="text-2xl font-bold text-text-primary">{category}</h3>

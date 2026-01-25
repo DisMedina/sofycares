@@ -8,7 +8,7 @@ export default function AssistedLiving() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
+    <div className="min-h-screen bg-gradient-to-br from-accent-100 via-accent-200 to-accent-100">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-accent-600 to-accent-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +24,7 @@ export default function AssistedLiving() {
       </section>
 
       {/* A Hand You Can Reach Any Time */}
-      <section className="bg-white py-16">
+      <section className="bg-accent-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
@@ -67,7 +67,7 @@ export default function AssistedLiving() {
       </section>
 
       {/* Levels of Care Details */}
-      <section className="bg-white py-16">
+      <section className="bg-accent-200 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-text-primary mb-8 text-center">
             Our Approach to Assisted Living
@@ -85,12 +85,12 @@ export default function AssistedLiving() {
       </section>
 
       {/* All-Inclusive Services */}
-      <section className="bg-gradient-to-br from-primary-50 to-accent-50 py-16">
+      <section className="bg-accent-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-text-primary mb-8 text-center">
             {levelsOfCare.allInclusiveServices.title}
           </h2>
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="bg-accent-200 rounded-2xl shadow-xl p-8 md:p-12 border border-accent-300">
             <div className="grid md:grid-cols-2 gap-6">
               {levelsOfCare.allInclusiveServices.services.map(
                 (service, index) => (
@@ -164,7 +164,7 @@ export default function AssistedLiving() {
 
 function FeatureCard({ feature }: { feature: string }) {
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-accent-100">
+    <div className="bg-accent-100 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-accent-200 hover:border-accent-400">
       <div className="flex items-start">
         <svg
           className="w-8 h-8 text-accent-600 mr-4 flex-shrink-0 mt-1"
@@ -193,7 +193,7 @@ function DetailCard({
   description: string;
 }) {
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-200">
+    <div className="bg-accent-100 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-accent-200">
       <h3 className="text-xl font-bold text-text-primary mb-3">{title}</h3>
       <p className="text-text-secondary leading-relaxed">{description}</p>
     </div>

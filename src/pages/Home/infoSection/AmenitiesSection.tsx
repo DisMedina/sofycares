@@ -2,7 +2,7 @@ import { servicesAndAmenities } from "@/data/content";
 
 export default function AmenitiesSection() {
   return (
-    <section className="bg-gradient-to-br from-beige-50 to-light-gray py-20">
+    <section className="bg-gradient-to-br from-secondary-50 to-primary-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -33,7 +33,7 @@ function CategorySection({
   items: Array<{ title: string; description: string }>;
 }) {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8">
+    <div className="bg-accent-50 rounded-2xl shadow-lg p-8 border border-secondary-300">
       <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-6 border-b-4 border-primary-500 pb-3 inline-block">
         {category}
       </h3>
@@ -56,9 +56,9 @@ function AmenityItem({
   return (
     <div className="flex items-start space-x-4">
       <div className="flex-shrink-0">
-        <div className="w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
+        <div className="w-10 h-10 bg-primary-200 rounded-full flex items-center justify-center">
           <svg
-            className="w-6 h-6 text-accent-600"
+            className="w-6 h-6 text-primary-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

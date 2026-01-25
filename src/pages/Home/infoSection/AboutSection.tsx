@@ -111,8 +111,8 @@ function BenefitCard({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6">
-      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 text-primary-600">
+    <div className="bg-secondary-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-l-4 border-primary-500 hover:border-primary-600">
+      <div className="w-12 h-12 bg-primary-200 rounded-lg flex items-center justify-center mb-4 text-primary-700">
         {iconMap[icon]}
       </div>
       <h3 className="text-xl font-semibold text-text-primary mb-3">{title}</h3>

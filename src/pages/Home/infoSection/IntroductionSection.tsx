@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 export default function IntroductionSection() {
   const navigate = useNavigate();
   return (
-    <section className="relative bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-100 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-100 rounded-full opacity-20 blur-3xl"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-200 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-200 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-100 rounded-full opacity-20 blur-3xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -40,7 +41,7 @@ export default function IntroductionSection() {
 
         {/* Introduction Content */}
         <div className="max-w-5xl mx-auto mb-16">
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-primary-100">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-secondary-200">
             {heroContent.introduction.paragraphs.map((paragraph, index) => (
               <p
                 key={index}

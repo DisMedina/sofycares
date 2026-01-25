@@ -39,13 +39,18 @@ const galleryImages = [
   { src: "/images/SC_262.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_263.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_264.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_265.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_266.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_267.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_268.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_269.jpg", alt: "Sofy Cares Activity" },
 ];
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50 pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 pt-24 pb-16">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -66,7 +71,7 @@ export default function Gallery() {
               className="break-inside-avoid group cursor-pointer"
               onClick={() => setSelectedImage(image.src)}
             >
-              <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-secondary-200 hover:border-primary-400">
                 <img
                   src={image.src}
                   alt={image.alt}

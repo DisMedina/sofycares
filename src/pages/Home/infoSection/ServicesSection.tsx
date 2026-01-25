@@ -49,8 +49,8 @@ function LivingOptionCard({
   index: number;
 }) {
   const bgColorClass =
-    index === 0 ? "bg-gradient-to-br from-primary-50 to-primary-100" : "bg-gradient-to-br from-accent-50 to-accent-100";
-  const borderColorClass = index === 0 ? "border-primary-200" : "border-accent-200";
+    index === 0 ? "bg-primary-100" : "bg-accent-100";
+  const borderColorClass = index === 0 ? "border-primary-300" : "border-accent-300";
   const buttonColorClass =
     index === 0
       ? "bg-primary-600 hover:bg-primary-700"
@@ -73,7 +73,7 @@ function LivingOptionCard({
         {features.map((feature, idx) => (
           <li key={idx} className="flex items-start">
             <svg
-              className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5"
+              className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

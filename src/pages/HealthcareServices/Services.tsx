@@ -30,7 +30,7 @@ function HealthcareBanner() {
 
 export default function HealthcareServicesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {/* BANNER */}
       <HealthcareBanner />
 

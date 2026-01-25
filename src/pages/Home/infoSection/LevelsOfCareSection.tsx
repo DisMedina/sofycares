@@ -24,7 +24,7 @@ export default function LevelsOfCareSection() {
       </div>
 
       {/* All-Inclusive Services */}
-      <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl shadow-xl p-8 md:p-12">
+      <div className="bg-primary-100 rounded-2xl shadow-xl p-8 md:p-12 border border-primary-200">
         <h3 className="text-3xl font-bold text-text-primary mb-8 text-center">
           {levelsOfCare.allInclusiveServices.title}
         </h3>
@@ -46,7 +46,7 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-100">
+    <div className="bg-accent-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-secondary-200">
       <div className="flex items-start">
         <svg
           className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-1"
@@ -78,7 +78,7 @@ function ServiceItem({ service }: { service: string }) {
   return (
     <div className="flex items-start">
       <svg
-        className="w-5 h-5 text-accent-600 mr-3 flex-shrink-0 mt-0.5"
+        className="w-5 h-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

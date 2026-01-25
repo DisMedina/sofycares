@@ -1,6 +1,6 @@
 export default function Events() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50 pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 pt-24 pb-16">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -55,7 +55,7 @@ export default function Events() {
           </div>
 
           {/* Message Card */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-primary-100 mb-12">
+          <div className="bg-secondary-50/90 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-secondary-200 mb-12">
             <p className="text-2xl text-text-secondary leading-relaxed mb-6">
               We're working on something special for you!
             </p>
@@ -79,7 +79,7 @@ export default function Events() {
 
           {/* Preview Info */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-beige-200">
+            <div className="bg-primary-50 rounded-xl shadow-lg p-6 border border-primary-200">
               <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <svg
                   className="w-6 h-6 text-primary-600"
@@ -103,7 +103,7 @@ export default function Events() {
               </p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-beige-200">
+            <div className="bg-primary-50 rounded-xl shadow-lg p-6 border border-primary-200">
               <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <svg
                   className="w-6 h-6 text-accent-600"
@@ -127,7 +127,7 @@ export default function Events() {
               </p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-beige-200">
+            <div className="bg-primary-50 rounded-xl shadow-lg p-6 border border-primary-200">
               <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <svg
                   className="w-6 h-6 text-secondary-600"

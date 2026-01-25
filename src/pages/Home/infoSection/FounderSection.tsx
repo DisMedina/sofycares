@@ -17,7 +17,7 @@ export default function FounderSection() {
 
         {/* Content side */}
         <div>
-          <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12 border border-beige-200">
+          <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300">
             <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
               Our Founder
             </h2>
@@ -39,8 +39,8 @@ export default function FounderSection() {
             {/* Profile */}
             <div className="flex items-center space-x-4 mb-6">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-600 font-bold text-lg">ST</span>
+                <div className="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center">
+                  <span className="text-primary-700 font-bold text-lg">ST</span>
                 </div>
               </div>
 

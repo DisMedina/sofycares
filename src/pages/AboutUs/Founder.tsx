@@ -171,12 +171,12 @@ function FounderContent() {
 // ======================================================
 export default function Founder() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-secondary-50 to-beige-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {/* MAIN CONTENT */}
       <main className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12 border border-beige-200">
+            <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300">
               <FounderContent />
             </div>
 

@@ -92,8 +92,8 @@ function ActivityCard({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100">
-      <div className="w-14 h-14 bg-gradient-to-br from-primary-100 to-accent-100 rounded-xl flex items-center justify-center mb-4 text-primary-600">
+    <div className="bg-accent-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-secondary-200 hover:border-primary-300">
+      <div className="w-14 h-14 bg-primary-200 rounded-xl flex items-center justify-center mb-4 text-primary-700">
         {iconMap[icon]}
       </div>
       <h3 className="text-xl font-bold text-text-primary mb-3">{title}</h3>

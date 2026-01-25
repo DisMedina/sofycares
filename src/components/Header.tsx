@@ -27,7 +27,7 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
-    <nav className="relative z-10 bg-white/90 backdrop-blur-sm shadow-md border-b border-beige-200">
+    <nav className="relative z-10 bg-white/95 backdrop-blur-sm shadow-md border-b border-secondary-200">
       <div className="mx-auto px-6">
         {" "}
         {/* TOP BAR */}
