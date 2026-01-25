@@ -436,37 +436,6 @@ export const eventsAndCommunity = {
   ],
 };
 
-export const founderInfo = {
-  title: "Our Founder",
-  name: "Sofía Toledo Soto",
-  founded: "2014",
-  story: {
-    introduction:
-      "Sofy Cares was founded in 2014 by Sofía Toledo Soto, a caregiver with extensive experience and a deep vocation for compassionate elder care.",
-    background:
-      "Bilingual in English and with 38 years of experience living in the United States, Sofía brings strong knowledge of both U.S. and Mexican care standards.",
-    philosophy:
-      "Our philosophy is centered on compassion, dignity, and human connection. We believe every resident deserves to be treated with respect, to maintain their autonomy, and to feel truly at home.",
-  },
-  experience: [
-    {
-      title: "8 Years as Certified Nursing Assistant",
-      description: "In acute-care hospitals, providing critical patient care.",
-    },
-    {
-      title: "10 Years as Owner & Operator",
-      description:
-        "Of a licensed Residential Board & Care facility in California, including specialized Alzheimer's care.",
-    },
-    {
-      title: "38 Years Living in the United States",
-      description:
-        "Bilingual expertise and deep understanding of both U.S. and Mexican healthcare systems.",
-    },
-  ],
-  videoUrl: "", // Add video URL when available
-};
-
 export const contactInfo = {
   address: {
     street: "Juan José Torres Landa Torre A",
@@ -503,10 +472,4 @@ export const contactInfo = {
     },
   },
   googleMapsUrl: "https://www.google.com/maps/place/Sofy+Cares+SMA/@20.9031404,-100.7565095,17z/data=!3m1!4b1!4m6!3m5!1s0x842b51e693122229:0x492c3d728c86bcec!8m2!3d20.9031404!4d-100.7565095!16s%2Fg%2F11xvtnh7_x?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D",
-};
-
-export const recognitions = {
-  title: "Recognitions & Press",
-  googleReviewsUrl: "https://maps.app.goo.gl/HrkTzXtuqd7GWy5y6?g_st=iw",
-  items: [], // Add specific recognitions as they become available
 };
