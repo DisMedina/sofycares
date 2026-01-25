@@ -4,22 +4,21 @@ import { useNavigate } from "react-router-dom";
 export default function About() {
   const navigate = useNavigate();
   const images = [
-    {
-      src: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80",
-      alt: "Professional caregiver helping a senior",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
-      alt: "Team of healthcare professionals",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80",
-      alt: "Welcoming family environment",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
-      alt: "Personalized care",
-    },
+    { src: "/images/SC_250.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_251.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_252.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_253.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_254.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_255.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_256.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_257.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_258.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_259.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_260.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_261.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_262.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_263.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_264.jpg", alt: "Sofy Cares Community" },
   ];
 
   const [index, setIndex] = useState(0);
