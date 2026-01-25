@@ -154,9 +154,14 @@ function FounderContent() {
       </section>
 
       {/* CTA Button */}
-      <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition">
+      <a
+        href="https://www.sofycares.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition inline-block"
+      >
         Give Care Here
-      </button>
+      </a>
     </div>
   );
 }

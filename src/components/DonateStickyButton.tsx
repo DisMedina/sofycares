@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const DonateStickyButton = () => {
-  const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
 
   const targetRef = useRef<HTMLElement | null>(null);
@@ -26,8 +24,10 @@ const DonateStickyButton = () => {
   }, []);
 
   return (
-    <button
-      onClick={() => navigate("/founder")}
+    <a
+      href="https://www.sofycares.app"
+      target="_blank"
+      rel="noopener noreferrer"
       className={`
         fixed bottom-6 right-6 z-50
         px-6 py-3 rounded-2xl font-semibold tracking-wide text-white
@@ -49,7 +49,7 @@ const DonateStickyButton = () => {
       `}
     >
       💖 Give Care
-    </button>
+    </a>
   );
 };
 

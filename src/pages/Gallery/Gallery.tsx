@@ -2,18 +2,20 @@ import { useState } from "react";
 
 // Gallery images from public/images folder
 const galleryImages = [
+  { src: "/images/SC_8.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_10.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_17.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_19.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_51.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_55.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_58.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_8.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_99.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_121.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_122.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_130.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_149.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_152.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_161.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_167.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_221.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_224.jpg", alt: "Sofy Cares Activity" },
@@ -22,6 +24,21 @@ const galleryImages = [
   { src: "/images/SC_241.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_245.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_249.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_250.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_251.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_252.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_253.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_254.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_255.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_256.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_257.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_258.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_259.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_260.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_261.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_262.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_263.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_264.jpg", alt: "Sofy Cares Activity" },
 ];
 
 export default function Gallery() {

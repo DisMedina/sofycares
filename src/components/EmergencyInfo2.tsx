@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { contactInfo } from "@/data/content";
 
 const EmergencyInfo2: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
 
   return (
     <section
@@ -35,12 +33,14 @@ const EmergencyInfo2: React.FC = () => {
         </div>
 
         {/* Give Care button (right) */}
-        <button
+        <a
+          href="https://www.sofycares.app"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg font-medium transition"
-          onClick={() => navigate("/founder")}
         >
           Give Care
-        </button>
+        </a>
       </div>
 
       {/* Dropdown */}

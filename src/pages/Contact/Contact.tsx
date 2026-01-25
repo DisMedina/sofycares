@@ -6,6 +6,9 @@ import { useEmailUsage } from '@/hooks/useEmailUsage';
 
 const CONTACT_EMAIL = "sofycaressma@gmail.com";
 
+// Form is disabled - feature under development
+const FORM_DISABLED = true;
+
 const VALIDATION_PATTERNS = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   phone: /^\+?[\d\s\-\(\)]{10,}$/,
@@ -74,6 +77,7 @@ function TextField({
   onChange,
   error,
   required,
+  disabled,
 }: any) {
   return (
     <div>
@@ -92,8 +96,10 @@ function TextField({
         required={required}
         value={value}
         onChange={onChange}
+        disabled={disabled}
         className={`w-full px-4 py-3 border rounded-lg transition-colors duration-200
           ${error ? "border-red-500" : "border-gray-300"}
+          ${disabled ? "bg-gray-100 cursor-not-allowed opacity-60" : ""}
         `}
       />
 
@@ -110,6 +116,7 @@ function SelectField({
   options,
   error,
   required,
+  disabled,
 }: any) {
   return (
     <div>
@@ -123,8 +130,10 @@ function SelectField({
         value={value}
         required={required}
         onChange={onChange}
+        disabled={disabled}
         className={`w-full px-4 py-3 border rounded-lg transition-colors duration-200
           ${error ? "border-red-500" : "border-gray-300"}
+          ${disabled ? "bg-gray-100 cursor-not-allowed opacity-60" : ""}
         `}
       >
         {options.map((opt: any) => (
@@ -147,6 +156,7 @@ function TextAreaField({
   placeholder,
   onChange,
   error,
+  disabled,
 }: any) {
   return (
     <div>
@@ -162,8 +172,10 @@ function TextAreaField({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        disabled={disabled}
         className={`w-full px-4 py-3 border rounded-lg resize-vertical transition-colors duration-200
           ${error ? "border-red-500" : "border-gray-300"}
+          ${disabled ? "bg-gray-100 cursor-not-allowed opacity-60" : ""}
         `}
       />
 
@@ -388,6 +400,27 @@ export default function Contact() {
             Send Us Your Inquiry
           </h2>
 
+          {/* Form Disabled Notice */}
+          {FORM_DISABLED && (
+            <div className="mb-8 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <div className="flex items-start">
+                <AlertTriangle className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-bold text-blue-800 mb-2">
+                    Contact Form Coming Soon
+                  </h3>
+                  <p className="text-blue-700 mb-3">
+                    Our online contact form is currently under development. Please reach out to us directly using the contact information above.
+                  </p>
+                  <div className="space-y-2 text-blue-800">
+                    <p className="font-medium">📧 Email: {CONTACT_EMAIL}</p>
+                    <p className="font-medium">📞 Phone: +52 415 117 7643</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Email Usage Warnings */}
           {emailUsage.isLimitReached && (
             <div className="mb-8 bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
@@ -452,6 +485,7 @@ export default function Contact() {
                 onChange={handleChange}
                 error={errors.firstName}
                 required
+                disabled={FORM_DISABLED}
               />
 
               <TextField
@@ -462,6 +496,7 @@ export default function Contact() {
                 onChange={handleChange}
                 error={errors.lastName}
                 required
+                disabled={FORM_DISABLED}
               />
             </div>
 
@@ -476,6 +511,7 @@ export default function Contact() {
                 onChange={handleChange}
                 error={errors.email}
                 required
+                disabled={FORM_DISABLED}
               />
 
               <TextField
@@ -486,6 +522,7 @@ export default function Contact() {
                 value={form.phone}
                 onChange={handleChange}
                 error={errors.phone}
+                disabled={FORM_DISABLED}
               />
             </div>
 
@@ -498,6 +535,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 error={errors.serviceType}
+                disabled={FORM_DISABLED}
                 options={[
                   { value: "", text: "Select a service" },
                   { value: "personal-care", text: "Personal Care" },
@@ -514,6 +552,7 @@ export default function Contact() {
                 name="preferredContact"
                 value={form.preferredContact}
                 onChange={handleChange}
+                disabled={FORM_DISABLED}
                 options={[
                   { value: "email", text: "Email" },
                   { value: "phone", text: "Phone" },
@@ -531,6 +570,7 @@ export default function Contact() {
               onChange={handleChange}
               error={errors.subject}
               required
+              disabled={FORM_DISABLED}
             />
 
             {/* MESSAGE */}
@@ -542,15 +582,18 @@ export default function Contact() {
               onChange={handleChange}
               error={errors.message}
               required
+              disabled={FORM_DISABLED}
             />
 
             <div className="flex justify-center">
               <button
                 type="submit"
-                disabled={isSubmitting || emailUsage.isLimitReached}
+                disabled={FORM_DISABLED || isSubmitting || emailUsage.isLimitReached}
                 className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                {emailUsage.isLimitReached
+                {FORM_DISABLED
+                  ? 'Coming Soon'
+                  : emailUsage.isLimitReached
                   ? 'Form Unavailable - Contact Us Directly'
                   : isSubmitting
                   ? 'Sending...'
