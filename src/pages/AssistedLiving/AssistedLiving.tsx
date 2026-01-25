@@ -109,17 +109,17 @@ export default function AssistedLiving() {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <img
-            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+            src="/images/SC_17.jpg"
             className="w-full h-64 object-cover rounded-xl shadow-lg"
             alt="Assisted Living Space"
           />
           <img
-            src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80"
+            src="/images/SC_265.jpg"
             className="w-full h-64 object-cover rounded-xl shadow-lg"
             alt="Assisted Living Space"
           />
           <img
-            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=600&q=80"
+            src="/images/SC_130.jpg"
             className="w-full h-64 object-cover rounded-xl shadow-lg"
             alt="Assisted Living Care"
           />

@@ -118,17 +118,17 @@ export default function IndependentLiving() {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <img
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+            src="/images/SC_229.jpg"
             className="w-full h-64 object-cover rounded-xl shadow-lg"
             alt="Independent Living Space"
           />
           <img
-            src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+            src="/images/SC_249.jpg"
             className="w-full h-64 object-cover rounded-xl shadow-lg"
             alt="Independent Living Space"
           />
           <img
-            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80"
+            src="/images/SC_268.jpg"
             className="w-full h-64 object-cover rounded-xl shadow-lg"
             alt="Independent Living Community"
           />
