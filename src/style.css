@@ -1,11 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+  .allura-regular {
+    font-family: "Allura", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .playfair-italic {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
   }
 }
 
@@ -13,15 +26,15 @@
   .btn-primary {
     @apply bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105;
   }
-  
+
   .btn-secondary {
     @apply bg-light-gray hover:bg-beige-200 text-text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-200 border border-beige-300;
   }
-  
+
   .card {
     @apply bg-secondary-50 rounded-xl shadow-lg border border-beige-300 p-6 transition-all duration-200 hover:shadow-xl;
   }
-  
+
   .gradient-bg {
     background: linear-gradient(135deg, #662d91 0%, #af70af 50%, #e3aaaa 100%);
   }

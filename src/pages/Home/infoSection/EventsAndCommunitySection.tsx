@@ -7,13 +7,13 @@ export default function EventsAndCommunitySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="allura-regular text-6xl font-bold text-primary-600 mb-6">
             {eventsAndCommunity.title}
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-4">
+          <p className="playfair-italic text-3xl md:text-3xl lg:text-4xl text-primary-500 font-light mb-8">
             {eventsAndCommunity.subtitle}
           </p>
-          <p className="text-lg text-text-secondary max-w-4xl mx-auto">
+          <p className="playfair-italic text-3xl  text-primary-500 font-light mb-8">
             {eventsAndCommunity.description}
           </p>
         </div>

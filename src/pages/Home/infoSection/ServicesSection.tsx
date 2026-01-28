@@ -9,10 +9,10 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="allura-regular text-6xl font-bold text-primary-600 mb-6">
             {livingOptions.title}
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+          <p className="playfair-italic text-2xl md:text-3xl lg:text-4xl text-primary-500 font-light mb-8">
             {livingOptions.subtitle}
           </p>
         </div>
@@ -48,9 +48,9 @@ function LivingOptionCard({
   navigate: (path: string) => void;
   index: number;
 }) {
-  const bgColorClass =
-    index === 0 ? "bg-primary-100" : "bg-accent-100";
-  const borderColorClass = index === 0 ? "border-primary-300" : "border-accent-300";
+  const bgColorClass = index === 0 ? "bg-primary-100" : "bg-accent-100";
+  const borderColorClass =
+    index === 0 ? "border-primary-300" : "border-accent-300";
   const buttonColorClass =
     index === 0
       ? "bg-primary-600 hover:bg-primary-700"

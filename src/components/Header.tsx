@@ -38,11 +38,7 @@ export default function Header() {
             className="flex items-center cursor-pointer"
             onClick={() => navigate("/")}
           >
-            <img
-              src="/logo/logo-tll.svg"
-              alt="Sofy Cares"
-              className="h-14"
-            />
+            <img src="/logo/logo-tll.svg" alt="Sofy Cares" className="h-14" />
           </div>
           {/* DESKTOP NAV */}
           <DesktopNavigation />
@@ -123,9 +119,13 @@ function DesktopNavigation() {
                 className="
                   h-full flex items-center
                   px-4
-                  text-text-primary
+                  playfair-italic
+                  text-2xl
+                  font-bold
+                  text-primary-600
                   transition-colors duration-200
                   hover:bg-primary-50
+                  hover:text-primary-400
                   rounded-md
                 "
               >
@@ -147,7 +147,8 @@ function DesktopNavigation() {
                     {item.dropdownItems.map((dropdownItem) => (
                       <Link
                         key={dropdownItem.to}
-                        className="block px-4 py-2 hover:bg-primary-50 text-text-primary transition-colors duration-200"
+                        className="block px-4 py-2 playfair-italic text-xl font-semibold hover:bg-primary-50 text-primary-600
+                        hover:text-primary-400 transition-colors duration-200"
                         to={dropdownItem.to}
                       >
                         {dropdownItem.text}
@@ -191,7 +192,7 @@ function MobileMenu({
   return (
     <div
       id="mobile-menu"
-      className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
+      className="min-[950px]:hidden bg-white/95  rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
     >
       {/* MENU ITEMS */}
       <MobileDropdown
@@ -205,7 +206,7 @@ function MobileMenu({
 
       <Link
         to="/about"
-        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 playfair-italic text-primary-600 hover:text-primary-400 text-lg font-semibold"
         onClick={() => setMobileOpen(false)}
       >
         About Us
@@ -226,7 +227,7 @@ function MobileMenu({
 
       <Link
         to="/events"
-        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 playfair-italic text-primary-600 hover:text-primary-400 text-lg font-semibold"
         onClick={() => setMobileOpen(false)}
       >
         Events
@@ -234,7 +235,7 @@ function MobileMenu({
 
       <Link
         to="/gallery"
-        className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
+        className="block px-2 py-3 rounded-lg hover:bg-primary-50 playfair-italic text-primary-600 hover:text-primary-400 text-lg font-semibold"
         onClick={() => setMobileOpen(false)}
       >
         Gallery
@@ -271,8 +272,8 @@ function MobileDropdown({
   setMobileOpen: (v: boolean) => void;
 }) {
   return (
-    <details className="group">
-      <summary className="cursor-pointer list-none text-text-primary hover:text-primary-600 font-medium px-2 py-3 text-lg">
+    <details className="group !playfair-italic text-primary-600">
+      <summary className="cursor-pointer list-none playfair-italic text-primary-600 hover:text-primary-400 font-bold px-2 py-3 text-lg">
         {label}
       </summary>
 
@@ -281,7 +282,7 @@ function MobileDropdown({
           <Link
             key={item.to}
             to={item.to}
-            className="block px-2 py-2 rounded-lg hover:bg-primary-50 text-text-primary"
+            className="block px-2 py-2 rounded-lg hover:bg-primary-50 playfair-italic text-primary-600 hover:text-primary-400 font-semibold"
             onClick={() => setMobileOpen(false)}
           >
             {item.text}

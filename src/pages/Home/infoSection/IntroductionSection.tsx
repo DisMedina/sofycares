@@ -20,7 +20,7 @@ export default function IntroductionSection() {
               Welcome to Sofy Cares
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary mb-6 leading-tight">
+          <h1 className="allura-regular text-5xl md:text-6xl lg:text-7xl font-bold text-primary-600 mb-6 leading-tight">
             {heroContent.title}
           </h1>
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -34,7 +34,7 @@ export default function IntroductionSection() {
             </svg>
             <div className="h-1 w-16 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full"></div>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-text-secondary font-light mb-8">
+          <h2 className="playfair-italic text-2xl md:text-3xl lg:text-4xl text-primary-500 font-light mb-8">
             {heroContent.subtitle}
           </h2>
         </div>

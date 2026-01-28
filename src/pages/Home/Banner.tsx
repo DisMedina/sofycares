@@ -18,10 +18,10 @@ export default function Banner() {
       <div className="absolute inset-0 " />
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl px-6 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-5xl px-6 text-center flex flex-col items-center">
         {/* Text Card */}
         <div className=" rounded-2xl p-8 md:p-10 ">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]">
+          <h1 className="allura-regular text-6xl font-bold text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]">
             A safe, compassionate home where care is personal and dignity comes
             first.
           </h1>
