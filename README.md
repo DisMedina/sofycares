@@ -79,7 +79,6 @@ sofycares/
 │   │   │   └── Events.tsx      # Events page
 │   │   ├── Contact/
 │   │   │   └── Contact.tsx     # Contact form and info
-│   │   └── CommingSoon.tsx     # Placeholder page
 │   ├── layout/
 │   │   └── MainLayout.tsx      # Main layout wrapper
 │   ├── shared/

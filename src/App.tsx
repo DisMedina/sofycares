@@ -7,7 +7,6 @@ import About from "@/pages/AboutUs/About";
 import Services from "@/pages/HealthcareServices/Services";
 import Founder from "@/pages/AboutUs/Founder";
 import Contact from "@/pages/Contact/Contact";
-import ComingSoon from "@/pages/CommingSoon";
 
 import AssistedLiving from "@/pages/AssistedLiving/AssistedLiving";
 import IndependentLiving from "@/pages/IndependentLiving";
@@ -31,7 +30,6 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/founder" element={<Founder />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/coming-soon" element={<ComingSoon />} />
 
           <Route path="/assisted-living" element={<AssistedLiving />} />
           <Route path="/independent-living" element={<IndependentLiving />} />
