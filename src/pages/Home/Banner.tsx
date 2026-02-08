@@ -29,7 +29,7 @@ export default function Banner() {
 
         {/* Button outside card */}
         <a
-          href="https://www.youtube.com/watch?v=Het2Ejb0CLo&feature=youtu.be"
+          href="https://www.youtube.com/watch?v=PKuWYYTKKw4"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-8 px-8 py-4 rounded-full bg-accent-600 text-white font-semibold shadow-md hover:bg-accent-700 transition"
