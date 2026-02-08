@@ -2,20 +2,16 @@ import { useEffect, useState } from "react";
 
 const founderImages = [
   {
-    src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/SC_275.jpg",
     alt: "Sofia Toledo Soto - Founder of Sofy Cares",
   },
   {
-    src: "https://images.unsplash.com/photo-1594824475317-8c78e1b0b157?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/SC_273.jpg",
     alt: "Sofia Toledo Soto at work",
   },
   {
-    src: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/SC_271.jpg",
     alt: "Sofia Toledo Soto with the team",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Sofia Toledo Soto - Leader in health care",
   },
 ];
 

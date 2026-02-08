@@ -44,6 +44,12 @@ const galleryImages = [
   { src: "/images/SC_267.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_268.jpg", alt: "Sofy Cares Activity" },
   { src: "/images/SC_269.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_270.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_271.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_272.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_273.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_274.jpg", alt: "Sofy Cares Activity" },
+  { src: "/images/SC_275.jpg", alt: "Sofy Cares Activity" },
 ];
 
 export default function Gallery() {

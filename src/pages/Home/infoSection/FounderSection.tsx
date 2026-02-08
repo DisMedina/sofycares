@@ -9,9 +9,10 @@ export default function FounderSection() {
         {/* Image side */}
         <div>
           <img
-            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            src="/images/SC_275.jpg"
             alt="Founder of Sofy Cares"
             className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-xl"
+            style={{ objectPosition: 'center 15%' }}
           />
         </div>
 
