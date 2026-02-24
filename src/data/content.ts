@@ -7,7 +7,6 @@ export const heroContent = {
     paragraphs: [
       "Currently, Sofy Cares offers full-time and part-time care, serving families in San Miguel de Allende with integrity, experience, and genuine dedication. We are a home-like community built on compassion. From daily companionship and assistance to rehabilitation, memory care, and palliative (hospice) care, we adapt our services to each individual's needs.",
       "With fewer residents than large facilities, we provide closer attention, deeper relationships, and higher-quality care—often at a lower cost than more formal institutions.",
-      "We currently have 18 residents supported by 9 highly experienced caregivers, ensuring a safe and attentive stay.",
     ],
   },
   cta: {
