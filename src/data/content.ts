@@ -279,6 +279,23 @@ export const servicesAndAmenities = {
   ],
 };
 
+export const trustedProfessionals = {
+  title: "Trusted Nearby Medical Professionals",
+  subtitle:
+    "Sofy Cares trusts these independent medical practitioners in the San Miguel de Allende area",
+  professionals: [
+    {
+      name: "Aldo Jiménez Herevia",
+      specialty: "Cirujano Oncólogo y Cirujano General",
+      phone: "+52 5654305184",
+      phoneRaw: "525654305184",
+      facebook:
+        "https://www.facebook.com/share/1EL33ProjE/?mibextid=wwXIfr",
+      image: "/images/doc_1.jpg",
+    },
+  ],
+};
+
 export const healthServices = {
   title: "Health & Medical Services",
   subtitle:
