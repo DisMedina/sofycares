@@ -19,7 +19,7 @@ export default function FounderSection() {
         {/* Content side */}
         <div>
           <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300">
-            <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold font-allura text-primary-500 mb-6">
               Our Founder
             </h2>
 

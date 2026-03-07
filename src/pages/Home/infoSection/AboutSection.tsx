@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
       <div className="text-center mb-12">
-        <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+        <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-6">
           {whyChooseSofyCares.title}
         </h2>
         <p className="text-xl text-text-secondary max-w-3xl mx-auto">

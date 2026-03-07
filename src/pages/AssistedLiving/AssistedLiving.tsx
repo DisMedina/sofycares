@@ -27,7 +27,7 @@ export default function AssistedLiving() {
       <section className="bg-accent-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-text-primary mb-6">
+            <h2 className="text-4xl font-bold font-allura text-primary-500 mb-6">
               A Hand You Can Reach Any Time
             </h2>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
@@ -56,7 +56,7 @@ export default function AssistedLiving() {
 
       {/* Key Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+        <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
           Our Assisted Living Special
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -69,7 +69,7 @@ export default function AssistedLiving() {
       {/* Levels of Care Details */}
       <section className="bg-accent-200 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-text-primary mb-8 text-center">
+          <h2 className="text-4xl font-bold font-allura text-primary-500 mb-8 text-center">
             Our Approach to Assisted Living
           </h2>
           <p className="text-xl text-text-secondary text-center mb-12 max-w-4xl mx-auto">
@@ -87,7 +87,7 @@ export default function AssistedLiving() {
       {/* All-Inclusive Services */}
       <section className="bg-accent-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-text-primary mb-8 text-center">
+          <h2 className="text-4xl font-bold font-allura text-primary-500 mb-8 text-center">
             {levelsOfCare.allInclusiveServices.title}
           </h2>
           <div className="bg-accent-200 rounded-2xl shadow-xl p-8 md:p-12 border border-accent-300">
@@ -104,7 +104,7 @@ export default function AssistedLiving() {
 
       {/* Gallery Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+        <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
           Our Assisted Living Community
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

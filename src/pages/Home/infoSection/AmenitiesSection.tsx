@@ -7,7 +7,7 @@ export default function AmenitiesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
             {servicesAndAmenities.title}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
@@ -25,7 +25,7 @@ export default function AmenitiesSection() {
         {/* Trusted Medical Professionals */}
         <div className="mt-16">
           <div className="text-center mb-12">
-            <h3 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
+            <h3 className="text-3xl lg:text-4xl font-bold font-allura text-primary-500 mb-4">
               {trustedProfessionals.title}
             </h3>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto">

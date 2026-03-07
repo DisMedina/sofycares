@@ -19,7 +19,7 @@ export default function IndependentLiving() {
 
       {/* Key Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+        <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
           Independent Living Services
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -42,7 +42,7 @@ export default function IndependentLiving() {
       <section className="bg-secondary-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-text-primary mb-6">
+            <h2 className="text-4xl font-bold font-allura text-primary-500 mb-6">
               A Senior Lifestyle Built for You
             </h2>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
@@ -67,7 +67,7 @@ export default function IndependentLiving() {
       {/* Amenities Highlight */}
       <section className="bg-gradient-to-br from-sage-50 to-secondary-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+          <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
             Amenities & Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -113,7 +113,7 @@ export default function IndependentLiving() {
 
       {/* Gallery Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-4xl font-bold text-text-primary mb-12 text-center">
+        <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
           Your Independent Living Home
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

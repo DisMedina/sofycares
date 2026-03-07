@@ -70,7 +70,7 @@ function FounderCarousel() {
 function FounderContent() {
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+      <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-6">
         Our Founder
       </h1>
 

@@ -20,7 +20,7 @@ export default function IntroductionSection() {
               Welcome to Sofy Cares
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-allura text-primary-500 mb-6 leading-tight">
             {heroContent.title}
           </h1>
           <div className="flex items-center justify-center gap-3 mb-6">

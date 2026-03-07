@@ -17,7 +17,7 @@ export default function LocationSection() {
               Get in Touch
             </span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
             Our Location & Contact
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">

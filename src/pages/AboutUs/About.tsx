@@ -67,13 +67,13 @@ export default function About() {
 
           {/* 👉 RIGHT: COMPANY CONTENT */}
           <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300 space-y-10">
-            <h1 className="text-4xl lg:text-5xl font-bold text-text-primary">
+            <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500">
               About Us
             </h1>
 
             {/* Mission */}
             <section>
-              <h2 className="text-2xl font-semibold text-text-primary mb-4">
+              <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
                 Our Mission
               </h2>
               <p className="text-lg text-text-secondary leading-relaxed">
@@ -83,7 +83,7 @@ export default function About() {
 
             {/* Vision */}
             <section>
-              <h2 className="text-2xl font-semibold text-text-primary mb-4">
+              <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
                 Our Vision
               </h2>
               <p className="text-lg text-text-secondary leading-relaxed">
@@ -93,7 +93,7 @@ export default function About() {
 
             {/* Values */}
             <section>
-              <h2 className="text-2xl font-semibold text-text-primary mb-4">
+              <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
                 Our Values
               </h2>
               <ul className="space-y-3 text-lg text-text-secondary">
@@ -127,7 +127,7 @@ export default function About() {
 
             {/* Story */}
             <section>
-              <h2 className="text-2xl font-semibold text-text-primary mb-4">
+              <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
                 Our Story
               </h2>
 
@@ -138,7 +138,7 @@ export default function About() {
 
             {/* Team */}
             <section>
-              <h2 className="text-2xl font-semibold text-text-primary mb-4">
+              <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
                 Our Team
               </h2>
 

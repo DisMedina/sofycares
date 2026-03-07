@@ -349,7 +349,7 @@ export default function Contact() {
 
       {/* INFO */}
       <section className="py-16 bg-secondary-50">
-        <h2 className="text-3xl font-bold text-center text-text-primary mb-12">
+        <h2 className="text-3xl font-bold text-center font-allura text-primary-500 mb-12">
           Contact Information
         </h2>
 
@@ -396,7 +396,7 @@ export default function Contact() {
       {/* FORM */}
       <section className="py-16 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-text-primary mb-12">
+          <h2 className="text-3xl font-bold text-center font-allura text-primary-500 mb-12">
             Send Us Your Inquiry
           </h2>
 

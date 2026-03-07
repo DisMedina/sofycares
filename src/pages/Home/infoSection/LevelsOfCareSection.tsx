@@ -5,7 +5,7 @@ export default function LevelsOfCareSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+        <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
           {levelsOfCare.title}
         </h2>
         <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-6">
@@ -25,7 +25,7 @@ export default function LevelsOfCareSection() {
 
       {/* All-Inclusive Services */}
       <div className="bg-primary-100 rounded-2xl shadow-xl p-8 md:p-12 border border-primary-200">
-        <h3 className="text-3xl font-bold text-text-primary mb-8 text-center">
+        <h3 className="text-3xl font-bold font-allura text-primary-500 mb-8 text-center">
           {levelsOfCare.allInclusiveServices.title}
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
