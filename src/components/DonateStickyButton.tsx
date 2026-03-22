@@ -25,7 +25,7 @@ const DonateStickyButton = () => {
 
   return (
     <a
-      href="https://www.sofycares.app"
+      href="https://www.sofy-cares.ac"
       target="_blank"
       rel="noopener noreferrer"
       className={`

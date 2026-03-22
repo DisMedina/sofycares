@@ -34,7 +34,7 @@ const EmergencyInfo2: React.FC = () => {
 
         {/* Give Care button (right) */}
         <a
-          href="https://www.sofycares.app"
+          href="https://www.sofy-cares.ac"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg font-medium transition"
