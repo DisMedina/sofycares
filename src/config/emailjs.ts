@@ -1,11 +1,9 @@
 // EmailJS Configuration
-// Sign up at https://www.emailjs.com/ to get your credentials
 
 export const EMAILJS_CONFIG = {
-  serviceId: 'YOUR_SERVICE_ID',
-  templateId: 'YOUR_TEMPLATE_ID',
-  publicKey: 'YOUR_PUBLIC_KEY',
-  privateKey: 'YOUR_PRIVATE_KEY' // Optional: For usage tracking only
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 };
 
 // Email usage limits

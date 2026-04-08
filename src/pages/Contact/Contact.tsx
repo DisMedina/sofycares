@@ -6,8 +6,7 @@ import { useEmailUsage } from '@/hooks/useEmailUsage';
 
 const CONTACT_EMAIL = "sofycaressma@gmail.com";
 
-// Form is disabled - feature under development
-const FORM_DISABLED = true;
+type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 const VALIDATION_PATTERNS = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -202,11 +201,11 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState<any>({});
+  const [status, setStatus] = useState<FormStatus>('idle');
   const [toast, setToast] = useState<{
     type: "success" | "error";
     message: string;
   } | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Hide toast after 4 seconds
   const showToast = (type: "success" | "error", message: string) => {
@@ -272,27 +271,42 @@ export default function Contact() {
       return;
     }
 
-    // EmailJS Integration
-    setIsSubmitting(true);
+    setStatus('sending');
+
+    const serviceTypeLabels: Record<string, string> = {
+      'personal-care': 'Personal Care',
+      'companionship': 'Companionship',
+      'home-support': 'Home Support',
+      'respite-care': 'Respite Care',
+      'specialized': 'Specialized Care',
+      'consultation': 'General Consultation',
+    };
+
+    const preferredContactLabels: Record<string, string> = {
+      'email': 'Email',
+      'phone': 'Phone',
+      'either': 'Either',
+    };
 
     try {
       await emailjs.send(
         EMAILJS_CONFIG.serviceId,
         EMAILJS_CONFIG.templateId,
         {
-          firstName: form.firstName,
-          lastName: form.lastName,
+          first_name: form.firstName,
+          last_name: form.lastName,
           email: form.email,
           phone: form.phone || 'Not provided',
           subject: form.subject,
           message: form.message,
-          serviceType: form.serviceType,
-          preferredContact: form.preferredContact,
+          service_type: serviceTypeLabels[form.serviceType] || form.serviceType,
+          preferred_contact: preferredContactLabels[form.preferredContact] || form.preferredContact,
           to_email: CONTACT_EMAIL
         },
         EMAILJS_CONFIG.publicKey
       );
 
+      setStatus('success');
       showToast("success", "Email sent successfully! We'll get back to you soon.");
       setForm({
         firstName: "",
@@ -306,9 +320,8 @@ export default function Contact() {
       });
     } catch (error) {
       console.error('EmailJS Error:', error);
+      setStatus('error');
       showToast("error", "Failed to send email. Please try again or contact us directly.");
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -400,27 +413,6 @@ export default function Contact() {
             Send Us Your Inquiry
           </h2>
 
-          {/* Form Disabled Notice */}
-          {FORM_DISABLED && (
-            <div className="mb-8 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-              <div className="flex items-start">
-                <AlertTriangle className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-lg font-bold text-blue-800 mb-2">
-                    Contact Form Coming Soon
-                  </h3>
-                  <p className="text-blue-700 mb-3">
-                    Our online contact form is currently under development. Please reach out to us directly using the contact information above.
-                  </p>
-                  <div className="space-y-2 text-blue-800">
-                    <p className="font-medium">📧 Email: {CONTACT_EMAIL}</p>
-                    <p className="font-medium">📞 Phone: +52 415 117 7643</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
           {/* Email Usage Warnings */}
           {emailUsage.isLimitReached && (
             <div className="mb-8 bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
@@ -485,7 +477,7 @@ export default function Contact() {
                 onChange={handleChange}
                 error={errors.firstName}
                 required
-                disabled={FORM_DISABLED}
+
               />
 
               <TextField
@@ -496,7 +488,7 @@ export default function Contact() {
                 onChange={handleChange}
                 error={errors.lastName}
                 required
-                disabled={FORM_DISABLED}
+
               />
             </div>
 
@@ -511,7 +503,7 @@ export default function Contact() {
                 onChange={handleChange}
                 error={errors.email}
                 required
-                disabled={FORM_DISABLED}
+
               />
 
               <TextField
@@ -522,7 +514,7 @@ export default function Contact() {
                 value={form.phone}
                 onChange={handleChange}
                 error={errors.phone}
-                disabled={FORM_DISABLED}
+
               />
             </div>
 
@@ -535,7 +527,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 error={errors.serviceType}
-                disabled={FORM_DISABLED}
+
                 options={[
                   { value: "", text: "Select a service" },
                   { value: "personal-care", text: "Personal Care" },
@@ -552,7 +544,7 @@ export default function Contact() {
                 name="preferredContact"
                 value={form.preferredContact}
                 onChange={handleChange}
-                disabled={FORM_DISABLED}
+
                 options={[
                   { value: "email", text: "Email" },
                   { value: "phone", text: "Phone" },
@@ -570,7 +562,6 @@ export default function Contact() {
               onChange={handleChange}
               error={errors.subject}
               required
-              disabled={FORM_DISABLED}
             />
 
             {/* MESSAGE */}
@@ -582,20 +573,17 @@ export default function Contact() {
               onChange={handleChange}
               error={errors.message}
               required
-              disabled={FORM_DISABLED}
             />
 
             <div className="flex justify-center">
               <button
                 type="submit"
-                disabled={FORM_DISABLED || isSubmitting || emailUsage.isLimitReached}
+                disabled={status === 'sending' || emailUsage.isLimitReached}
                 className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                {FORM_DISABLED
-                  ? 'Coming Soon'
-                  : emailUsage.isLimitReached
+                {emailUsage.isLimitReached
                   ? 'Form Unavailable - Contact Us Directly'
-                  : isSubmitting
+                  : status === 'sending'
                   ? 'Sending...'
                   : 'Send Inquiry'}
               </button>
