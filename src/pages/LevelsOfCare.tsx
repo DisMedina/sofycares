@@ -1,22 +1,24 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function LevelsOfCare() {
+  const { t } = useLanguage();
+
   const levels = [
-    { name: "Assisted Living", href: "/levels/assisted-living" },
-    { name: "Memory Care", href: "/levels/memory-care" },
-    { name: "Short-term Rehabilitation", href: "/levels/short-term-rehab" },
-    { name: "Long-term Rehabilitation", href: "/levels/long-term-rehab" },
+    { name: t("levelsOfCareAssistedLiving"), href: "/levels/assisted-living" },
+    { name: t("levelsOfCareMemoryCare"), href: "/levels/memory-care" },
+    { name: t("levelsOfCareShortTermRehab"), href: "/levels/short-term-rehab" },
+    { name: t("levelsOfCareLongTermRehab"), href: "/levels/long-term-rehab" },
   ];
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <h1 className="text-4xl font-bold font-allura text-primary-500 mb-6 text-center">
-        Levels of Care
+        {t("levelsOfCarePageTitle")}
       </h1>
 
       <p className="text-lg text-text-secondary mb-6 leading-relaxed text-center">
-        We offer a full spectrum of care options to meet every need, from
-        assisted living to specialized memory care and rehabilitation.
+        {t("levelsOfCarePageSubtitle")}
       </p>
 
       <ul className="mb-6 max-w-2xl mx-auto text-left list-disc pl-6 text-text-secondary">

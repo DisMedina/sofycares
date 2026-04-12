@@ -1,4 +1,8 @@
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function Banner() {
+  const { t } = useLanguage();
+
   return (
     <div className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
@@ -22,8 +26,7 @@ export default function Banner() {
         {/* Text Card */}
         <div className=" rounded-2xl p-8 md:p-10 ">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]">
-            A safe, compassionate home where care is personal and dignity comes
-            first.
+            {t("textBanner")}
           </h1>
         </div>
 
@@ -34,7 +37,7 @@ export default function Banner() {
           rel="noopener noreferrer"
           className="mt-8 px-8 py-4 rounded-full bg-accent-600 text-white font-semibold shadow-md hover:bg-accent-700 transition"
         >
-          Watch our video
+          {t("watchOurVideo")}
         </a>
       </div>
 

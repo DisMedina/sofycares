@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { contactInfo } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 
 const EmergencyInfo2: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <section
@@ -21,7 +22,7 @@ const EmergencyInfo2: React.FC = () => {
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
         >
-          <h2 className="text-lg font-bold">Phone Directory</h2>
+          <h2 className="text-lg font-bold">{t("phoneDirectory")}</h2>
 
           {/* Icono triangulo */}
           <span
@@ -39,7 +40,7 @@ const EmergencyInfo2: React.FC = () => {
           rel="noopener noreferrer"
           className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg font-medium transition"
         >
-          Give Care
+          {t("giveCare")}
         </a>
       </div>
 
@@ -59,12 +60,12 @@ const EmergencyInfo2: React.FC = () => {
           {/* General Info */}
           <div className="bg-primary-100 px-4 py-2 hover:bg-primary-200 transition-colors shadow-md">
             <p className="text-lg text-text-primary">
-              <strong>General Information:</strong>{" "}
+              <strong>{t("generalInformationLabel")}:</strong>{" "}
               <a
-                href={`tel:${contactInfo.phone.raw}`}
+                href={`tel:${t("contactInfoPhoneRaw")}`}
                 className="text-primary-700 hover:underline font-semibold"
               >
-                {contactInfo.phone.display}
+                {t("contactInfoPhoneDisplay")}
               </a>
             </p>
           </div>
@@ -72,12 +73,12 @@ const EmergencyInfo2: React.FC = () => {
           {/* Emergency */}
           <div className="bg-primary-100 px-4 py-2 hover:bg-primary-200 transition-colors shadow-md">
             <p className="text-lg text-red-700">
-              <strong>Emergency Contact:</strong>{" "}
+              <strong>{t("emergencyContactLabel")}:</strong>{" "}
               <a
-                href={`tel:${contactInfo.emergency.raw}`}
+                href={`tel:${t("contactInfoEmergencyRaw")}`}
                 className="text-red-700 hover:underline font-semibold"
               >
-                {contactInfo.emergency.display}
+                {t("contactInfoEmergencyDisplay")}
               </a>
             </p>
           </div>

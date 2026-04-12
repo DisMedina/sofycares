@@ -1,23 +1,119 @@
-import { servicesAndAmenities, trustedProfessionals } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 import { FaFacebook } from "react-icons/fa";
 
 export default function AmenitiesSection() {
+  const { t } = useLanguage();
   return (
     <section className="bg-gradient-to-br from-secondary-50 to-primary-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            {servicesAndAmenities.title}
+            {t("servicesAmenitiesTitle")}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            {servicesAndAmenities.subtitle}
+            {t("servicesAmenitiesSubtitle")}
           </p>
         </div>
 
         {/* Categories */}
         <div className="space-y-12">
-          {servicesAndAmenities.categories.map((category, index) => (
+          {[
+            {
+              category: t("nutritionCategory"),
+              items: [
+                {
+                  title: t("nutritionItem1Title"),
+                  description: t("nutritionItem1Desc"),
+                },
+                {
+                  title: t("nutritionItem2Title"),
+                  description: t("nutritionItem2Desc"),
+                },
+                {
+                  title: t("nutritionItem3Title"),
+                  description: t("nutritionItem3Desc"),
+                },
+              ],
+            },
+            {
+              category: t("wellnessCategory"),
+              items: [
+                {
+                  title: t("wellnessItem1Title"),
+                  description: t("wellnessItem1Desc"),
+                },
+                {
+                  title: t("wellnessItem2Title"),
+                  description: t("wellnessItem2Desc"),
+                },
+                {
+                  title: t("wellnessItem3Title"),
+                  description: t("wellnessItem3Desc"),
+                },
+                {
+                  title: t("wellnessItem4Title"),
+                  description: t("wellnessItem4Desc"),
+                },
+              ],
+            },
+            {
+              category: t("personalCareCategory"),
+              items: [
+                {
+                  title: t("personalCareItem1Title"),
+                  description: t("personalCareItem1Desc"),
+                },
+                {
+                  title: t("personalCareItem2Title"),
+                  description: t("personalCareItem2Desc"),
+                },
+                {
+                  title: t("personalCareItem3Title"),
+                  description: t("personalCareItem3Desc"),
+                },
+              ],
+            },
+            {
+              category: t("facilitiesCategory"),
+              items: [
+                {
+                  title: t("facilitiesItem1Title"),
+                  description: t("facilitiesItem1Desc"),
+                },
+                {
+                  title: t("facilitiesItem2Title"),
+                  description: t("facilitiesItem2Desc"),
+                },
+                {
+                  title: t("facilitiesItem3Title"),
+                  description: t("facilitiesItem3Desc"),
+                },
+                {
+                  title: t("facilitiesItem4Title"),
+                  description: t("facilitiesItem4Desc"),
+                },
+              ],
+            },
+            {
+              category: t("petTherapyCategory"),
+              items: [
+                {
+                  title: t("petTherapyItem1Title"),
+                  description: t("petTherapyItem1Desc"),
+                },
+              ],
+            },
+            {
+              category: t("familyAccommodationsCategory"),
+              items: [
+                {
+                  title: t("familyAccommodationsItem1Title"),
+                  description: t("familyAccommodationsItem1Desc"),
+                },
+              ],
+            },
+          ].map((category, index) => (
             <CategorySection key={index} {...category} />
           ))}
         </div>
@@ -26,15 +122,24 @@ export default function AmenitiesSection() {
         <div className="mt-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl lg:text-4xl font-bold font-allura text-primary-500 mb-4">
-              {trustedProfessionals.title}
+              {t("trustedProfessionalsTitle")}
             </h3>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-              {trustedProfessionals.subtitle}
+              {t("trustedProfessionalsSubtitle")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {trustedProfessionals.professionals.map((professional, index) => (
+            {[
+              {
+                name: "Aldo Jiménez Herevia",
+                specialty: "Cirujano Oncólogo y Cirujano General",
+                phone: "+52 5654305184",
+                phoneRaw: "525654305184",
+                facebook: "https://www.facebook.com/share/1EL33ProjE/?mibextid=wwXIfr",
+                image: "/images/doc_1.jpg",
+              },
+            ].map((professional, index) => (
               <ProfessionalCard key={index} {...professional} />
             ))}
           </div>

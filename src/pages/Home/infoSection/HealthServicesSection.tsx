@@ -1,22 +1,116 @@
 import type { JSX } from "react";
-import { healthServices } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HealthServicesSection() {
+  const { t } = useLanguage();
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-          {healthServices.title}
+          {t("healthServicesTitle")}
         </h2>
         <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-          {healthServices.subtitle}
+          {t("healthServicesSubtitle")}
         </p>
       </div>
 
       {/* Services Categories */}
       <div className="grid md:grid-cols-2 gap-8 mb-12">
-        {healthServices.services.map((service, index) => (
+        {[
+          {
+            category: t("medicalStaffCategory"),
+            icon: "medical",
+            items: [
+              {
+                title: t("medicalStaffItem1Title"),
+                description: t("medicalStaffItem1Desc"),
+              },
+              {
+                title: t("medicalStaffItem2Title"),
+                description: t("medicalStaffItem2Desc"),
+              },
+              {
+                title: t("medicalStaffItem3Title"),
+                description: t("medicalStaffItem3Desc"),
+              },
+            ],
+          },
+          {
+            category: t("specializedCareCategory"),
+            icon: "heart",
+            items: [
+              {
+                title: t("specializedCareItem1Title"),
+                description: t("specializedCareItem1Desc"),
+              },
+              {
+                title: t("specializedCareItem2Title"),
+                description: t("specializedCareItem2Desc"),
+              },
+              {
+                title: t("specializedCareItem3Title"),
+                description: t("specializedCareItem3Desc"),
+              },
+            ],
+          },
+          {
+            category: t("rehabilitationCategory"),
+            icon: "activity",
+            items: [
+              {
+                title: t("rehabilitationItem1Title"),
+                description: t("rehabilitationItem1Desc"),
+              },
+              {
+                title: t("rehabilitationItem2Title"),
+                description: t("rehabilitationItem2Desc"),
+              },
+              {
+                title: t("rehabilitationItem3Title"),
+                description: t("rehabilitationItem3Desc"),
+              },
+              {
+                title: t("rehabilitationItem4Title"),
+                description: t("rehabilitationItem4Desc"),
+              },
+              {
+                title: t("rehabilitationItem5Title"),
+                description: t("rehabilitationItem5Desc"),
+              },
+              {
+                title: t("rehabilitationItem6Title"),
+                description: t("rehabilitationItem6Desc"),
+              },
+              {
+                title: t("rehabilitationItem7Title"),
+                description: t("rehabilitationItem7Desc"),
+              },
+            ],
+          },
+          {
+            category: t("caregiverSupportCategory"),
+            icon: "users",
+            items: [
+              {
+                title: t("caregiverSupportItem1Title"),
+                description: t("caregiverSupportItem1Desc"),
+              },
+              {
+                title: t("caregiverSupportItem2Title"),
+                description: t("caregiverSupportItem2Desc"),
+              },
+              {
+                title: t("caregiverSupportItem3Title"),
+                description: t("caregiverSupportItem3Desc"),
+              },
+              {
+                title: t("caregiverSupportItem4Title"),
+                description: t("caregiverSupportItem4Desc"),
+              },
+            ],
+          },
+        ].map((service, index) => (
           <ServiceCategory key={index} {...service} />
         ))}
       </div>
@@ -24,7 +118,7 @@ export default function HealthServicesSection() {
       {/* Note */}
       <div className="bg-primary-100 border-l-4 border-primary-600 rounded-lg p-6 text-center">
         <p className="text-lg text-text-primary font-medium">
-          {healthServices.note}
+          {t("healthServicesNote")}
         </p>
       </div>
     </section>

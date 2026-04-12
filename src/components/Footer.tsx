@@ -1,6 +1,7 @@
 // Footer.tsx
 import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { useLanguage } from "@/context/LanguageContext";
 
 const socialLinks = [
   {
@@ -23,28 +24,29 @@ const socialLinks = [
   },
 ];
 
-const quickLinks = [
-  { href: "/", text: "Home" },
-  { href: "/about", text: "About Us" },
-  { href: "/services", text: "Services" },
-  { href: "/contact", text: "Contact" },
-];
-
-const servicesList = [
-  { href: "/independent-living", text: "Independent Living" },
-  { href: "/assisted-living", text: "Assisted Living" },
-  { href: "/services#health-medical-services", text: "Health & Medical Services" },
-  { href: "/services#levels-of-care", text: "Levels of Care" },
-  { href: "/services#services-amenities", text: "Services & Amenities" },
-];
-
-const legalLinks = [
-  { href: "#privacy", text: "Privacy Policy" },
-  { href: "#terms", text: "Terms of Service" },
-  { href: "#accessibility", text: "Accessibility" },
-];
-
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const quickLinks = [
+    { href: "/", text: t("footerHome") },
+    { href: "/about", text: t("footerAboutUs") },
+    { href: "/services", text: t("footerServicesLink") },
+    { href: "/contact", text: t("footerContactLink") },
+  ];
+
+  const servicesList = [
+    { href: "/independent-living", text: t("footerIndependentLiving") },
+    { href: "/assisted-living", text: t("footerAssistedLiving") },
+    { href: "/services#health-medical-services", text: t("healthAndMedicalServices") },
+    { href: "/services#levels-of-care", text: t("levelsOfCare") },
+    { href: "/services#services-amenities", text: t("servicesAndAmenities") },
+  ];
+
+  const legalLinks = [
+    { href: "#privacy", text: t("footerPrivacyPolicy") },
+    { href: "#terms", text: t("footerTermsOfService") },
+    { href: "#accessibility", text: t("footerAccessibility") },
+  ];
   return (
     <footer className="bg-primary-900 text-white">
       {/* Main footer grid */}
@@ -61,8 +63,7 @@ export default function Footer() {
             </div>
 
             <p className="text-white/80 mb-6 leading-relaxed">
-              We provide personal care and professional companionship services
-              with the love and attention your family deserves.
+              {t("footerDescription")}
             </p>
 
             <div className="flex space-x-4">
@@ -86,7 +87,7 @@ export default function Footer() {
 
           {/* 2. Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6">{t("footerQuickLinks")}</h4>
             <ul className="space-y-4">
               {quickLinks.map((link, i) => (
                 <li key={i}>
@@ -112,7 +113,7 @@ export default function Footer() {
 
           {/* 3. Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
+            <h4 className="text-lg font-semibold mb-6">{t("footerServices")}</h4>
             <ul className="space-y-4">
               {servicesList.map((service, i) => (
                 <li key={i}>
@@ -129,7 +130,7 @@ export default function Footer() {
 
           {/* 4. Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact</h4>
+            <h4 className="text-lg font-semibold mb-6">{t("footerContact")}</h4>
 
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -208,10 +209,10 @@ export default function Footer() {
 
               <div className="mt-6">
                 <p className="text-accent-300 font-medium mb-2">
-                  Available 24/7
+                  {t("footerAvailable247")}
                 </p>
                 <p className="text-white/80 text-sm">
-                  Always here when you need us
+                  {t("footerAlwaysHere")}
                 </p>
               </div>
             </div>
@@ -224,7 +225,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/60 text-sm">
-              © 2025 Sofy Cares Services. All rights reserved.
+              {t("footerCopyright")}
             </p>
 
             <div className="flex space-x-6 text-sm">

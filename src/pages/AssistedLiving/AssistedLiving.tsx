@@ -1,7 +1,9 @@
 import { livingOptions, levelsOfCare } from "@/data/content";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AssistedLiving() {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const assistedLivingOption = livingOptions.options.find(
     (option) => option.title === "Assisted Living"
@@ -13,12 +15,10 @@ export default function AssistedLiving() {
       <section className="bg-gradient-to-br from-accent-600 to-accent-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-center">
-            Assisted Living
+            {t("assistedLiving")}
           </h1>
           <p className="text-xl lg:text-2xl text-center max-w-4xl mx-auto leading-relaxed">
-            We are here for you, at the right place and at the right time. Our
-            trained caregivers will give you the extra help you need to live
-            your life at your fullest.
+            {t("AssistedLivingTextBanner")}
           </p>
         </div>
       </section>
@@ -28,27 +28,19 @@ export default function AssistedLiving() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold font-allura text-primary-500 mb-6">
-              A Hand You Can Reach Any Time
+              {t("assistedLivingHandTitle")}
             </h2>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
-              Sofy Cares Assisted Living program is the place for the moment you
-              need a professional on your daily routine. With a schedule made to
-              cover your specific needs, our caregivers will assist you or your
-              loved ones at the same time as we provide you with a dignified
-              lifestyle.
+              {t("assistedLivingHandPara1")}
             </p>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
-              We will take care of your medical appointments, medications,
-              special services and dietary requirements for you to focus on the
-              most important thing: yourself.
+              {t("assistedLivingHandPara2")}
             </p>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
-              With a diverse range of physical and mental activities, you will
-              enjoy every moment at the same time you're taken care of.
+              {t("assistedLivingHandPara3")}
             </p>
             <p className="text-xl text-text-secondary leading-relaxed">
-              Here in Sofy Cares, our main goal is to provide you with the help
-              you need.
+              {t("assistedLivingHandPara4")}
             </p>
           </div>
         </div>
@@ -57,7 +49,7 @@ export default function AssistedLiving() {
       {/* Key Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
-          Our Assisted Living Special
+          {t("assistedLivingSpecialTitle")}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {assistedLivingOption?.features.map((feature, index) => (
@@ -70,7 +62,7 @@ export default function AssistedLiving() {
       <section className="bg-accent-200 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold font-allura text-primary-500 mb-8 text-center">
-            Our Approach to Assisted Living
+            {t("assistedLivingApproachTitle")}
           </h2>
           <p className="text-xl text-text-secondary text-center mb-12 max-w-4xl mx-auto">
             {levelsOfCare.description}
@@ -105,7 +97,7 @@ export default function AssistedLiving() {
       {/* Gallery Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
-          Our Assisted Living Community
+          {t("assistedLivingCommunityTitle")}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <img
@@ -130,10 +122,10 @@ export default function AssistedLiving() {
       <section className="bg-gradient-to-br from-primary-600 to-accent-600 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Ready to Learn More About Our Assisted Living?
+            {t("assistedLivingCtaTitle")}
           </h2>
           <p className="text-xl mb-8">
-            Contact us today to schedule a visit and see our community in person.
+            {t("assistedLivingCtaDesc")}
           </p>
           <div className="flex justify-center">
             <button
@@ -153,7 +145,7 @@ export default function AssistedLiving() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <span>Contact Us</span>
+              <span>{t("assistedLivingCtaButton")}</span>
             </button>
           </div>
         </div>

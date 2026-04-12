@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { livingOptions } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ServicesSection() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <section className="bg-gradient-to-br from-sage-50 to-secondary-50 py-20">
@@ -10,16 +11,45 @@ export default function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            {livingOptions.title}
+            {t("livingOptionsTitle")}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            {livingOptions.subtitle}
+            {t("livingOptionsSubtitle")}
           </p>
         </div>
 
         {/* Living Options Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {livingOptions.options.map((option, index) => (
+          {[
+            {
+              title: t("independentLivingTitle"),
+              description: t("independentLivingDesc"),
+              features: [
+                t("independentLivingFeature1"),
+                t("independentLivingFeature2"),
+                t("independentLivingFeature3"),
+                t("independentLivingFeature4"),
+                t("independentLivingFeature5"),
+                t("independentLivingFeature6"),
+                t("independentLivingFeature7"),
+                t("independentLivingFeature8"),
+              ],
+              link: "/independent-living",
+            },
+            {
+              title: t("assistedLivingTitle"),
+              description: t("assistedLivingDesc"),
+              features: [
+                t("assistedLivingFeature1"),
+                t("assistedLivingFeature2"),
+                t("assistedLivingFeature3"),
+                t("assistedLivingFeature4"),
+                t("assistedLivingFeature5"),
+                t("assistedLivingFeature6"),
+              ],
+              link: "/assisted-living",
+            },
+          ].map((option, index) => (
             <LivingOptionCard
               key={index}
               {...option}
@@ -48,6 +78,7 @@ function LivingOptionCard({
   navigate: (path: string) => void;
   index: number;
 }) {
+  const { t } = useLanguage();
   const bgColorClass =
     index === 0 ? "bg-primary-100" : "bg-accent-100";
   const borderColorClass = index === 0 ? "border-primary-300" : "border-accent-300";
@@ -95,7 +126,7 @@ function LivingOptionCard({
         onClick={() => navigate(link)}
         className={`${buttonColorClass} text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 w-full flex items-center justify-center space-x-2 shadow-md hover:shadow-lg`}
       >
-        <span>Learn More</span>
+        <span>{t("learnMore")}</span>
         <svg
           className="w-5 h-5"
           fill="none"
