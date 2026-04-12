@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLanguage } from "@/context/LanguageContext";
+import { MX, US } from 'country-flag-icons/react/3x2';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
+  const { language, toggleLanguage } = useLanguage();
 
   // Cerrar menú móvil al hacer clic fuera
   useEffect(() => {
@@ -46,26 +49,45 @@ export default function Header() {
           </div>
           {/* DESKTOP NAV */}
           <DesktopNavigation />
-          {/* MOBILE TOGGLE */}
-          <button
-            id="mobile-menu-toggle"
-            className="min-[950px]:hidden text-text-primary hover:text-primary-600 p-3 rounded-lg focus:outline-none"
-            onClick={() => setMobileOpen((prev) => !prev)}
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="md:hidden flex items-center justify-center border border-secondary-600 text-text-secondary bg-white px-3 py-2 rounded-full font-semibold text-sm transition hover:bg-primary-700 hover:text-white hover:border-primary-700"
+              aria-label="Toggle language"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+              {language === "en" ? (
+                <>
+                  <MX className="w-4 h-auto mr-2" />
+                  ES
+                </>
+              ) : (
+                <>
+                  <US className="w-4 h-auto mr-2" />
+                  EN
+                </>
+              )}
+            </button>
+            {/* MOBILE TOGGLE */}
+            <button
+              id="mobile-menu-toggle"
+              className="min-[950px]:hidden text-text-primary hover:text-primary-600 p-3 rounded-lg focus:outline-none"
+              onClick={() => setMobileOpen((prev) => !prev)}
+            >
+              <svg
+                className="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         {/* MOBILE MENU */}
         {mobileOpen && <MobileMenu setMobileOpen={setMobileOpen} />}
@@ -79,32 +101,30 @@ export default function Header() {
 --------------------------------------- */
 
 function DesktopNavigation() {
+  const { language, toggleLanguage, t } = useLanguage();
   const navItems = [
     {
-      text: "Living Options",
+      text: t("livingOptions"),
       to: "#",
       hasDropdown: true,
       dropdownItems: [
-        { text: "Independent Living", to: "/independent-living" },
-        { text: "Assisted Living", to: "/assisted-living" },
+        { text: t("independentLiving"), to: "/independent-living" },
+        { text: t("assistedLiving"), to: "/assisted-living" },
       ],
     },
-    { text: "About Us", to: "/about", hasDropdown: false },
+    { text: t("aboutUs"), to: "/about", hasDropdown: false },
     {
-      text: "Healthcare Services",
+      text: t("healthcareServices"),
       to: "/services",
       hasDropdown: true,
       dropdownItems: [
-        {
-          text: "Health & Medical Services",
-          to: "/services#health-medical-services",
-        },
-        { text: "Levels of Care", to: "/services#levels-of-care" },
-        { text: "Services & Amenities", to: "/services#services-amenities" },
+        { text: t("healthAndMedicalServices"), to: "/services#health-medical-services" },
+        { text: t("levelsOfCare"), to: "/services#levels-of-care" },
+        { text: t("servicesAndAmenities"), to: "/services#services-amenities" },
       ],
     },
-    { text: "Events", to: "/events", hasDropdown: false },
-    { text: "Gallery", to: "/gallery", hasDropdown: false },
+    { text: t("events"), to: "/events", hasDropdown: false },
+    { text: t("gallery"), to: "/gallery", hasDropdown: false },
   ];
 
   return (
@@ -173,8 +193,25 @@ function DesktopNavigation() {
           shrink-0
         "
       >
-        CONTACT
+        {t("contact")}
       </Link>
+      <button
+        onClick={toggleLanguage}
+        className="hidden md:flex items-center justify-center border border-secondary-600 text-text-secondary bg-white px-6 py-3 rounded-full font-semibold text-base transition hover:bg-primary-700 hover:text-white hover:border-primary-700 shrink-0"
+        aria-label="Toggle language"
+      >
+        {language === "en" ? (
+          <>
+            <MX className="w-5 h-auto mr-2" />
+            ES
+          </>
+        ) : (
+          <>
+            <US className="w-5 h-auto mr-2" />
+            EN
+          </>
+        )}
+      </button>
     </div>
   );
 }
@@ -188,17 +225,19 @@ function MobileMenu({
 }: {
   setMobileOpen: (v: boolean) => void;
 }) {
+  const { t } = useLanguage();
+
   return (
     <div
       id="mobile-menu"
-      className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
+      className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3 mr-10"
     >
       {/* MENU ITEMS */}
       <MobileDropdown
-        label="Living Options"
+        label={t("livingOptions")}
         items={[
-          { to: "/independent-living", text: "Independent Living" },
-          { to: "/assisted-living", text: "Assisted Living" },
+          { to: "/independent-living", text: t("independentLiving") },
+          { to: "/assisted-living", text: t("assistedLiving") },
         ]}
         setMobileOpen={setMobileOpen}
       />
@@ -208,18 +247,18 @@ function MobileMenu({
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >
-        About Us
+        {t("aboutUs")}
       </Link>
 
       <MobileDropdown
-        label="Healthcare Services"
+        label={t("healthcareServices")}
         items={[
           {
             to: "/services#health-medical-services",
-            text: "Health & Medical Services",
+            text: t("healthAndMedicalServices"),
           },
-          { to: "/services#levels-of-care", text: "Levels of Care" },
-          { to: "/services#services-amenities", text: "Services & Amenities" },
+          { to: "/services#levels-of-care", text: t("levelsOfCare") },
+          { to: "/services#services-amenities", text: t("servicesAndAmenities") },
         ]}
         setMobileOpen={setMobileOpen}
       />
@@ -229,7 +268,7 @@ function MobileMenu({
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >
-        Events
+        {t("events")}
       </Link>
 
       <Link
@@ -237,7 +276,7 @@ function MobileMenu({
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >
-        Gallery
+        {t("gallery")}
       </Link>
 
       {/* SPACER */}

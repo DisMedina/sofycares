@@ -1,18 +1,19 @@
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function IndependentLiving() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-center">
-            Independent Living
+            {t("ilPageTitle")}
           </h1>
           <p className="text-xl lg:text-2xl text-center max-w-4xl mx-auto leading-relaxed">
-            For people like you, who want to enjoy a carefree lifestyle inside
-            our community without the responsibilities of living on your own.
+            {t("ilPageSubtitle")}
           </p>
         </div>
       </section>
@@ -20,18 +21,18 @@ export default function IndependentLiving() {
       {/* Key Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
-          Independent Living Services
+          {t("ilPageServicesTitle")}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            "Spacious private rooms",
-            "Housekeeping and maintenance",
-            "A full calendar of social activities and community events",
-            "Rich and balanced chef-prepared meals",
-            "Transportation",
-            "24/7 medical care for emergencies",
-            "Optional assistance as needed",
-            "Freedom to live at your own pace",
+            t("ilFeature1"),
+            t("ilFeature2"),
+            t("ilFeature3"),
+            t("ilFeature4"),
+            t("ilFeature5"),
+            t("ilFeature6"),
+            t("ilFeature7"),
+            t("ilFeature8"),
           ].map((feature, index) => (
             <FeatureCard key={index} feature={feature} />
           ))}
@@ -43,22 +44,16 @@ export default function IndependentLiving() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold font-allura text-primary-500 mb-6">
-              A Senior Lifestyle Built for You
+              {t("ilPageLifestyleTitle")}
             </h2>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
-              Sofy Cares Independent Living program offers you a space where you
-              can move freely and have the experience you desire with all the
-              care and amenities you need. Meet other people, exercise, join our
-              community activities and explore San Miguel Allende.
+              {t("ilPageLifestylePara1")}
             </p>
             <p className="text-xl text-text-secondary leading-relaxed mb-8">
-              With customized living, your stay can evolve to cover your needs
-              for you to have the appropriate level of care whether it is a
-              strict diet, medical appointments, memory care or specialized care
-              for the next chapter in your life.
+              {t("ilPageLifestylePara2")}
             </p>
             <p className="text-xl text-text-secondary leading-relaxed">
-              Sofy Cares has all you need and more, join us now!
+              {t("ilPageLifestylePara3")}
             </p>
           </div>
         </div>
@@ -68,43 +63,43 @@ export default function IndependentLiving() {
       <section className="bg-gradient-to-br from-sage-50 to-secondary-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
-            Amenities & Services
+            {t("ilPageAmenitiesTitle")}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Nutrition */}
             <AmenityHighlight
-              title="Nutrition"
-              description="Three nutritious and balanced meals daily, plus snacks. Menus designed by a certified nutritionist and prepared by our chef."
+              title={t("ilAmenityNutritionTitle")}
+              description={t("ilAmenityNutritionDesc")}
               icon="nutrition"
             />
             {/* Pool */}
             <AmenityHighlight
-              title="Heated Swimming Pool"
-              description="Year-round access to our therapeutic heated pool for relaxation and exercise."
+              title={t("ilAmenityPoolTitle")}
+              description={t("ilAmenityPoolDesc")}
               icon="pool"
             />
             {/* Activities */}
             <AmenityHighlight
-              title="Arts & Activities"
-              description="Engaging activities including arts and crafts, knitting, and seasonal projects."
+              title={t("ilAmenityActivitiesTitle")}
+              description={t("ilAmenityActivitiesDesc")}
               icon="activity"
             />
             {/* Rooftop */}
             <AmenityHighlight
-              title="Multi-purpose Rooftop"
-              description="Perfect for birthdays, family gatherings, outdoor picnics, and special events."
+              title={t("ilAmenityRooftopTitle")}
+              description={t("ilAmenityRooftopDesc")}
               icon="rooftop"
             />
             {/* Beauty */}
             <AmenityHighlight
-              title="Beauty & Spa Services"
-              description="On-site salon, barbershop, and spa services including massages and nail care."
+              title={t("ilAmenityBeautyTitle")}
+              description={t("ilAmenityBeautyDesc")}
               icon="spa"
             />
             {/* Library */}
             <AmenityHighlight
-              title="On-site Library"
-              description="Access to books and scheduled visits to the local library."
+              title={t("ilAmenityLibraryTitle")}
+              description={t("ilAmenityLibraryDesc")}
               icon="library"
             />
           </div>
@@ -114,7 +109,7 @@ export default function IndependentLiving() {
       {/* Gallery Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-4xl font-bold font-allura text-primary-500 mb-12 text-center">
-          Your Independent Living Home
+          {t("ilPageHomeTitle")}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <img
@@ -139,10 +134,10 @@ export default function IndependentLiving() {
       <section className="bg-gradient-to-br from-primary-600 to-accent-600 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Experience Independent Living at Sofy Cares
+            {t("ilPageExperienceTitle")}
           </h2>
           <p className="text-xl mb-8">
-            Schedule a visit to see our community and meet our team.
+            {t("ilPageExperienceDesc")}
           </p>
           <div className="flex justify-center">
             <button
@@ -162,7 +157,7 @@ export default function IndependentLiving() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <span>Contact Us</span>
+              <span>{t("ilPageContactButton")}</span>
             </button>
           </div>
         </div>

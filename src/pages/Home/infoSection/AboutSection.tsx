@@ -1,24 +1,51 @@
 import type { JSX } from "react";
 import { useNavigate } from "react-router-dom";
-import { whyChooseSofyCares } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutSection() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
       <div className="text-center mb-12">
         <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-6">
-          {whyChooseSofyCares.title}
+          {t("whyChooseTitle")}
         </h2>
         <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-          Compassionate, professional care in a home-like environment
+          {t("whyChooseSubtitle")}
         </p>
       </div>
 
       {/* Benefits Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {whyChooseSofyCares.benefits.map((benefit, index) => (
+        {[
+          {
+            title: t("whyChooseBenefit1Title"),
+            description: t("whyChooseBenefit1Desc"),
+            icon: "heart",
+          },
+          {
+            title: t("whyChooseBenefit2Title"),
+            description: t("whyChooseBenefit2Desc"),
+            icon: "shield",
+          },
+          {
+            title: t("whyChooseBenefit3Title"),
+            description: t("whyChooseBenefit3Desc"),
+            icon: "home",
+          },
+          {
+            title: t("whyChooseBenefit4Title"),
+            description: t("whyChooseBenefit4Desc"),
+            icon: "users",
+          },
+          {
+            title: t("whyChooseBenefit5Title"),
+            description: t("whyChooseBenefit5Desc"),
+            icon: "globe",
+          },
+        ].map((benefit, index) => (
           <BenefitCard key={index} {...benefit} />
         ))}
       </div>
@@ -28,7 +55,7 @@ export default function AboutSection() {
           className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center space-x-2 mx-auto"
           onClick={() => navigate("/about")}
         >
-          <span>Learn More About Us</span>
+          <span>{t("learnMoreAboutUs")}</span>
           <svg
             className="w-5 h-5"
             fill="none"

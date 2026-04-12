@@ -65,105 +65,210 @@ export const whyChooseSofyCares = {
 };
 
 export const livingOptions = {
-  title: "Living Options",
-  subtitle: "Personalized care solutions for every stage of life",
-  options: [
-    {
-      title: "Independent Living",
-      description:
-        "For older adults who wish to maintain independence while enjoying community living, included meals, and optional support services.",
-      features: [
-        "Spacious private rooms",
-        "Housekeeping and maintenance",
-        "A full calendar of social activities and community events",
-        "Rich and balanced chef-prepared meals",
-        "Transportation",
-        "24/7 medical care for emergencies",
-        "Optional assistance as needed",
-        "Freedom to live at your own pace",
-      ],
-      link: "/independent-living",
-    },
-    {
-      title: "Assisted Living",
-      description:
-        "For residents who require daily assistance with personal care, medication management, mobility, feeding, and medical coordination. Our trained caregivers provide respectful and attentive support 24/7.",
-      features: [
-        "24/7 compassionate care",
-        "Medication management",
-        "Assistance with daily activities",
-        "Personalized care plans",
-        "Safe and comfortable environment",
-        "Dignity and respect always",
-      ],
-      link: "/assisted-living",
-    },
-  ],
+  en: {
+    title: "Living Options",
+    subtitle: "Personalized care solutions for every stage of life",
+    options: [
+      {
+        title: "Independent Living",
+        description:
+          "For older adults who wish to maintain independence while enjoying community living, included meals, and optional support services.",
+        features: [
+          "Spacious private rooms",
+          "Housekeeping and maintenance",
+          "A full calendar of social activities and community events",
+          "Rich and balanced chef-prepared meals",
+          "Transportation",
+          "24/7 medical care for emergencies",
+          "Optional assistance as needed",
+          "Freedom to live at your own pace",
+        ],
+        link: "/independent-living",
+      },
+      {
+        title: "Assisted Living",
+        description:
+          "For residents who require daily assistance with personal care, medication management, mobility, feeding, and medical coordination. Our trained caregivers provide respectful and attentive support 24/7.",
+        features: [
+          "24/7 compassionate care",
+          "Medication management",
+          "Assistance with daily activities",
+          "Personalized care plans",
+          "Safe and comfortable environment",
+          "Dignity and respect always",
+        ],
+        link: "/assisted-living",
+      },
+    ],
+  },
+  es: {
+    title: "Opciones de Vida",
+    subtitle: "Soluciones de cuidado personalizadas para cada etapa de la vida",
+    options: [
+      {
+        title: "Vida Independiente",
+        description:
+          "Para adultos mayores que desean mantener su independencia mientras disfrutan de la vida comunitaria, comidas incluidas y servicios de apoyo opcionales.",
+        features: [
+          "Habitaciones privadas espaciosas",
+          "Limpieza y mantenimiento",
+          "Calendario completo de actividades sociales y eventos comunitarios",
+          "Comidas ricas y balanceadas preparadas por chef",
+          "Transporte",
+          "Atención médica 24/7 para emergencias",
+          "Asistencia opcional según sea necesario",
+          "Libertad para vivir a su propio ritmo",
+        ],
+        link: "/independent-living",
+      },
+      {
+        title: "Vida Asistida",
+        description:
+          "Para residentes que requieren asistencia diaria con cuidado personal, manejo de medicamentos, movilidad, alimentación y coordinación médica. Nuestros cuidadores capacitados proporcionan apoyo respetuoso y atento 24/7.",
+        features: [
+          "Cuidado compasivo 24/7",
+          "Manejo de medicamentos",
+          "Asistencia con actividades diarias",
+          "Planes de cuidado personalizados",
+          "Entorno seguro y cómodo",
+          "Dignidad y respeto siempre",
+        ],
+        link: "/assisted-living",
+      },
+    ],
+  },
 };
 
 export const levelsOfCare = {
-  title: "Levels of Care",
-  subtitle:
-    "Comprehensive assisted living services tailored to individual needs",
-  description:
-    "Our assisted living model combines the comfort of home with professional medical support:",
-  features: [
-    {
-      title: "Home-like, Non-Clinical Environment",
-      description:
-        "Comfortable, welcoming spaces that feel like home, not a hospital.",
-    },
-    {
-      title: "Deeply Personalized Care Plans",
-      description:
-        "Every resident receives individualized attention based on their unique needs and preferences.",
-    },
-    {
-      title: "Strong, Meaningful Relationships",
-      description:
-        "Our small community allows caregivers and residents to form genuine connections.",
-    },
-    {
-      title: "Calm, Intimate Setting",
-      description:
-        "With only 18 residents, we maintain a peaceful, family-like atmosphere.",
-    },
-    {
-      title: "24/7 Safety & Supervision",
-      description:
-        "Round-the-clock care and companionship ensure constant support.",
-    },
-    {
-      title: "Activities & Celebrations",
-      description:
-        "Engaging programs, movement activities, and special events enhance quality of life.",
-    },
-    {
-      title: "Full Transportation Support",
-      description:
-        "We provide transportation for medical appointments and outings.",
-    },
-    {
-      title: "Peace of Mind for Families",
-      description:
-        "Whether near or far, families can trust their loved ones are well cared for.",
-    },
-  ],
-  allInclusiveServices: {
-    title: "All-Inclusive Monthly Fee Covers",
-    services: [
-      "Care services, lodging, and meals",
-      "Maintained residence and safe, welcoming spaces",
-      "Assisted dining when needed",
-      "Specialized diets by a certified dietitian",
-      "24-hour nursing care",
-      "Wellness center access",
-      "Private dining room for family gatherings",
-      "Scheduled transportation",
-      "Housekeeping and linen service",
-      "24/7 security and emergency home services",
-      "Wi-Fi, telephone, and television access",
+  en: {
+    title: "Levels of Care",
+    subtitle:
+      "Comprehensive assisted living services tailored to individual needs",
+    description:
+      "Our assisted living model combines the comfort of home with professional medical support:",
+    features: [
+      {
+        title: "Home-like, Non-Clinical Environment",
+        description:
+          "Comfortable, welcoming spaces that feel like home, not a hospital.",
+      },
+      {
+        title: "Deeply Personalized Care Plans",
+        description:
+          "Every resident receives individualized attention based on their unique needs and preferences.",
+      },
+      {
+        title: "Strong, Meaningful Relationships",
+        description:
+          "Our small community allows caregivers and residents to form genuine connections.",
+      },
+      {
+        title: "Calm, Intimate Setting",
+        description:
+          "With only 18 residents, we maintain a peaceful, family-like atmosphere.",
+      },
+      {
+        title: "24/7 Safety & Supervision",
+        description:
+          "Round-the-clock care and companionship ensure constant support.",
+      },
+      {
+        title: "Activities & Celebrations",
+        description:
+          "Engaging programs, movement activities, and special events enhance quality of life.",
+      },
+      {
+        title: "Full Transportation Support",
+        description:
+          "We provide transportation for medical appointments and outings.",
+      },
+      {
+        title: "Peace of Mind for Families",
+        description:
+          "Whether near or far, families can trust their loved ones are well cared for.",
+      },
     ],
+    allInclusiveServices: {
+      title: "All-Inclusive Monthly Fee Covers",
+      services: [
+        "Care services, lodging, and meals",
+        "Maintained residence and safe, welcoming spaces",
+        "Assisted dining when needed",
+        "Specialized diets by a certified dietitian",
+        "24-hour nursing care",
+        "Wellness center access",
+        "Private dining room for family gatherings",
+        "Scheduled transportation",
+        "Housekeeping and linen service",
+        "24/7 security and emergency home services",
+        "Wi-Fi, telephone, and television access",
+      ],
+    },
+  },
+  es: {
+    title: "Niveles de Cuidado",
+    subtitle:
+      "Servicios integrales de vida asistida adaptados a las necesidades individuales",
+    description:
+      "Nuestro modelo de vida asistida combina la comodidad del hogar con apoyo médico profesional:",
+    features: [
+      {
+        title: "Entorno Similar al Hogar, No Clínico",
+        description:
+          "Espacios cómodos y acogedores que se sienten como un hogar, no como un hospital.",
+      },
+      {
+        title: "Planes de Cuidado Profundamente Personalizados",
+        description:
+          "Cada residente recibe atención individualizada basada en sus necesidades y preferencias únicas.",
+      },
+      {
+        title: "Relaciones Fuertes y Significativas",
+        description:
+          "Nuestra pequeña comunidad permite que cuidadores y residentes formen conexiones genuinas.",
+      },
+      {
+        title: "Entorno Tranquilo e Íntimo",
+        description:
+          "Con solo 18 residentes, mantenemos una atmósfera pacífica y familiar.",
+      },
+      {
+        title: "Seguridad y Supervisión 24/7",
+        description:
+          "Cuidado y compañía las 24 horas del día garantizan apoyo constante.",
+      },
+      {
+        title: "Actividades y Celebraciones",
+        description:
+          "Programas atractivos, actividades de movimiento y eventos especiales mejoran la calidad de vida.",
+      },
+      {
+        title: "Apoyo Completo de Transporte",
+        description:
+          "Proporcionamos transporte para citas médicas y salidas.",
+      },
+      {
+        title: "Paz Mental para las Familias",
+        description:
+          "Ya sea cerca o lejos, las familias pueden confiar en que sus seres queridos están bien cuidados.",
+      },
+    ],
+    allInclusiveServices: {
+      title: "La Tarifa Mensual Todo Incluido Cubre",
+      services: [
+        "Servicios de cuidado, alojamiento y comidas",
+        "Residencia mantenida y espacios seguros y acogedores",
+        "Comidas asistidas cuando sea necesario",
+        "Dietas especializadas por un dietista certificado",
+        "Cuidado de enfermería 24 horas",
+        "Acceso al centro de bienestar",
+        "Sala de comedor privada para reuniones familiares",
+        "Transporte programado",
+        "Servicio de limpieza y ropa de cama",
+        "Servicios de seguridad y emergencias en el hogar 24/7",
+        "Acceso a Wi-Fi, teléfono y televisión",
+      ],
+    },
   },
 };
 

@@ -1,8 +1,9 @@
-import { heroContent } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 import { useNavigate } from "react-router-dom";
 
 export default function IntroductionSection() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   return (
     <section className="relative bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 overflow-hidden">
       {/* Decorative Background Elements */}
@@ -17,11 +18,11 @@ export default function IntroductionSection() {
         <div className="text-center mb-16">
           <div className="inline-block mb-6">
             <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold tracking-wide uppercase">
-              Welcome to Sofy Cares
+              {t("welcomeToSofyCares")}
             </span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-allura text-primary-500 mb-6 leading-tight">
-            {heroContent.title}
+            {t("heroTitle")}
           </h1>
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="h-1 w-16 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"></div>
@@ -35,14 +36,14 @@ export default function IntroductionSection() {
             <div className="h-1 w-16 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full"></div>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl text-text-secondary font-light mb-8">
-            {heroContent.subtitle}
+            {t("heroSubtitle")}
           </h2>
         </div>
 
         {/* Introduction Content */}
         <div className="max-w-5xl mx-auto mb-16">
           <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-secondary-200">
-            {heroContent.introduction.paragraphs.map((paragraph, index) => (
+            {[t("heroIntroPara1"), t("heroIntroPara2")].map((paragraph, index) => (
               <p
                 key={index}
                 className="text-lg md:text-xl text-text-secondary leading-relaxed mb-6 last:mb-0"
@@ -73,19 +74,19 @@ export default function IntroductionSection() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <span>{heroContent.cta.secondary.text}</span>
+              <span>{t("heroCtaSecondaryText")}</span>
             </button>
           </div>
 
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg border border-primary-100">
             <p className="text-lg font-semibold text-primary-700 mb-1">
-              {heroContent.cta.primary.available}
+              {t("heroCtaPrimaryAvailable")}
             </p>
             <a
-              href={`tel:${heroContent.cta.primary.phoneRaw}`}
+              href={`tel:${t("heroCtaPrimaryPhoneRaw")}`}
               className="text-2xl md:text-3xl font-bold text-primary-600 hover:text-primary-700 transition-colors duration-200"
             >
-              {heroContent.cta.primary.phone}
+              {t("heroCtaPrimaryPhone")}
             </a>
           </div>
         </div>

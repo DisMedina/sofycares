@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/context/LanguageContext";
+
 
 export default function About() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
   const images = [
-    { src: "/images/SC_250.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_251.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_252.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_253.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_254.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_255.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_256.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_257.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_258.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_259.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_260.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_261.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_262.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_263.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_264.jpg", alt: "Sofy Cares Community" },
+    { src: "/images/SC_250.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_251.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_252.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_253.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_254.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_255.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_256.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_257.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_258.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_259.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_260.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_261.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_262.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_263.jpg", alt: t("aboutUsImageAlt") },
+    { src: "/images/SC_264.jpg", alt: t("aboutUsImageAlt") },
   ];
 
   const [index, setIndex] = useState(0);
@@ -68,42 +72,42 @@ export default function About() {
           {/* 👉 RIGHT: COMPANY CONTENT */}
           <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300 space-y-10">
             <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500">
-              About Us
+              {t("aboutUsTitle")}
             </h1>
 
             {/* Mission */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Mission
+                {t("ourMission")}
               </h2>
               <p className="text-lg text-text-secondary leading-relaxed">
-                At Sofy Cares, our mission is to provide compassionate, personalized care in a safe and home-like environment where every individual is treated with dignity and respect. We are committed to supporting residents' physical, emotional, and social well-being while honoring their independence and personal choices.
+                {t("aboutUsMissionDesc")}
               </p>
             </section>
 
             {/* Vision */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Vision
+                {t("ourVision")}
               </h2>
               <p className="text-lg text-text-secondary leading-relaxed">
-                We envision Sofy Cares as a place where people feel truly at home-supported by attentive care, meaningful connection, and a strong sense of community. Our goal is to set a standard for senior care that balances professional excellence with warmth, humanity, and trust.
+                {t("ourVisionDesc")}
               </p>
             </section>
 
             {/* Values */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Values
+                {t("ourValues")}
               </h2>
               <ul className="space-y-3 text-lg text-text-secondary">
                 {[
-                  { title: "Dignity & Respect", description: "We honor each resident as an individual, valuing their life experiences, preferences, and autonomy." },
-                  { title: "Compassionate Care", description: "We approach every interaction with empathy, patience, and genuine concern." },
-                  { title: "Safety & Trust", description: "We provide a secure environment where residents and families feel confident and at ease." },
-                  { title: "Personalized Attention", description: "Care is never one-size-fits-all; we adapt our services to meet each resident's unique needs." },
-                  { title: "Family & Community", description: "We foster strong relationships with families and encourage connection, involvement, and shared moments." },
-                  { title: "Professional Excellence", description: "Our team upholds high standards of care through experience, training and accountability." },
+                  { title: t("value1Title"), description: t("value1Desc") },
+                  { title: t("value2Title"), description: t("value2Desc") },
+                  { title: t("value3Title"), description: t("value3Desc") },
+                  { title: t("value4Title"), description: t("value4Desc") },
+                  { title: t("value5Title"), description: t("value5Desc") },
+                  { title: t("value6Title"), description: t("value6Desc") },
                 ].map((value, i) => (
                   <li key={i} className="flex items-start space-x-3">
                     <svg
@@ -128,22 +132,22 @@ export default function About() {
             {/* Story */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Story
+                {t("ourStory")}
               </h2>
 
               <p className="text-lg text-text-secondary leading-relaxed">
-                Sofy Cares was created to offer an alternative to large, impersonal care facilities. From the beginning, our focus has been on building a smaller, more intentional community where residents receive attentive care and feel genuinely supported. By combining professional healthcare practices with a warm, welcoming atmosphere, Sofy Cares provides a space where people can live with comfort, confidence, and peace of mind.
+                {t("ourStoryDesc")}
               </p>
             </section>
 
             {/* Team */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Team
+                {t("ourTeam")}
               </h2>
 
               <p className="text-lg text-text-secondary leading-relaxed">
-                Our caregivers and staff are carefully selected for both their professional experience and their commitment to compassionate service. We believe quality care comes from people who are attentive, respectful, and deeply invested in the well-being of those they serve. At Sofy Cares, our team works collaboratively to ensure residents receive consistent, thoughtful care every day.
+                {t("ourTeamDesc")}
               </p>
             </section>
 
@@ -152,7 +156,7 @@ export default function About() {
               onClick={() => navigate("/contact")}
               className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex items-center space-x-3 w-fit"
             >
-              <span>Contact Us</span>
+              <span>{t("contactUs")}</span>
               <svg
                 className="w-6 h-6"
                 fill="none"

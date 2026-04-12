@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Gallery images from public/images folder
 const galleryImages = [
@@ -53,6 +54,7 @@ const galleryImages = [
 ];
 
 export default function Gallery() {
+  const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
@@ -61,11 +63,10 @@ export default function Gallery() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            Gallery
+            {t("galleryTitle")}
           </h1>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            A glimpse into our community and the moments we share together at
-            Sofy Cares.
+            {t("gallerySubtitle")}
           </p>
         </div>
 
@@ -80,7 +81,7 @@ export default function Gallery() {
               <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-secondary-200 hover:border-primary-400">
                 <img
                   src={image.src}
-                  alt={image.alt}
+                  alt={t("galleryImageAlt")}
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />

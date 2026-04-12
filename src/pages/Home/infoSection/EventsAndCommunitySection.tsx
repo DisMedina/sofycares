@@ -1,26 +1,54 @@
-import { eventsAndCommunity } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 import { JSX } from "react";
 
 export default function EventsAndCommunitySection() {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-gradient-to-br from-secondary-50 to-sage-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            {eventsAndCommunity.title}
+            {t("eventsAndCommunityTitle")}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-4">
-            {eventsAndCommunity.subtitle}
+            {t("eventsAndCommunitySubtitle")}
           </p>
           <p className="text-lg text-text-secondary max-w-4xl mx-auto">
-            {eventsAndCommunity.description}
+            {t("eventsAndCommunityDescription")}
           </p>
         </div>
 
         {/* Activities Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {eventsAndCommunity.activities.map((activity, index) => (
+          {[
+            {
+              title: t("eventsActivity1Title"),
+              description: t("eventsActivity1Desc"),
+              icon: "calendar",
+            },
+            {
+              title: t("eventsActivity2Title"),
+              description: t("eventsActivity2Desc"),
+              icon: "gift",
+            },
+            {
+              title: t("eventsActivity3Title"),
+              description: t("eventsActivity3Desc"),
+              icon: "plane",
+            },
+            {
+              title: t("eventsActivity4Title"),
+              description: t("eventsActivity4Desc"),
+              icon: "activity",
+            },
+            {
+              title: t("eventsActivity5Title"),
+              description: t("eventsActivity5Desc"),
+              icon: "home",
+            },
+          ].map((activity, index) => (
             <ActivityCard key={index} {...activity} />
           ))}
         </div>

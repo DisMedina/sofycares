@@ -1,6 +1,9 @@
+import { useLanguage } from "@/context/LanguageContext";
 import { contactInfo } from "@/data/content";
 
 export default function LocationSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 overflow-hidden py-20">
       {/* Decorative Background Elements */}
@@ -14,14 +17,14 @@ export default function LocationSection() {
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold tracking-wide uppercase">
-              Get in Touch
+              {t("getInTouch")}
             </span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            Our Location & Contact
+            {t("ourLocationAndContact")}
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            We're here to help and answer any questions you may have
+            {t("locationSubtitle")}
           </p>
         </div>
 
@@ -41,7 +44,7 @@ export default function LocationSection() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-text-primary mb-2">Address</h3>
+                  <h3 className="text-lg font-bold text-text-primary mb-2">{t("locationAddress")}</h3>
                   <p className="text-text-secondary leading-relaxed">
                     {contactInfo.address.street}
                     <br />
@@ -62,7 +65,7 @@ export default function LocationSection() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-text-primary mb-2">Email</h3>
+                  <h3 className="text-lg font-bold text-text-primary mb-2">{t("locationEmail")}</h3>
                   <a href={`mailto:${contactInfo.email}`} className="text-accent-600 hover:text-accent-700 font-medium transition-colors duration-200">
                     {contactInfo.email}
                   </a>
@@ -81,16 +84,16 @@ export default function LocationSection() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-text-primary mb-3">Phone</h3>
+                  <h3 className="text-lg font-bold text-text-primary mb-2">{t("locationPhone")}</h3>
                   <div className="space-y-2">
                     <div>
-                      <p className="text-sm text-text-secondary mb-1">General Information</p>
+                      <p className="text-sm text-text-secondary mb-1">{t("generalInformation")}</p>
                       <a href={`tel:${contactInfo.phone.raw}`} className="text-primary-600 hover:text-primary-700 font-semibold text-lg transition-colors duration-200">
                         {contactInfo.phone.display}
                       </a>
                     </div>
                     <div className="pt-2 border-t border-primary-100">
-                      <p className="text-sm text-red-600 mb-1">Emergency Contact</p>
+                      <p className="text-sm text-red-600 mb-1">{t("locationEmergencyContact")}</p>
                       <a href={`tel:${contactInfo.emergency.raw}`} className="text-red-700 hover:text-red-800 font-semibold text-lg transition-colors duration-200">
                         {contactInfo.emergency.display}
                       </a>
@@ -103,10 +106,10 @@ export default function LocationSection() {
             {/* Availability Badge */}
             <div className="bg-primary-600 rounded-2xl p-6 shadow-xl text-center">
               <p className="text-white font-bold text-lg mb-1">
-                {contactInfo.availability}
+                {t("contactInfoAvailability")}
               </p>
               <p className="text-white/90 text-sm">
-                Always here when you need us
+                {t("alwaysHereWhenYouNeedUs")}
               </p>
             </div>
           </div>
