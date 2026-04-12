@@ -106,7 +106,7 @@ export default function LocationSection() {
             {/* Availability Badge */}
             <div className="bg-primary-600 rounded-2xl p-6 shadow-xl text-center">
               <p className="text-white font-bold text-lg mb-1">
-                {contactInfo.availability}
+                {t("contactInfoAvailability")}
               </p>
               <p className="text-white/90 text-sm">
                 {t("alwaysHereWhenYouNeedUs")}

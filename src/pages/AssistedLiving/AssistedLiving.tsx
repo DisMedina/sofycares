@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function AssistedLiving() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
-  const assistedLivingOption = livingOptions.options.find(
-    (option) => option.title === "Assisted Living"
+  const currentLivingOptions = livingOptions[language];
+  const currentLevelsOfCare = levelsOfCare[language];
+  const assistedLivingOption = currentLivingOptions.options.find(
+    (option) => option.title === (language === 'es' ? "Vida Asistida" : "Assisted Living")
   );
 
   return (
@@ -65,11 +67,11 @@ export default function AssistedLiving() {
             {t("assistedLivingApproachTitle")}
           </h2>
           <p className="text-xl text-text-secondary text-center mb-12 max-w-4xl mx-auto">
-            {levelsOfCare.description}
+            {currentLevelsOfCare.description}
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {levelsOfCare.features.map((feature, index) => (
+            {currentLevelsOfCare.features.map((feature, index) => (
               <DetailCard key={index} {...feature} />
             ))}
           </div>
@@ -80,12 +82,12 @@ export default function AssistedLiving() {
       <section className="bg-accent-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold font-allura text-primary-500 mb-8 text-center">
-            {levelsOfCare.allInclusiveServices.title}
+            {currentLevelsOfCare.allInclusiveServices.title}
           </h2>
           <div className="bg-accent-200 rounded-2xl shadow-xl p-8 md:p-12 border border-accent-300">
             <div className="grid md:grid-cols-2 gap-6">
-              {levelsOfCare.allInclusiveServices.services.map(
-                (service, index) => (
+              {currentLevelsOfCare.allInclusiveServices.services.map(
+                (service: string, index: number) => (
                   <ServiceItem key={index} service={service} />
                 )
               )}

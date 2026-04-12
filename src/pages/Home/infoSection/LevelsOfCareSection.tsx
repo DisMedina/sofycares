@@ -1,24 +1,27 @@
 import { levelsOfCare } from "@/data/content";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function LevelsOfCareSection() {
+  const { language } = useLanguage();
+  const currentLevelsOfCare = levelsOfCare[language];
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-          {levelsOfCare.title}
+          {currentLevelsOfCare.title}
         </h2>
         <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-6">
-          {levelsOfCare.subtitle}
+          {currentLevelsOfCare.subtitle}
         </p>
         <p className="text-lg text-text-secondary max-w-4xl mx-auto">
-          {levelsOfCare.description}
+          {currentLevelsOfCare.description}
         </p>
       </div>
 
       {/* Features Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {levelsOfCare.features.map((feature, index) => (
+        {currentLevelsOfCare.features.map((feature, index) => (
           <FeatureCard key={index} {...feature} />
         ))}
       </div>
@@ -26,10 +29,10 @@ export default function LevelsOfCareSection() {
       {/* All-Inclusive Services */}
       <div className="bg-primary-100 rounded-2xl shadow-xl p-8 md:p-12 border border-primary-200">
         <h3 className="text-3xl font-bold font-allura text-primary-500 mb-8 text-center">
-          {levelsOfCare.allInclusiveServices.title}
+          {currentLevelsOfCare.allInclusiveServices.title}
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
-          {levelsOfCare.allInclusiveServices.services.map((service, index) => (
+          {currentLevelsOfCare.allInclusiveServices.services.map((service, index) => (
             <ServiceItem key={index} service={service} />
           ))}
         </div>

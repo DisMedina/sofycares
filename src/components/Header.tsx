@@ -6,6 +6,7 @@ import { MX, US } from 'country-flag-icons/react/3x2';
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
+  const { language, toggleLanguage } = useLanguage();
 
   // Cerrar menú móvil al hacer clic fuera
   useEffect(() => {
@@ -48,26 +49,45 @@ export default function Header() {
           </div>
           {/* DESKTOP NAV */}
           <DesktopNavigation />
-          {/* MOBILE TOGGLE */}
-          <button
-            id="mobile-menu-toggle"
-            className="min-[950px]:hidden text-text-primary hover:text-primary-600 p-3 rounded-lg focus:outline-none"
-            onClick={() => setMobileOpen((prev) => !prev)}
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="md:hidden flex items-center justify-center border border-secondary-600 text-text-secondary bg-white px-3 py-2 rounded-full font-semibold text-sm transition hover:bg-primary-700 hover:text-white hover:border-primary-700"
+              aria-label="Toggle language"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+              {language === "en" ? (
+                <>
+                  <MX className="w-4 h-auto mr-2" />
+                  ES
+                </>
+              ) : (
+                <>
+                  <US className="w-4 h-auto mr-2" />
+                  EN
+                </>
+              )}
+            </button>
+            {/* MOBILE TOGGLE */}
+            <button
+              id="mobile-menu-toggle"
+              className="min-[950px]:hidden text-text-primary hover:text-primary-600 p-3 rounded-lg focus:outline-none"
+              onClick={() => setMobileOpen((prev) => !prev)}
+            >
+              <svg
+                className="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         {/* MOBILE MENU */}
         {mobileOpen && <MobileMenu setMobileOpen={setMobileOpen} />}
@@ -210,7 +230,7 @@ function MobileMenu({
   return (
     <div
       id="mobile-menu"
-      className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
+      className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3 mr-10"
     >
       {/* MENU ITEMS */}
       <MobileDropdown
