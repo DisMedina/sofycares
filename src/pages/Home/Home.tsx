@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       <section id="banner-section">
-        <h2>{t("homeSectionTitle")}</h2>
+        {/* <h2>{t("homeSectionTitle")}</h2> */}
         <Banner />
       </section>
 

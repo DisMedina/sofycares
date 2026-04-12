@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, AlertTriangle, XCircle } from "lucide-react";
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '@/config/emailjs';
 import { useEmailUsage } from '@/hooks/useEmailUsage';
+import { useLanguage } from "@/context/LanguageContext";
 
 const CONTACT_EMAIL = "sofycaressma@gmail.com";
 
@@ -187,6 +188,7 @@ function TextAreaField({
 // MAIN COMPONENT
 // ------------------------------------
 export default function Contact() {
+  const { t } = useLanguage();
   const emailUsage = useEmailUsage();
 
   const [form, setForm] = useState({
@@ -352,10 +354,9 @@ export default function Contact() {
         </div>
 
         <div className="relative z-10 text-center text-white">
-          <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-5xl font-bold mb-4">{t("contactPageTitle")}</h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            We are here to help you. Send your inquiry and we will reach you
-            soon.
+            {t("contactPageSubtitle")}
           </p>
         </div>
       </section>
@@ -363,27 +364,27 @@ export default function Contact() {
       {/* INFO */}
       <section className="py-16 bg-secondary-50">
         <h2 className="text-3xl font-bold text-center font-allura text-primary-500 mb-12">
-          Contact Information
+          {t("contactInfoTitle")}
         </h2>
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 px-4">
           {[
             {
-              title: "Phone",
-              content: "+52 415 117 7643",
-              desc: "Available 24/7",
+              title: t("contactPhone"),
+              content: t("contactPhoneNumber"),
+              desc: t("contactAvailable247"),
               icon: Phone,
             },
             {
-              title: "Email",
+              title: t("contactEmail"),
               content: CONTACT_EMAIL,
-              desc: "Response within 24 hours",
+              desc: t("contactEmailResponse"),
               icon: Mail,
             },
             {
-              title: "Location",
-              content: "Juan José Torres Landa Torre A",
-              desc: "37797 San Miguel de Allende, Gto.",
+              title: t("contactLocation"),
+              content: t("contactLocationAddress"),
+              desc: t("contactLocationCity"),
               icon: MapPin,
             },
           ].map((item, i) => {
@@ -410,7 +411,7 @@ export default function Contact() {
       <section className="py-16 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center font-allura text-primary-500 mb-12">
-            Send Us Your Inquiry
+            {t("contactFormTitle")}
           </h2>
 
           {/* Email Usage Warnings */}
@@ -420,11 +421,10 @@ export default function Contact() {
                 <XCircle className="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg font-bold text-red-800 mb-2">
-                    Contact Form Temporarily Unavailable
+                    {t("contactFormLimitReached")}
                   </h3>
                   <p className="text-red-700 mb-3">
-                    We've reached our monthly email limit ({emailUsage.used}/{emailUsage.limit} emails sent).
-                    Please contact us directly using the information below:
+                    {t("contactFormLimitMessage").replace("{used}", emailUsage.used.toString()).replace("{limit}", emailUsage.limit.toString())}
                   </p>
                   <div className="space-y-2 text-red-800">
                     <p className="font-medium">📧 Email: {CONTACT_EMAIL}</p>
@@ -441,11 +441,10 @@ export default function Contact() {
                 <AlertTriangle className="w-6 h-6 text-orange-500 mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg font-bold text-orange-800 mb-2">
-                    High Email Usage Alert
+                    {t("contactCriticalLevel")}
                   </h3>
                   <p className="text-orange-700">
-                    We're approaching our monthly email limit ({emailUsage.used}/{emailUsage.limit} emails sent).
-                    If you need an immediate response, please call us at +52 415 117 7643.
+                    {t("contactCriticalMessage").replace("{used}", emailUsage.used.toString()).replace("{limit}", emailUsage.limit.toString())}
                   </p>
                 </div>
               </div>
@@ -458,8 +457,7 @@ export default function Contact() {
                 <AlertTriangle className="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-yellow-800">
-                    <strong>Note:</strong> We're experiencing high email volume ({emailUsage.used}/{emailUsage.limit} emails sent this month).
-                    Your message will be delivered, but for urgent matters, please call +52 415 117 7643.
+                    <strong>Note:</strong> {t("contactWarningMessage").replace("{used}", emailUsage.used.toString()).replace("{limit}", emailUsage.limit.toString())}
                   </p>
                 </div>
               </div>
@@ -470,9 +468,9 @@ export default function Contact() {
             {/* PERSONAL INFO */}
             <div className="grid md:grid-cols-2 gap-6">
               <TextField
-                label="First Name *"
+                label={t("contactFirstName")}
                 name="firstName"
-                placeholder="Enter your first name"
+                placeholder={t("contactFirstName")}
                 value={form.firstName}
                 onChange={handleChange}
                 error={errors.firstName}
@@ -481,9 +479,9 @@ export default function Contact() {
               />
 
               <TextField
-                label="Last Name *"
+                label={t("contactLastName")}
                 name="lastName"
-                placeholder="Enter your last name"
+                placeholder={t("contactLastName")}
                 value={form.lastName}
                 onChange={handleChange}
                 error={errors.lastName}
@@ -495,7 +493,7 @@ export default function Contact() {
             {/* CONTACT */}
             <div className="grid md:grid-cols-2 gap-6">
               <TextField
-                label="Email *"
+                label={t("contactEmailField")}
                 name="email"
                 type="email"
                 placeholder="example@email.com"
@@ -507,7 +505,7 @@ export default function Contact() {
               />
 
               <TextField
-                label="Phone"
+                label={t("contactPhoneField")}
                 name="phone"
                 type="tel"
                 placeholder="+1 (555) 123-4567"
@@ -521,7 +519,7 @@ export default function Contact() {
             {/* SERVICE INFO */}
             <div className="grid md:grid-cols-2 gap-6">
               <SelectField
-                label="Service Type *"
+                label={t("contactServiceType")}
                 name="serviceType"
                 value={form.serviceType}
                 onChange={handleChange}
@@ -529,35 +527,35 @@ export default function Contact() {
                 error={errors.serviceType}
 
                 options={[
-                  { value: "", text: "Select a service" },
-                  { value: "personal-care", text: "Personal Care" },
-                  { value: "companionship", text: "Companionship" },
-                  { value: "home-support", text: "Home Support" },
-                  { value: "respite-care", text: "Respite Care" },
-                  { value: "specialized", text: "Specialized Care" },
-                  { value: "consultation", text: "General Consultation" },
+                  { value: "", text: t("contactServiceTypeSelect") },
+                  { value: "personal-care", text: t("contactServicePersonalCare") },
+                  { value: "companionship", text: t("contactServiceCompanionship") },
+                  { value: "home-support", text: t("contactServiceHomeSupport") },
+                  { value: "respite-care", text: t("contactServiceRespiteCare") },
+                  { value: "specialized", text: t("contactServiceSpecialized") },
+                  { value: "consultation", text: t("contactServiceConsultation") },
                 ]}
               />
 
               <SelectField
-                label="Preferred Contact Method"
+                label={t("contactPreferredMethod")}
                 name="preferredContact"
                 value={form.preferredContact}
                 onChange={handleChange}
 
                 options={[
-                  { value: "email", text: "Email" },
-                  { value: "phone", text: "Phone" },
-                  { value: "either", text: "Either" },
+                  { value: "email", text: t("contactContactEmail") },
+                  { value: "phone", text: t("contactContactPhone") },
+                  { value: "either", text: t("contactContactEither") },
                 ]}
               />
             </div>
 
             {/* SUBJECT */}
             <TextField
-              label="Subject *"
+              label={t("contactSubject")}
               name="subject"
-              placeholder="Brief description of your inquiry"
+              placeholder={t("contactSubject")}
               value={form.subject}
               onChange={handleChange}
               error={errors.subject}
@@ -566,9 +564,9 @@ export default function Contact() {
 
             {/* MESSAGE */}
             <TextAreaField
-              label="Message *"
+              label={t("contactMessage")}
               name="message"
-              placeholder="Describe your inquiry in detail"
+              placeholder={t("contactMessage")}
               value={form.message}
               onChange={handleChange}
               error={errors.message}
@@ -582,10 +580,10 @@ export default function Contact() {
                 className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 {emailUsage.isLimitReached
-                  ? 'Form Unavailable - Contact Us Directly'
+                  ? t("contactFormUnavailable")
                   : status === 'sending'
-                  ? 'Sending...'
-                  : 'Send Inquiry'}
+                  ? t("contactSending")
+                  : t("contactSendButton")}
               </button>
             </div>
           </form>

@@ -177,7 +177,7 @@ function DesktopNavigation() {
       </Link>
       <button
         onClick={toggleLanguage}
-        className="hidden md:flex items-center justify-center border border-secondary-600 text-text-secondary bg-white px-6 py-3 rounded-full font-semibold text-base transition hover:bg-primary-700 shrink-0"
+        className="hidden md:flex items-center justify-center border border-secondary-600 text-text-secondary bg-white px-6 py-3 rounded-full font-semibold text-base transition hover:bg-primary-700 hover:text-white hover:border-primary-700 shrink-0"
         aria-label="Toggle language"
       >
         {language === "en" ? (

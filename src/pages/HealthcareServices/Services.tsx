@@ -1,8 +1,10 @@
 import HealthServicesSection from "@/pages/Home/infoSection/HealthServicesSection";
 import LevelsOfCareSection from "@/pages/Home/infoSection/LevelsOfCareSection";
 import AmenitiesSection from "@/pages/Home/infoSection/AmenitiesSection";
+import { useLanguage } from "@/context/LanguageContext";
 
 function HealthcareBanner() {
+  const { t } = useLanguage();
   return (
     <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -18,10 +20,10 @@ function HealthcareBanner() {
 
       <div className="relative z-20 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-          Healthcare Services
+          {t("healthcarePageTitle")}
         </h1>
         <p className="text-xl md:text-2xl text-white/90">
-          Comprehensive care tailored to your needs
+          {t("healthcarePageSubtitle")}
         </p>
       </div>
     </section>

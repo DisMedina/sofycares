@@ -336,7 +336,59 @@ type TranslationKey =
   | "assistedLivingCommunityTitle" // AssistedLiving.tsx
   | "assistedLivingCtaTitle" // AssistedLiving.tsx
   | "assistedLivingCtaDesc" // AssistedLiving.tsx
-  | "assistedLivingCtaButton"; // AssistedLiving.tsx   
+  | "assistedLivingCtaButton" // AssistedLiving.tsx
+  | "contactPageTitle" // Contact.tsx
+  | "contactPageSubtitle" // Contact.tsx
+  | "contactInfoTitle" // Contact.tsx
+  | "contactPhone" // Contact.tsx
+  | "contactPhoneNumber" // Contact.tsx
+  | "contactAvailable247" // Contact.tsx
+  | "contactEmail" // Contact.tsx
+  | "contactEmailResponse" // Contact.tsx
+  | "contactLocation" // Contact.tsx
+  | "contactLocationAddress" // Contact.tsx
+  | "contactLocationCity" // Contact.tsx
+  | "contactFormTitle" // Contact.tsx
+  | "contactFormLimitReached" // Contact.tsx
+  | "contactFormLimitMessage" // Contact.tsx
+  | "contactCriticalLevel" // Contact.tsx
+  | "contactCriticalMessage" // Contact.tsx
+  | "contactWarningLevel" // Contact.tsx
+  | "contactWarningMessage" // Contact.tsx
+  | "contactFirstName" // Contact.tsx
+  | "contactLastName" // Contact.tsx
+  | "contactEmailField" // Contact.tsx
+  | "contactPhoneField" // Contact.tsx
+  | "contactServiceType" // Contact.tsx
+  | "contactServiceTypeSelect" // Contact.tsx
+  | "contactServicePersonalCare" // Contact.tsx
+  | "contactServiceCompanionship" // Contact.tsx
+  | "contactServiceHomeSupport" // Contact.tsx
+  | "contactServiceRespiteCare" // Contact.tsx
+  | "contactServiceSpecialized" // Contact.tsx
+  | "contactServiceConsultation" // Contact.tsx
+  | "contactPreferredMethod" // Contact.tsx
+  | "contactContactEmail" // Contact.tsx
+  | "contactContactPhone" // Contact.tsx
+  | "contactContactEither" // Contact.tsx
+  | "contactSubject" // Contact.tsx
+  | "contactMessage" // Contact.tsx
+  | "contactSendButton" // Contact.tsx
+  | "contactSending" // Contact.tsx
+  | "contactFormUnavailable" // Contact.tsx
+  | "eventsPageTitle" // Events.tsx
+  | "eventsPageSubtitle" // Events.tsx
+  | "eventsDateMonth" // Events.tsx
+  | "eventsArticleTitle1" // Events.tsx
+  | "eventsArticleTitle2" // Events.tsx
+  | "eventsAuthor" // Events.tsx
+  | "eventsArticleBody" // Events.tsx
+  | "eventsFlipbookButton" // Events.tsx
+  | "galleryTitle" // Gallery.tsx
+  | "gallerySubtitle" // Gallery.tsx
+  | "galleryImageAlt" // Gallery.tsx
+  | "healthcarePageTitle" // HealthcareServices/Services.tsx
+  | "healthcarePageSubtitle"; // HealthcareServices/Services.tsx   
         
 
 
@@ -677,6 +729,58 @@ const translations: Record<Language, Record<TranslationKey, string>> = {
     assistedLivingCtaTitle: "Ready to Learn More About Our Assisted Living?", // AssistedLiving.tsx
     assistedLivingCtaDesc: "Contact us today to schedule a visit and see our community in person.", // AssistedLiving.tsx
     assistedLivingCtaButton: "Contact Us", // AssistedLiving.tsx
+    contactPageTitle: "Contact Us", // Contact.tsx
+    contactPageSubtitle: "We are here to help you. Send your inquiry and we will reach you soon.", // Contact.tsx
+    contactInfoTitle: "Contact Information", // Contact.tsx
+    contactPhone: "Phone", // Contact.tsx
+    contactPhoneNumber: "+52 415 117 7643", // Contact.tsx
+    contactAvailable247: "Available 24/7", // Contact.tsx
+    contactEmail: "Email", // Contact.tsx
+    contactEmailResponse: "Response within 24 hours", // Contact.tsx
+    contactLocation: "Location", // Contact.tsx
+    contactLocationAddress: "Juan José Torres Landa Torre A", // Contact.tsx
+    contactLocationCity: "37797 San Miguel de Allende, Gto.", // Contact.tsx
+    contactFormTitle: "Send Us Your Inquiry", // Contact.tsx
+    contactFormLimitReached: "Contact Form Temporarily Unavailable", // Contact.tsx
+    contactFormLimitMessage: "We've reached our monthly email limit ({used}/{limit} emails sent). Please contact us directly using the information below:", // Contact.tsx
+    contactCriticalLevel: "High Email Usage Alert", // Contact.tsx
+    contactCriticalMessage: "We're approaching our monthly email limit ({used}/{limit} emails sent). If you need an immediate response, please call us at +52 415 117 7643.", // Contact.tsx
+    contactWarningLevel: "Email Usage Note", // Contact.tsx
+    contactWarningMessage: "We're experiencing high email volume ({used}/{limit} emails sent this month). Your message will be delivered, but for urgent matters, please call +52 415 117 7643.", // Contact.tsx
+    contactFirstName: "First Name *", // Contact.tsx
+    contactLastName: "Last Name *", // Contact.tsx
+    contactEmailField: "Email *", // Contact.tsx
+    contactPhoneField: "Phone", // Contact.tsx
+    contactServiceType: "Service Type *", // Contact.tsx
+    contactServiceTypeSelect: "Select a service", // Contact.tsx
+    contactServicePersonalCare: "Personal Care", // Contact.tsx
+    contactServiceCompanionship: "Companionship", // Contact.tsx
+    contactServiceHomeSupport: "Home Support", // Contact.tsx
+    contactServiceRespiteCare: "Respite Care", // Contact.tsx
+    contactServiceSpecialized: "Specialized Care", // Contact.tsx
+    contactServiceConsultation: "General Consultation", // Contact.tsx
+    contactPreferredMethod: "Preferred Contact Method", // Contact.tsx
+    contactContactEmail: "Email", // Contact.tsx
+    contactContactPhone: "Phone", // Contact.tsx
+    contactContactEither: "Either", // Contact.tsx
+    contactSubject: "Subject *", // Contact.tsx
+    contactMessage: "Message *", // Contact.tsx
+    contactSendButton: "Send Inquiry", // Contact.tsx
+    contactSending: "Sending...", // Contact.tsx
+    contactFormUnavailable: "Form Unavailable - Contact Us Directly", // Contact.tsx
+    eventsPageTitle: "Events & News", // Events.tsx
+    eventsPageSubtitle: "Stay updated with Sofy Cares community milestones and celebrations", // Events.tsx
+    eventsDateMonth: "February 2026", // Events.tsx
+    eventsArticleTitle1: "Caring Comes Home:", // Events.tsx
+    eventsArticleTitle2: "Sofy Cares Celebrates Non-Profit Milestone In San Miguel", // Events.tsx
+    eventsAuthor: "By CJ Meridian", // Events.tsx
+    eventsArticleBody: "When the morning light spills into the San Miguel Condominiums, it's greeted by the quiet rhythm of life at Sofy Cares — a warm chorus of caregivers, music, and laughter echoing down the hallways.", // Events.tsx
+    eventsFlipbookButton: "View Online Flipbook", // Events.tsx
+    galleryTitle: "Gallery", // Gallery.tsx
+    gallerySubtitle: "A glimpse into our community and the moments we share together at Sofy Cares.", // Gallery.tsx
+    galleryImageAlt: "Sofy Cares Activity", // Gallery.tsx
+    healthcarePageTitle: "Healthcare Services", // HealthcareServices/Services.tsx
+    healthcarePageSubtitle: "Comprehensive care tailored to your needs", // HealthcareServices/Services.tsx
     }, 
     es: {
     title: "Sofy Cares",
@@ -1013,6 +1117,58 @@ const translations: Record<Language, Record<TranslationKey, string>> = {
     assistedLivingCtaTitle: "¿Listo para Aprender Más Sobre Nuestra Vida Asistida?", // AssistedLiving.tsx
     assistedLivingCtaDesc: "Contáctanos hoy para programar una visita y ver nuestra comunidad en persona.", // AssistedLiving.tsx
     assistedLivingCtaButton: "Contáctanos", // AssistedLiving.tsx
+    contactPageTitle: "Contáctanos", // Contact.tsx
+    contactPageSubtitle: "Estamos aquí para ayudarte. Envía tu consulta y nos comunicaremos contigo pronto.", // Contact.tsx
+    contactInfoTitle: "Información de Contacto", // Contact.tsx
+    contactPhone: "Teléfono", // Contact.tsx
+    contactPhoneNumber: "+52 415 117 7643", // Contact.tsx
+    contactAvailable247: "Disponible 24/7", // Contact.tsx
+    contactEmail: "Correo Electrónico", // Contact.tsx
+    contactEmailResponse: "Respuesta dentro de 24 horas", // Contact.tsx
+    contactLocation: "Ubicación", // Contact.tsx
+    contactLocationAddress: "Juan José Torres Landa Torre A", // Contact.tsx
+    contactLocationCity: "37797 San Miguel de Allende, Gto.", // Contact.tsx
+    contactFormTitle: "Envíanos Tu Consulta", // Contact.tsx
+    contactFormLimitReached: "Formulario Temporalmente No Disponible", // Contact.tsx
+    contactFormLimitMessage: "Hemos alcanzado nuestro límite mensual de correos ({used}/{limit} correos enviados). Por favor, contáctanos directamente usando la información a continuación:", // Contact.tsx
+    contactCriticalLevel: "Alerta de Alto Uso de Correo", // Contact.tsx
+    contactCriticalMessage: "Nos estamos aproximando a nuestro límite mensual de correos ({used}/{limit} correos enviados). Si necesitas una respuesta inmediata, por favor llámanos al +52 415 117 7643.", // Contact.tsx
+    contactWarningLevel: "Nota de Uso de Correo", // Contact.tsx
+    contactWarningMessage: "Estamos experimentando un alto volumen de correos ({used}/{limit} correos enviados este mes). Tu mensaje será entregado, pero para asuntos urgentes, por favor llama al +52 415 117 7643.", // Contact.tsx
+    contactFirstName: "Nombre *", // Contact.tsx
+    contactLastName: "Apellido *", // Contact.tsx
+    contactEmailField: "Correo Electrónico *", // Contact.tsx
+    contactPhoneField: "Teléfono", // Contact.tsx
+    contactServiceType: "Tipo de Servicio *", // Contact.tsx
+    contactServiceTypeSelect: "Selecciona un servicio", // Contact.tsx
+    contactServicePersonalCare: "Cuidado Personal", // Contact.tsx
+    contactServiceCompanionship: "Compañerismo", // Contact.tsx
+    contactServiceHomeSupport: "Apoyo en el Hogar", // Contact.tsx
+    contactServiceRespiteCare: "Cuidado Temporal", // Contact.tsx
+    contactServiceSpecialized: "Cuidado Especializado", // Contact.tsx
+    contactServiceConsultation: "Consulta General", // Contact.tsx
+    contactPreferredMethod: "Método Preferido de Contacto", // Contact.tsx
+    contactContactEmail: "Correo Electrónico", // Contact.tsx
+    contactContactPhone: "Teléfono", // Contact.tsx
+    contactContactEither: "Cualquiera", // Contact.tsx
+    contactSubject: "Asunto *", // Contact.tsx
+    contactMessage: "Mensaje *", // Contact.tsx
+    contactSendButton: "Enviar Consulta", // Contact.tsx
+    contactSending: "Enviando...", // Contact.tsx
+    contactFormUnavailable: "Formulario No Disponible - Contáctanos Directamente", // Contact.tsx
+    eventsPageTitle: "Eventos y Noticias", // Events.tsx
+    eventsPageSubtitle: "Mantente actualizado con hitos comunitarios y celebraciones de Sofy Cares", // Events.tsx
+    eventsDateMonth: "Febrero 2026", // Events.tsx
+    eventsArticleTitle1: "El Cuidado Llega a Casa:", // Events.tsx
+    eventsArticleTitle2: "Sofy Cares Celebra un Hito Sin Fines de Lucro en San Miguel", // Events.tsx
+    eventsAuthor: "Por CJ Meridian", // Events.tsx
+    eventsArticleBody: "Cuando la luz de la mañana se filtra en los Condominios de San Miguel, es recibida por el ritmo tranquilo de la vida en Sofy Cares — un cálido coro de cuidadores, música y risa resonando en los pasillos.", // Events.tsx
+    eventsFlipbookButton: "Ver Flipbook En Línea", // Events.tsx
+    galleryTitle: "Galería", // Gallery.tsx
+    gallerySubtitle: "Un vistazo a nuestra comunidad y los momentos que compartimos juntos en Sofy Cares.", // Gallery.tsx
+    galleryImageAlt: "Actividad de Sofy Cares", // Gallery.tsx
+    healthcarePageTitle: "Servicios de Salud", // HealthcareServices/Services.tsx
+    healthcarePageSubtitle: "Cuidado integral adaptado a tus necesidades", // HealthcareServices/Services.tsx
     },
 };
 
