@@ -398,13 +398,15 @@ export interface TranslationSchema {
     events: {
       pageTitle: string;
       pageSubtitle: string;
-      dateBadge: string;
-      headline: string;
-      subheading: string;
-      author: string;
-      bodyParagraph: string;
-      flipbookCta: string;
-      flipbookUrl: string;
+      articles: Array<{
+        dateBadge: string;
+        headline: string;
+        subheading: string;
+        author?: string;
+        bodyParagraphs: string[];
+        ctaLabel: string;
+        ctaUrl: string;
+      }>;
     };
   };
 }

@@ -990,15 +990,34 @@ export const translations: Record<Language, TranslationSchema> = {
         pageTitle: "Events & News",
         pageSubtitle:
           "Stay updated with Sofy Cares community milestones and celebrations",
-        dateBadge: "February 2026",
-        headline: "Caring Comes Home:",
-        subheading:
-          "Sofy Cares Celebrates Non-Profit Milestone In San Miguel",
-        author: "By CJ Meridian",
-        bodyParagraph:
-          "When the morning light spills into the San Miguel Condominiums, it's greeted by the quiet rhythm of life at Sofy Cares — a warm chorus of caregivers, music, and laughter echoing down the hallways.",
-        flipbookCta: "View Online Flipbook",
-        flipbookUrl: "https://heyzine.com/flip-book/a6bb7b22f3.html#page/47",
+        articles: [
+          {
+            dateBadge: "May 2026",
+            headline: "A.C. Sofy Cares:",
+            subheading: "Expanding the Circle of Care",
+            author: "By CJ Meridian",
+            bodyParagraphs: [
+              "In San Miguel de Allende, where tradition and community are deeply rooted in everyday life, the care of our elders remains one of the most meaningful responsibilities we share. At A.C. Sofy Cares, this belief has always guided the way care is offered, shaping an environment that prioritizes dignity, respect, and human connection above all else.",
+              "Founded with the intention of creating a warm, home setting, A.C. Sofy Cares has become a place where personalized attention is not considered a luxury, but a standard. Each resident is treated as an individual with a story, with respect, and a life that deserves to be honored with patience and compassion.",
+              "Over time, one unfortunate reality has become increasingly clear. While the need for high-quality, attentive elder care continues to grow, not every family has the financial means to access it fully. Currently, the world elderly population is at its highest in human history. So, this is definitely not an isolated challenge. It is a quiet and ongoing reality for many families who want the best for their loved ones but face limitations that make consistent, professional care difficult to sustain over time.",
+              "In response to this need, A.C. Sofy Cares (Asociación Civil) has been formally established. This new chapter allows the organization to receive donations that directly support residents who require financial assistance, ensuring they can continue receiving the care they need without interruption.",
+            ],
+            ctaLabel: "Download Article",
+            ctaUrl: "/events/A.C. Sofy Cares Article.docx",
+          },
+          {
+            dateBadge: "February 2026",
+            headline: "Caring Comes Home:",
+            subheading:
+              "Sofy Cares Celebrates Non-Profit Milestone In San Miguel",
+            author: "By CJ Meridian",
+            bodyParagraphs: [
+              "When the morning light spills into the San Miguel Condominiums, it's greeted by the quiet rhythm of life at Sofy Cares — a warm chorus of caregivers, music, and laughter echoing down the hallways.",
+            ],
+            ctaLabel: "View Online Flipbook",
+            ctaUrl: "https://heyzine.com/flip-book/a6bb7b22f3.html#page/47",
+          },
+        ],
       },
     },
   },
@@ -1999,15 +2018,34 @@ export const translations: Record<Language, TranslationSchema> = {
         pageTitle: "Eventos y Noticias",
         pageSubtitle:
           "Mantente al día con los hitos y celebraciones de la comunidad Sofy Cares",
-        dateBadge: "Febrero 2026",
-        headline: "El Cuidado Llega a Casa:",
-        subheading:
-          "Sofy Cares Celebra un Logro como Asociación Civil en San Miguel",
-        author: "Por CJ Meridian",
-        bodyParagraph:
-          "Cuando la luz de la mañana entra en los Condominios San Miguel, es recibida por el ritmo tranquilo de la vida en Sofy Cares — un cálido coro de cuidadores, música y risas que resuenan por los pasillos.",
-        flipbookCta: "Ver Folleto en Línea",
-        flipbookUrl: "https://heyzine.com/flip-book/a6bb7b22f3.html#page/47",
+        articles: [
+          {
+            dateBadge: "Mayo 2026",
+            headline: "A.C. Sofy Cares:",
+            subheading: "Ampliando el Círculo del Cuidado",
+            author: "Por CJ Meridian",
+            bodyParagraphs: [
+              "En San Miguel de Allende, donde la tradición y la comunidad están profundamente arraigadas en la vida cotidiana, el cuidado de nuestros adultos mayores sigue siendo una de las responsabilidades más significativas que compartimos. En A.C. Sofy Cares, esta convicción siempre ha guiado la manera en que se ofrece el cuidado, dando forma a un entorno que prioriza la dignidad, el respeto y la conexión humana por encima de todo.",
+              "Fundada con la intención de crear un ambiente cálido y hogareño, A.C. Sofy Cares se ha convertido en un lugar donde la atención personalizada no se considera un lujo, sino un estándar. Cada residente es tratado como una persona con una historia, con respeto y con una vida que merece ser honrada con paciencia y compasión.",
+              "Con el tiempo, una realidad lamentable se ha vuelto cada vez más clara. Mientras la necesidad de un cuidado de adultos mayores atento y de alta calidad continúa creciendo, no todas las familias cuentan con los medios económicos para acceder a él plenamente. Actualmente, la población mundial de adultos mayores está en su punto más alto en la historia de la humanidad. Por lo tanto, este no es un desafío aislado. Es una realidad silenciosa y continua para muchas familias que desean lo mejor para sus seres queridos, pero que enfrentan limitaciones que hacen difícil sostener un cuidado profesional y constante a lo largo del tiempo.",
+              "En respuesta a esta necesidad, A.C. Sofy Cares (Asociación Civil) se ha constituido formalmente. Este nuevo capítulo permite a la organización recibir donaciones que apoyan directamente a los residentes que requieren asistencia económica, asegurando que puedan seguir recibiendo el cuidado que necesitan sin interrupciones.",
+            ],
+            ctaLabel: "Descargar Artículo",
+            ctaUrl: "/events/A.C. Sofy Cares Article.docx",
+          },
+          {
+            dateBadge: "Febrero 2026",
+            headline: "El Cuidado Llega a Casa:",
+            subheading:
+              "Sofy Cares Celebra un Logro como Asociación Civil en San Miguel",
+            author: "Por CJ Meridian",
+            bodyParagraphs: [
+              "Cuando la luz de la mañana entra en los Condominios San Miguel, es recibida por el ritmo tranquilo de la vida en Sofy Cares — un cálido coro de cuidadores, música y risas que resuenan por los pasillos.",
+            ],
+            ctaLabel: "Ver Folleto en Línea",
+            ctaUrl: "https://heyzine.com/flip-book/a6bb7b22f3.html#page/47",
+          },
+        ],
       },
     },
   },

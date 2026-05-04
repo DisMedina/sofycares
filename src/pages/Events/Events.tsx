@@ -1,4 +1,4 @@
-import { Calendar, ExternalLink } from "lucide-react";
+import { Calendar, Download, ExternalLink } from "lucide-react";
 import { useLang } from "@/i18n/LanguageContext";
 
 export default function Events() {
@@ -18,46 +18,63 @@ export default function Events() {
           </p>
         </div>
 
-        {/* Event Article Section */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300">
-            {/* Date Badge */}
-            <div className="inline-block mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold">
-                <Calendar className="w-4 h-4 mr-2" />
-                {e.dateBadge}
-              </span>
-            </div>
+        {/* Article List */}
+        <div className="max-w-4xl mx-auto space-y-12">
+          {e.articles.map((article, idx) => {
+            const isLocalFile = article.ctaUrl.startsWith("/events/");
+            const CtaIcon = isLocalFile ? Download : ExternalLink;
 
-            {/* Article Heading */}
-            <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-2">
-              {e.headline}
-            </h2>
-            <h3 className="text-xl lg:text-2xl font-semibold text-primary-600 mb-6">
-              {e.subheading}
-            </h3>
+            return (
+              <article
+                key={idx}
+                className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300"
+              >
+                {/* Date Badge */}
+                <div className="inline-block mb-6">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    {article.dateBadge}
+                  </span>
+                </div>
 
-            {/* Author */}
-            <p className="text-sm text-text-secondary mb-8 italic">
-              {e.author}
-            </p>
+                {/* Article Heading */}
+                <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-2">
+                  {article.headline}
+                </h2>
+                <h3 className="text-xl lg:text-2xl font-semibold text-primary-600 mb-6">
+                  {article.subheading}
+                </h3>
 
-            {/* Article Body */}
-            <div className="text-text-secondary leading-relaxed space-y-4">
-              <p className="text-lg">{e.bodyParagraph}</p>
-            </div>
+                {/* Author */}
+                {article.author && (
+                  <p className="text-sm text-text-secondary mb-8 italic">
+                    {article.author}
+                  </p>
+                )}
 
-            {/* Flipbook Button */}
-            <a
-              href={e.flipbookUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center space-x-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              <ExternalLink className="w-5 h-5" />
-              <span>{e.flipbookCta}</span>
-            </a>
-          </div>
+                {/* Article Body */}
+                <div className="text-text-secondary leading-relaxed space-y-4">
+                  {article.bodyParagraphs.map((paragraph, pIdx) => (
+                    <p key={pIdx} className="text-lg">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <a
+                  href={article.ctaUrl}
+                  {...(isLocalFile
+                    ? { download: "" }
+                    : { target: "_blank", rel: "noopener noreferrer" })}
+                  className="mt-8 inline-flex items-center space-x-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <CtaIcon className="w-5 h-5" />
+                  <span>{article.ctaLabel}</span>
+                </a>
+              </article>
+            );
+          })}
         </div>
       </main>
     </div>
