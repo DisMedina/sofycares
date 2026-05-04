@@ -1,16 +1,20 @@
 import { Calendar, ExternalLink } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function Events() {
+  const { t } = useLang();
+  const e = t.pages.events;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 pt-24 pb-16">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            Events & News
+            {e.pageTitle}
           </h1>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Stay updated with Sofy Cares community milestones and celebrations
+            {e.pageSubtitle}
           </p>
         </div>
 
@@ -21,42 +25,37 @@ export default function Events() {
             <div className="inline-block mb-6">
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold">
                 <Calendar className="w-4 h-4 mr-2" />
-                February 2026
+                {e.dateBadge}
               </span>
             </div>
 
             {/* Article Heading */}
             <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-2">
-              Caring Comes Home:
+              {e.headline}
             </h2>
             <h3 className="text-xl lg:text-2xl font-semibold text-primary-600 mb-6">
-              Sofy Cares Celebrates Non-Profit Milestone In San Miguel
+              {e.subheading}
             </h3>
 
             {/* Author */}
             <p className="text-sm text-text-secondary mb-8 italic">
-              By CJ Meridian
+              {e.author}
             </p>
 
             {/* Article Body */}
             <div className="text-text-secondary leading-relaxed space-y-4">
-              <p className="text-lg">
-                When the morning light spills into the San Miguel Condominiums,
-                it's greeted by the quiet rhythm of life at Sofy Cares — a warm
-                chorus of caregivers, music, and laughter echoing down the
-                hallways.
-              </p>
+              <p className="text-lg">{e.bodyParagraph}</p>
             </div>
 
             {/* Flipbook Button */}
             <a
-              href="https://heyzine.com/flip-book/a6bb7b22f3.html#page/47"
+              href={e.flipbookUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center space-x-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <ExternalLink className="w-5 h-5" />
-              <span>View Online Flipbook</span>
+              <span>{e.flipbookCta}</span>
             </a>
           </div>
         </div>

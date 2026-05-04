@@ -14,13 +14,11 @@ import LevelsOfCare from "@/pages/LevelsOfCare";
 import Gallery from "@/pages/Gallery/Gallery";
 import Events from "@/pages/Events/Events";
 
-import GoogleTranslate from "@/shared/components/GoogleTranslate";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export default function App() {
   return (
     <>
-      <GoogleTranslate />
       <ScrollToTop />
 
       <Routes>

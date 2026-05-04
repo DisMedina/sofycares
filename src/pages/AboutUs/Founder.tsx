@@ -1,38 +1,27 @@
 import { useEffect, useState } from "react";
+import { useLang } from "@/i18n/LanguageContext";
+import type { TranslationSchema } from "@/i18n/types";
 
-const founderImages = [
-  {
-    src: "/images/SC_275.jpg",
-    alt: "Sofia Toledo Soto - Founder of Sofy Cares",
-  },
-  {
-    src: "/images/SC_273.jpg",
-    alt: "Sofia Toledo Soto at work",
-  },
-  {
-    src: "/images/SC_271.jpg",
-    alt: "Sofia Toledo Soto with the team",
-  },
-];
+type FounderImages = TranslationSchema["pages"]["founder"]["images"];
 
 // ======================================================
 // Carousel Component
 // ======================================================
-function FounderCarousel() {
+function FounderCarousel({ images }: { images: FounderImages }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(
-      () => setIndex((prev) => (prev + 1) % founderImages.length),
+      () => setIndex((prev) => (prev + 1) % images.length),
       4000
     );
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="relative h-full">
       <div className="overflow-hidden rounded-2xl shadow-2xl h-full relative">
-        {founderImages.map((img, i) => (
+        {images.map((img, i) => (
           <div
             key={i}
             className={`absolute inset-0 transition-opacity duration-700 ${
@@ -49,7 +38,7 @@ function FounderCarousel() {
 
         {/* Dots */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-          {founderImages.map((_, i) => (
+          {images.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
@@ -68,69 +57,72 @@ function FounderCarousel() {
 // Founder Content Component
 // ======================================================
 function FounderContent() {
+  const { t } = useLang();
+  const f = t.pages.founder;
+
   return (
     <div className="space-y-8">
       <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-6">
-        Our Founder
+        {f.title}
       </h1>
 
       <h2 className="text-2xl font-semibold text-primary-600 mb-6">
-        Sofia Toledo Soto – Founder & CEO
+        {f.subtitle}
       </h2>
 
       {/* Personal Story */}
       <section>
         <h3 className="text-xl font-semibold text-text-primary mb-4">
-          Her Personal Story
+          {f.personalStoryTitle}
         </h3>
-        <p className="text-lg text-text-secondary leading-relaxed mb-4">
-          Sofia Toledo Soto has always been someone who leads with service. Long before Sofy Cares existed, people naturally turned to her for support, guidance, and steadiness. She has an instinctive way of putting others first-something that has defined her relationships, her work, and ultimately her life's path.
-        </p>
-        <p className="text-lg text-text-secondary leading-relaxed">
-          Over the years, through personal experiences and professional encounters, Sofia became increasingly aware of how easily certain people are overlooked-especially older adults whose families may feel overwhelmed, unprepared, or unsure of how to care for them well. What stayed with her was not a single moment, but a growing recognition that many individuals simply need someone willing to show up consistently, listen closely, and take responsibility for their care with sincerity and patience. Sofy Cares grew out of that understanding.
-        </p>
+        {f.personalStory.map((para, i) => (
+          <p
+            key={i}
+            className="text-lg text-text-secondary leading-relaxed mb-4 last:mb-0"
+          >
+            {para}
+          </p>
+        ))}
       </section>
 
       {/* Professional Background */}
       <section>
         <h3 className="text-xl font-semibold text-text-primary mb-4">
-          Professional Experience
+          {f.experienceTitle}
         </h3>
-        <p className="text-lg text-text-secondary leading-relaxed mb-4">
-          Sofia brings more than 15 years of experience across caregiving, health-related services, and client-centered work. Even during periods when she stepped away from direct caregiving-working in fields such as real estate-her approach remained the same: prioritize people, stay accessible, and follow through.
-        </p>
-        <p className="text-lg text-text-secondary leading-relaxed">
-          Her professional strength lies not only in formal experience, but in her ability to communicate openly, answer questions honestly, and remain present for those who rely on her. She is known for being approachable, responsive, and deeply attentive-qualities that shape both her leadership style and the daily operations of Sofy Cares.
-        </p>
+        {f.experience.map((para, i) => (
+          <p
+            key={i}
+            className="text-lg text-text-secondary leading-relaxed mb-4 last:mb-0"
+          >
+            {para}
+          </p>
+        ))}
       </section>
 
       {/* Vision */}
       <section>
         <h3 className="text-xl font-semibold text-text-primary mb-4">
-          Her Vision for Sofy Cares
+          {f.visionTitle}
         </h3>
-        <p className="text-lg text-text-secondary leading-relaxed mb-4">
-          Sofia's vision for Sofy Cares is rooted in responsibility and presence. She believes care should never feel distant, rushed, or transactional. Instead, it should feel steady, responsive, and grounded in real human connection.
-        </p>
-        <p className="text-lg text-text-secondary leading-relaxed">
-          She envisioned a place where residents are not managed, but supported-where families feel informed rather than shut out, and where trust is built through transparency, consistency, and genuine availability. Sofy Cares was designed to be a community where people feel safe asking questions, expressing needs, and being met with respect at every stage.
-        </p>
+        {f.vision.map((para, i) => (
+          <p
+            key={i}
+            className="text-lg text-text-secondary leading-relaxed mb-4 last:mb-0"
+          >
+            {para}
+          </p>
+        ))}
       </section>
 
       {/* Achievements */}
       <section>
         <h3 className="text-xl font-semibold text-text-primary mb-4">
-          Achievements & Commitments
+          {f.achievementsTitle}
         </h3>
 
         <ul className="space-y-3 text-lg text-text-secondary">
-          {[
-            "Over 15 years of experience in caregiving and health-related services",
-            "Founder of a community-based care home in San Miguel de Allende",
-            "Known for hands-on leadership, accessibility, and clear communication",
-            "Deep commitment to serving individuals who are often overlooked or underserved",
-            "Dedicated to creating an environment built on trust, presence, and accountability",
-          ].map((text, i) => (
+          {f.achievements.map((text, i) => (
             <li className="flex items-start space-x-3" key={i}>
               <svg
                 className="w-6 h-6 text-primary-600 mt-0.5 flex-shrink-0"
@@ -151,12 +143,12 @@ function FounderContent() {
 
       {/* CTA Button */}
       <a
-        href="https://www.sofy-cares.ac"
+        href={f.giveCareUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition inline-block"
       >
-        Give Care Here
+        {f.giveCareCta}
       </a>
     </div>
   );
@@ -166,6 +158,8 @@ function FounderContent() {
 // MAIN FOUNDER PAGE
 // ======================================================
 export default function Founder() {
+  const { t } = useLang();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {/* MAIN CONTENT */}
@@ -177,7 +171,7 @@ export default function Founder() {
             </div>
 
             <div className="sticky top-24 h-[600px]">
-              <FounderCarousel />
+              <FounderCarousel images={t.pages.founder.images} />
             </div>
           </div>
         </div>

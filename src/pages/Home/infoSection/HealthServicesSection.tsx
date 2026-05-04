@@ -1,22 +1,24 @@
 import type { JSX } from "react";
-import { healthServices } from "@/data/content";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function HealthServicesSection() {
+  const { t } = useLang();
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-          {healthServices.title}
+          {t.healthServices.title}
         </h2>
         <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-          {healthServices.subtitle}
+          {t.healthServices.subtitle}
         </p>
       </div>
 
       {/* Services Categories */}
       <div className="grid md:grid-cols-2 gap-8 mb-12">
-        {healthServices.services.map((service, index) => (
+        {t.healthServices.services.map((service, index) => (
           <ServiceCategory key={index} {...service} />
         ))}
       </div>
@@ -24,7 +26,7 @@ export default function HealthServicesSection() {
       {/* Note */}
       <div className="bg-primary-100 border-l-4 border-primary-600 rounded-lg p-6 text-center">
         <p className="text-lg text-text-primary font-medium">
-          {healthServices.note}
+          {t.healthServices.note}
         </p>
       </div>
     </section>

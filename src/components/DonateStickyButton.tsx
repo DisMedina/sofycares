@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/i18n/LanguageContext";
 
 const DonateStickyButton = () => {
   const [visible, setVisible] = useState(false);
+  const { t } = useLang();
 
   const targetRef = useRef<HTMLElement | null>(null);
 
@@ -48,7 +50,7 @@ const DonateStickyButton = () => {
         active:translate-y-0 active:scale-95
       `}
     >
-      💖 Give Care
+      💖 {t.donateButton.label}
     </a>
   );
 };

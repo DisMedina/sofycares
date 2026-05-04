@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
+  const { t } = useLang();
 
-  // Cerrar menú móvil al hacer clic fuera
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const menu = document.getElementById("mobile-menu");
@@ -29,10 +30,8 @@ export default function Header() {
   return (
     <nav className="relative z-10 bg-white/95 backdrop-blur-sm shadow-md border-b border-secondary-200">
       <div className="mx-auto px-6">
-        {" "}
         {/* TOP BAR */}
         <div className="flex justify-between items-center h-20">
-          {" "}
           {/* LOGO */}
           <div
             className="flex items-center cursor-pointer"
@@ -40,7 +39,7 @@ export default function Header() {
           >
             <img
               src="/logo/logo-tll.svg"
-              alt="Sofy Cares"
+              alt={t.header.logoAlt}
               className="h-14"
             />
           </div>
@@ -79,32 +78,37 @@ export default function Header() {
 --------------------------------------- */
 
 function DesktopNavigation() {
+  const { t } = useLang();
+
   const navItems = [
     {
-      text: "Living Options",
+      text: t.header.nav.livingOptions,
       to: "#",
       hasDropdown: true,
       dropdownItems: [
-        { text: "Independent Living", to: "/independent-living" },
-        { text: "Assisted Living", to: "/assisted-living" },
+        { text: t.header.nav.independentLiving, to: "/independent-living" },
+        { text: t.header.nav.assistedLiving, to: "/assisted-living" },
       ],
     },
-    { text: "About Us", to: "/about", hasDropdown: false },
+    { text: t.header.nav.aboutUs, to: "/about", hasDropdown: false },
     {
-      text: "Healthcare Services",
+      text: t.header.nav.healthcareServices,
       to: "/services",
       hasDropdown: true,
       dropdownItems: [
         {
-          text: "Health & Medical Services",
+          text: t.header.nav.healthMedicalServices,
           to: "/services#health-medical-services",
         },
-        { text: "Levels of Care", to: "/services#levels-of-care" },
-        { text: "Services & Amenities", to: "/services#services-amenities" },
+        { text: t.header.nav.levelsOfCare, to: "/services#levels-of-care" },
+        {
+          text: t.header.nav.servicesAmenities,
+          to: "/services#services-amenities",
+        },
       ],
     },
-    { text: "Events", to: "/events", hasDropdown: false },
-    { text: "Gallery", to: "/gallery", hasDropdown: false },
+    { text: t.header.nav.events, to: "/events", hasDropdown: false },
+    { text: t.header.nav.gallery, to: "/gallery", hasDropdown: false },
   ];
 
   return (
@@ -161,20 +165,23 @@ function DesktopNavigation() {
         </ul>
       </div>
 
-      {/* RIGHT BUTTON */}
-      <Link
-        to="/contact"
-        className="
-          hidden md:block
-          bg-primary-600 hover:bg-primary-700
-          text-white px-6 py-3 rounded-full
-          font-semibold text-base
-          transition
-          shrink-0
-        "
-      >
-        CONTACT
-      </Link>
+      {/* RIGHT: language toggle + contact button */}
+      <div className="flex items-center gap-3 shrink-0">
+        <LanguageToggleButton />
+        <Link
+          to="/contact"
+          className="
+            hidden md:block
+            bg-primary-600 hover:bg-primary-700
+            text-white px-6 py-3 rounded-full
+            font-semibold text-base
+            transition
+            shrink-0
+          "
+        >
+          {t.header.nav.contactCaps}
+        </Link>
+      </div>
     </div>
   );
 }
@@ -188,17 +195,18 @@ function MobileMenu({
 }: {
   setMobileOpen: (v: boolean) => void;
 }) {
+  const { t } = useLang();
+
   return (
     <div
       id="mobile-menu"
       className="min-[950px]:hidden bg-white/95 rounded-lg mt-2 shadow-lg border border-beige-200 p-4 space-y-3"
     >
-      {/* MENU ITEMS */}
       <MobileDropdown
-        label="Living Options"
+        label={t.header.nav.livingOptions}
         items={[
-          { to: "/independent-living", text: "Independent Living" },
-          { to: "/assisted-living", text: "Assisted Living" },
+          { to: "/independent-living", text: t.header.nav.independentLiving },
+          { to: "/assisted-living", text: t.header.nav.assistedLiving },
         ]}
         setMobileOpen={setMobileOpen}
       />
@@ -208,18 +216,24 @@ function MobileMenu({
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >
-        About Us
+        {t.header.nav.aboutUs}
       </Link>
 
       <MobileDropdown
-        label="Healthcare Services"
+        label={t.header.nav.healthcareServices}
         items={[
           {
             to: "/services#health-medical-services",
-            text: "Health & Medical Services",
+            text: t.header.nav.healthMedicalServices,
           },
-          { to: "/services#levels-of-care", text: "Levels of Care" },
-          { to: "/services#services-amenities", text: "Services & Amenities" },
+          {
+            to: "/services#levels-of-care",
+            text: t.header.nav.levelsOfCare,
+          },
+          {
+            to: "/services#services-amenities",
+            text: t.header.nav.servicesAmenities,
+          },
         ]}
         setMobileOpen={setMobileOpen}
       />
@@ -229,7 +243,7 @@ function MobileMenu({
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >
-        Events
+        {t.header.nav.events}
       </Link>
 
       <Link
@@ -237,12 +251,17 @@ function MobileMenu({
         className="block px-2 py-3 rounded-lg hover:bg-primary-50 text-text-primary text-lg font-medium"
         onClick={() => setMobileOpen(false)}
       >
-        Gallery
+        {t.header.nav.gallery}
       </Link>
 
       {/* SPACER */}
       <div className="mt-3 mb-1">
         <hr className="border-primary-200" />
+      </div>
+
+      {/* LANGUAGE TOGGLE (mobile) */}
+      <div className="flex justify-center">
+        <LanguageToggleButton />
       </div>
 
       {/* CONTACT BUTTON */}
@@ -251,7 +270,7 @@ function MobileMenu({
         className="block mx-auto text-center bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium text-lg transition w-[150px]"
         onClick={() => setMobileOpen(false)}
       >
-        Contact
+        {t.header.nav.contact}
       </Link>
     </div>
   );
@@ -289,5 +308,73 @@ function MobileDropdown({
         ))}
       </div>
     </details>
+  );
+}
+
+/* ---------------------------------------
+   LANGUAGE TOGGLE BUTTON
+--------------------------------------- */
+
+function LanguageToggleButton() {
+  const { lang, t, toggleLang } = useLang();
+
+  return (
+    <button
+      type="button"
+      onClick={toggleLang}
+      aria-label={
+        lang === "en"
+          ? t.header.languageToggle.ariaSwitchToEs
+          : t.header.languageToggle.ariaSwitchToEn
+      }
+      className="
+        flex items-center gap-2
+        px-3 py-2 rounded-md
+        text-text-primary text-sm font-semibold
+        hover:bg-primary-50
+        transition-colors duration-200
+        border border-secondary-200
+      "
+    >
+      {lang === "en" ? <USFlag /> : <MXFlag />}
+      <span>{lang === "en" ? "EN" : "ES"}</span>
+    </button>
+  );
+}
+
+function USFlag() {
+  return (
+    <svg
+      className="w-5 h-4 rounded-sm shadow-sm"
+      viewBox="0 0 60 30"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect width="60" height="30" fill="#B22234" />
+      <g fill="#FFFFFF">
+        <rect y="2.31" width="60" height="2.31" />
+        <rect y="6.92" width="60" height="2.31" />
+        <rect y="11.54" width="60" height="2.31" />
+        <rect y="16.15" width="60" height="2.31" />
+        <rect y="20.77" width="60" height="2.31" />
+        <rect y="25.38" width="60" height="2.31" />
+      </g>
+      <rect width="24" height="16.15" fill="#3C3B6E" />
+    </svg>
+  );
+}
+
+function MXFlag() {
+  return (
+    <svg
+      className="w-5 h-4 rounded-sm shadow-sm"
+      viewBox="0 0 60 30"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect width="20" height="30" x="0" fill="#006847" />
+      <rect width="20" height="30" x="20" fill="#FFFFFF" />
+      <rect width="20" height="30" x="40" fill="#CE1126" />
+    </svg>
   );
 }

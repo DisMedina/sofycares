@@ -1,6 +1,7 @@
 // Footer.tsx
 import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { useLang } from "@/i18n/LanguageContext";
 
 const socialLinks = [
   {
@@ -23,28 +24,36 @@ const socialLinks = [
   },
 ];
 
-const quickLinks = [
-  { href: "/", text: "Home" },
-  { href: "/about", text: "About Us" },
-  { href: "/services", text: "Services" },
-  { href: "/contact", text: "Contact" },
-];
-
-const servicesList = [
-  { href: "/independent-living", text: "Independent Living" },
-  { href: "/assisted-living", text: "Assisted Living" },
-  { href: "/services#health-medical-services", text: "Health & Medical Services" },
-  { href: "/services#levels-of-care", text: "Levels of Care" },
-  { href: "/services#services-amenities", text: "Services & Amenities" },
-];
-
 const legalLinks = [
-  { href: "#privacy", text: "Privacy Policy" },
-  { href: "#terms", text: "Terms of Service" },
-  { href: "#accessibility", text: "Accessibility" },
+  { href: "#privacy", key: "privacy" as const },
+  { href: "#terms", key: "terms" as const },
+  { href: "#accessibility", key: "accessibility" as const },
 ];
 
 export default function Footer() {
+  const { t } = useLang();
+
+  const quickLinks = [
+    { href: "/", text: t.footer.quickLinks.home },
+    { href: "/about", text: t.footer.quickLinks.aboutUs },
+    { href: "/services", text: t.footer.quickLinks.services },
+    { href: "/contact", text: t.footer.quickLinks.contact },
+  ];
+
+  const servicesList = [
+    { href: "/independent-living", text: t.footer.services.independentLiving },
+    { href: "/assisted-living", text: t.footer.services.assistedLiving },
+    {
+      href: "/services#health-medical-services",
+      text: t.footer.services.healthMedical,
+    },
+    { href: "/services#levels-of-care", text: t.footer.services.levelsOfCare },
+    {
+      href: "/services#services-amenities",
+      text: t.footer.services.servicesAmenities,
+    },
+  ];
+
   return (
     <footer className="bg-primary-900 text-white">
       {/* Main footer grid */}
@@ -55,14 +64,13 @@ export default function Footer() {
             <div className="mb-6">
               <img
                 src="/logo/logo-tll.svg"
-                alt="Sofy Cares"
+                alt={t.footer.logoAlt}
                 className="h-12"
               />
             </div>
 
             <p className="text-white/80 mb-6 leading-relaxed">
-              We provide personal care and professional companionship services
-              with the love and attention your family deserves.
+              {t.footer.tagline}
             </p>
 
             <div className="flex space-x-4">
@@ -86,7 +94,9 @@ export default function Footer() {
 
           {/* 2. Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6">
+              {t.footer.quickLinksTitle}
+            </h4>
             <ul className="space-y-4">
               {quickLinks.map((link, i) => (
                 <li key={i}>
@@ -112,7 +122,9 @@ export default function Footer() {
 
           {/* 3. Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
+            <h4 className="text-lg font-semibold mb-6">
+              {t.footer.servicesTitle}
+            </h4>
             <ul className="space-y-4">
               {servicesList.map((service, i) => (
                 <li key={i}>
@@ -129,7 +141,9 @@ export default function Footer() {
 
           {/* 4. Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact</h4>
+            <h4 className="text-lg font-semibold mb-6">
+              {t.footer.contactTitle}
+            </h4>
 
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -154,9 +168,9 @@ export default function Footer() {
                 </svg>
 
                 <p className="text-white/80">
-                  Juan José Torres Landa Torre A
+                  {t.footer.addressLine1}
                   <br />
-                  37797 San Miguel de Allende, Gto.
+                  {t.footer.addressLine2}
                 </p>
               </div>
 
@@ -208,10 +222,10 @@ export default function Footer() {
 
               <div className="mt-6">
                 <p className="text-accent-300 font-medium mb-2">
-                  Available 24/7
+                  {t.footer.available247Title}
                 </p>
                 <p className="text-white/80 text-sm">
-                  Always here when you need us
+                  {t.footer.available247Sub}
                 </p>
               </div>
             </div>
@@ -223,9 +237,7 @@ export default function Footer() {
       <div className="border-t border-white/10 bg-text-primary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/60 text-sm">
-              © 2025 Sofy Cares Services. All rights reserved.
-            </p>
+            <p className="text-white/60 text-sm">{t.footer.copyright}</p>
 
             <div className="flex space-x-6 text-sm">
               {legalLinks.map((l, i) => (
@@ -234,7 +246,7 @@ export default function Footer() {
                   href={l.href}
                   className="text-white/60 hover:text-white transition-colors duration-200"
                 >
-                  {l.text}
+                  {t.footer.legal[l.key]}
                 </a>
               ))}
             </div>

@@ -1,26 +1,28 @@
-import { eventsAndCommunity } from "@/data/content";
 import { JSX } from "react";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function EventsAndCommunitySection() {
+  const { t } = useLang();
+
   return (
     <section className="bg-gradient-to-br from-secondary-50 to-sage-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            {eventsAndCommunity.title}
+            {t.eventsAndCommunity.title}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-4">
-            {eventsAndCommunity.subtitle}
+            {t.eventsAndCommunity.subtitle}
           </p>
           <p className="text-lg text-text-secondary max-w-4xl mx-auto">
-            {eventsAndCommunity.description}
+            {t.eventsAndCommunity.description}
           </p>
         </div>
 
         {/* Activities Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {eventsAndCommunity.activities.map((activity, index) => (
+          {t.eventsAndCommunity.activities.map((activity, index) => (
             <ActivityCard key={index} {...activity} />
           ))}
         </div>

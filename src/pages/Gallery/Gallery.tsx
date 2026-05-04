@@ -1,59 +1,10 @@
 import { useState } from "react";
-
-// Gallery images from public/images folder
-const galleryImages = [
-  { src: "/images/SC_8.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_10.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_17.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_19.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_51.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_55.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_58.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_99.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_121.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_122.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_130.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_149.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_152.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_161.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_167.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_221.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_224.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_229.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_232.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_241.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_245.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_249.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_250.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_251.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_252.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_253.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_254.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_255.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_256.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_257.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_258.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_259.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_260.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_261.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_262.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_263.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_264.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_265.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_266.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_267.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_268.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_269.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_270.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_271.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_272.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_273.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_274.jpg", alt: "Sofy Cares Activity" },
-  { src: "/images/SC_275.jpg", alt: "Sofy Cares Activity" },
-];
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { t } = useLang();
+  const g = t.pages.gallery;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 pt-24 pb-16">
@@ -61,17 +12,16 @@ export default function Gallery() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            Gallery
+            {g.title}
           </h1>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            A glimpse into our community and the moments we share together at
-            Sofy Cares.
+            {g.subtitle}
           </p>
         </div>
 
         {/* Masonry Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-          {galleryImages.map((image, index) => (
+          {g.images.map((image, index) => (
             <div
               key={index}
               className="break-inside-avoid group cursor-pointer"
@@ -135,7 +85,7 @@ export default function Gallery() {
           {/* Image */}
           <img
             src={selectedImage}
-            alt="Enlarged view"
+            alt={g.enlargedAlt}
             className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />

@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function FounderSection() {
   const navigate = useNavigate();
+  const { t } = useLang();
+  const founder = t.pages.home.founderSection;
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -10,9 +13,9 @@ export default function FounderSection() {
         <div>
           <img
             src="/images/SC_275.jpg"
-            alt="Founder of Sofy Cares"
+            alt={founder.imageAlt}
             className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-xl"
-            style={{ objectPosition: 'center 15%' }}
+            style={{ objectPosition: "center 15%" }}
           />
         </div>
 
@@ -20,36 +23,32 @@ export default function FounderSection() {
         <div>
           <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300">
             <h2 className="text-3xl lg:text-4xl font-bold font-allura text-primary-500 mb-6">
-              Our Founder
+              {founder.sectionTitle}
             </h2>
 
             <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-              Sofia Toledo Soto founded Sofy Cares with a clear vision: to
-              provide the same leel of care, warmth, and attention she would
-              want for her own family.
+              {founder.intro}
             </p>
 
             <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-              With more than 15 years of experience in the health and senior
-              care field, she created Sofy Cares as a place where compassion,
-              dignity, and personalized care come first. Her commitment to
-              thoughtful, human-centered care shapes every part of life at Sofy
-              Cares.
+              {founder.bio}
             </p>
 
             {/* Profile */}
             <div className="flex items-center space-x-4 mb-6">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center">
-                  <span className="text-primary-700 font-bold text-lg">ST</span>
+                  <span className="text-primary-700 font-bold text-lg">
+                    {founder.nameInitials}
+                  </span>
                 </div>
               </div>
 
               <div>
                 <p className="text-lg font-semibold text-text-primary">
-                  Sofia Toledo
+                  {founder.founderName}
                 </p>
-                <p className="text-text-secondary">Founder & CEO</p>
+                <p className="text-text-secondary">{founder.founderRole}</p>
               </div>
             </div>
 
@@ -58,7 +57,7 @@ export default function FounderSection() {
               className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
               onClick={() => navigate("/founder")}
             >
-              <span>See Her Story</span>
+              <span>{founder.cta}</span>
               <svg
                 className="w-5 h-5"
                 fill="none"

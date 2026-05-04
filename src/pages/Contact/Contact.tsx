@@ -1,25 +1,20 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, AlertTriangle, XCircle } from "lucide-react";
-import emailjs from '@emailjs/browser';
-import { EMAILJS_CONFIG } from '@/config/emailjs';
-import { useEmailUsage } from '@/hooks/useEmailUsage';
+import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG } from "@/config/emailjs";
+import { useEmailUsage } from "@/hooks/useEmailUsage";
+import { useLang } from "@/i18n/LanguageContext";
+import type { TranslationSchema } from "@/i18n/types";
 
 const CONTACT_EMAIL = "sofycaressma@gmail.com";
 
-type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+type FormStatus = "idle" | "sending" | "success" | "error";
+type ContactCopy = TranslationSchema["pages"]["contact"];
 
 const VALIDATION_PATTERNS = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   phone: /^\+?[\d\s\-\(\)]{10,}$/,
   name: /^[a-zA-ZÀ-ÿ\s]{2,50}$/,
-};
-
-const VALIDATION_MESSAGES = {
-  required: "This field is required",
-  email: "Please enter a valid email",
-  phone: "Please enter a valid phone number",
-  name: "Name must be between 2 and 50 characters",
-  message: "Message must be at least 10 characters",
 };
 
 // ------------------------------------
@@ -188,6 +183,8 @@ function TextAreaField({
 // ------------------------------------
 export default function Contact() {
   const emailUsage = useEmailUsage();
+  const { t } = useLang();
+  const c: ContactCopy = t.pages.contact;
 
   const [form, setForm] = useState({
     firstName: "",
@@ -201,37 +198,34 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState<any>({});
-  const [status, setStatus] = useState<FormStatus>('idle');
+  const [status, setStatus] = useState<FormStatus>("idle");
   const [toast, setToast] = useState<{
     type: "success" | "error";
     message: string;
   } | null>(null);
 
-  // Hide toast after 4 seconds
   const showToast = (type: "success" | "error", message: string) => {
     setToast({ type, message });
     setTimeout(() => setToast(null), 4000);
   };
 
   const validateField = (name: string, value: string) => {
-    if (!value && name !== "phone") return VALIDATION_MESSAGES.required;
+    if (!value && name !== "phone") return c.validation.required;
 
     switch (name) {
       case "firstName":
       case "lastName":
-        if (!VALIDATION_PATTERNS.name.test(value))
-          return VALIDATION_MESSAGES.name;
+        if (!VALIDATION_PATTERNS.name.test(value)) return c.validation.name;
         break;
       case "email":
-        if (!VALIDATION_PATTERNS.email.test(value))
-          return VALIDATION_MESSAGES.email;
+        if (!VALIDATION_PATTERNS.email.test(value)) return c.validation.email;
         break;
       case "phone":
         if (value && !VALIDATION_PATTERNS.phone.test(value))
-          return VALIDATION_MESSAGES.phone;
+          return c.validation.phone;
         break;
       case "message":
-        if (value.length < 10) return VALIDATION_MESSAGES.message;
+        if (value.length < 10) return c.validation.message;
         break;
     }
 
@@ -252,9 +246,8 @@ export default function Contact() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    // Check if email limit is reached
     if (emailUsage.isLimitReached) {
-      showToast("error", "Monthly email limit reached. Please contact us directly via phone or email.");
+      showToast("error", c.toast.limitReached);
       return;
     }
 
@@ -263,29 +256,29 @@ export default function Contact() {
       newErrors[key] = validateField(key, (form as any)[key]);
     });
 
-    if (!form.serviceType) newErrors.serviceType = VALIDATION_MESSAGES.required;
+    if (!form.serviceType) newErrors.serviceType = c.validation.required;
 
     if (Object.values(newErrors).some((e) => e)) {
       setErrors(newErrors);
-      showToast("error", "Please correct the highlighted fields.");
+      showToast("error", c.toast.validationError);
       return;
     }
 
-    setStatus('sending');
+    setStatus("sending");
 
     const serviceTypeLabels: Record<string, string> = {
-      'personal-care': 'Personal Care',
-      'companionship': 'Companionship',
-      'home-support': 'Home Support',
-      'respite-care': 'Respite Care',
-      'specialized': 'Specialized Care',
-      'consultation': 'General Consultation',
+      "personal-care": c.submitLabels.serviceType.personalCare,
+      companionship: c.submitLabels.serviceType.companionship,
+      "home-support": c.submitLabels.serviceType.homeSupport,
+      "respite-care": c.submitLabels.serviceType.respiteCare,
+      specialized: c.submitLabels.serviceType.specialized,
+      consultation: c.submitLabels.serviceType.consultation,
     };
 
     const preferredContactLabels: Record<string, string> = {
-      'email': 'Email',
-      'phone': 'Phone',
-      'either': 'Either',
+      email: c.submitLabels.preferredContact.email,
+      phone: c.submitLabels.preferredContact.phone,
+      either: c.submitLabels.preferredContact.either,
     };
 
     try {
@@ -296,18 +289,21 @@ export default function Contact() {
           first_name: form.firstName,
           last_name: form.lastName,
           email: form.email,
-          phone: form.phone || 'Not provided',
+          phone: form.phone || c.submitLabels.phoneNotProvided,
           subject: form.subject,
           message: form.message,
-          service_type: serviceTypeLabels[form.serviceType] || form.serviceType,
-          preferred_contact: preferredContactLabels[form.preferredContact] || form.preferredContact,
-          to_email: CONTACT_EMAIL
+          service_type:
+            serviceTypeLabels[form.serviceType] || form.serviceType,
+          preferred_contact:
+            preferredContactLabels[form.preferredContact] ||
+            form.preferredContact,
+          to_email: CONTACT_EMAIL,
         },
         EMAILJS_CONFIG.publicKey
       );
 
-      setStatus('success');
-      showToast("success", "Email sent successfully! We'll get back to you soon.");
+      setStatus("success");
+      showToast("success", c.toast.successSent);
       setForm({
         firstName: "",
         lastName: "",
@@ -319,9 +315,9 @@ export default function Contact() {
         preferredContact: "email",
       });
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      setStatus('error');
-      showToast("error", "Failed to send email. Please try again or contact us directly.");
+      console.error("EmailJS Error:", error);
+      setStatus("error");
+      showToast("error", c.toast.sendFailed);
     }
   };
 
@@ -352,10 +348,9 @@ export default function Contact() {
         </div>
 
         <div className="relative z-10 text-center text-white">
-          <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-5xl font-bold mb-4">{c.banner.title}</h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            We are here to help you. Send your inquiry and we will reach you
-            soon.
+            {c.banner.subtitle}
           </p>
         </div>
       </section>
@@ -363,27 +358,27 @@ export default function Contact() {
       {/* INFO */}
       <section className="py-16 bg-secondary-50">
         <h2 className="text-3xl font-bold text-center font-allura text-primary-500 mb-12">
-          Contact Information
+          {c.info.sectionTitle}
         </h2>
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 px-4">
           {[
             {
-              title: "Phone",
-              content: "+52 415 117 7643",
-              desc: "Available 24/7",
+              title: c.info.phoneTitle,
+              content: c.info.phoneContent,
+              desc: c.info.phoneDesc,
               icon: Phone,
             },
             {
-              title: "Email",
+              title: c.info.emailTitle,
               content: CONTACT_EMAIL,
-              desc: "Response within 24 hours",
+              desc: c.info.emailDesc,
               icon: Mail,
             },
             {
-              title: "Location",
-              content: "Juan José Torres Landa Torre A",
-              desc: "37797 San Miguel de Allende, Gto.",
+              title: c.info.locationTitle,
+              content: c.info.locationContent,
+              desc: c.info.locationDesc,
               icon: MapPin,
             },
           ].map((item, i) => {
@@ -410,7 +405,7 @@ export default function Contact() {
       <section className="py-16 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center font-allura text-primary-500 mb-12">
-            Send Us Your Inquiry
+            {c.form.sectionTitle}
           </h2>
 
           {/* Email Usage Warnings */}
@@ -420,15 +415,22 @@ export default function Contact() {
                 <XCircle className="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg font-bold text-red-800 mb-2">
-                    Contact Form Temporarily Unavailable
+                    {c.limits.unavailableTitle}
                   </h3>
                   <p className="text-red-700 mb-3">
-                    We've reached our monthly email limit ({emailUsage.used}/{emailUsage.limit} emails sent).
-                    Please contact us directly using the information below:
+                    {c.limits.unavailableBodyPrefix}
+                    {emailUsage.used}/{emailUsage.limit}
+                    {c.limits.unavailableBodySuffix}
                   </p>
                   <div className="space-y-2 text-red-800">
-                    <p className="font-medium">📧 Email: {CONTACT_EMAIL}</p>
-                    <p className="font-medium">📞 Phone: +52 415 117 7643</p>
+                    <p className="font-medium">
+                      {c.limits.unavailableEmailLabel}
+                      {CONTACT_EMAIL}
+                    </p>
+                    <p className="font-medium">
+                      {c.limits.unavailablePhoneLabel}
+                      {c.limits.unavailablePhone}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -441,11 +443,12 @@ export default function Contact() {
                 <AlertTriangle className="w-6 h-6 text-orange-500 mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg font-bold text-orange-800 mb-2">
-                    High Email Usage Alert
+                    {c.limits.criticalTitle}
                   </h3>
                   <p className="text-orange-700">
-                    We're approaching our monthly email limit ({emailUsage.used}/{emailUsage.limit} emails sent).
-                    If you need an immediate response, please call us at +52 415 117 7643.
+                    {c.limits.criticalBodyPrefix}
+                    {emailUsage.used}/{emailUsage.limit}
+                    {c.limits.criticalBodySuffix}
                   </p>
                 </div>
               </div>
@@ -458,8 +461,10 @@ export default function Contact() {
                 <AlertTriangle className="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-yellow-800">
-                    <strong>Note:</strong> We're experiencing high email volume ({emailUsage.used}/{emailUsage.limit} emails sent this month).
-                    Your message will be delivered, but for urgent matters, please call +52 415 117 7643.
+                    <strong>{c.limits.warningPrefix}</strong>
+                    {c.limits.warningBodyPrefix}
+                    {emailUsage.used}/{emailUsage.limit}
+                    {c.limits.warningBodySuffix}
                   </p>
                 </div>
               </div>
@@ -470,94 +475,115 @@ export default function Contact() {
             {/* PERSONAL INFO */}
             <div className="grid md:grid-cols-2 gap-6">
               <TextField
-                label="First Name *"
+                label={c.form.firstNameLabel}
                 name="firstName"
-                placeholder="Enter your first name"
+                placeholder={c.form.firstNamePlaceholder}
                 value={form.firstName}
                 onChange={handleChange}
                 error={errors.firstName}
                 required
-
               />
 
               <TextField
-                label="Last Name *"
+                label={c.form.lastNameLabel}
                 name="lastName"
-                placeholder="Enter your last name"
+                placeholder={c.form.lastNamePlaceholder}
                 value={form.lastName}
                 onChange={handleChange}
                 error={errors.lastName}
                 required
-
               />
             </div>
 
             {/* CONTACT */}
             <div className="grid md:grid-cols-2 gap-6">
               <TextField
-                label="Email *"
+                label={c.form.emailLabel}
                 name="email"
                 type="email"
-                placeholder="example@email.com"
+                placeholder={c.form.emailPlaceholder}
                 value={form.email}
                 onChange={handleChange}
                 error={errors.email}
                 required
-
               />
 
               <TextField
-                label="Phone"
+                label={c.form.phoneLabel}
                 name="phone"
                 type="tel"
-                placeholder="+1 (555) 123-4567"
+                placeholder={c.form.phonePlaceholder}
                 value={form.phone}
                 onChange={handleChange}
                 error={errors.phone}
-
               />
             </div>
 
             {/* SERVICE INFO */}
             <div className="grid md:grid-cols-2 gap-6">
               <SelectField
-                label="Service Type *"
+                label={c.form.serviceTypeLabel}
                 name="serviceType"
                 value={form.serviceType}
                 onChange={handleChange}
                 required
                 error={errors.serviceType}
-
                 options={[
-                  { value: "", text: "Select a service" },
-                  { value: "personal-care", text: "Personal Care" },
-                  { value: "companionship", text: "Companionship" },
-                  { value: "home-support", text: "Home Support" },
-                  { value: "respite-care", text: "Respite Care" },
-                  { value: "specialized", text: "Specialized Care" },
-                  { value: "consultation", text: "General Consultation" },
+                  { value: "", text: c.form.serviceTypeOptions.select },
+                  {
+                    value: "personal-care",
+                    text: c.form.serviceTypeOptions.personalCare,
+                  },
+                  {
+                    value: "companionship",
+                    text: c.form.serviceTypeOptions.companionship,
+                  },
+                  {
+                    value: "home-support",
+                    text: c.form.serviceTypeOptions.homeSupport,
+                  },
+                  {
+                    value: "respite-care",
+                    text: c.form.serviceTypeOptions.respiteCare,
+                  },
+                  {
+                    value: "specialized",
+                    text: c.form.serviceTypeOptions.specialized,
+                  },
+                  {
+                    value: "consultation",
+                    text: c.form.serviceTypeOptions.consultation,
+                  },
                 ]}
               />
 
               <SelectField
-                label="Preferred Contact Method"
+                label={c.form.preferredContactLabel}
                 name="preferredContact"
                 value={form.preferredContact}
                 onChange={handleChange}
-
                 options={[
-                  { value: "email", text: "Email" },
-                  { value: "phone", text: "Phone" },
-                  { value: "either", text: "Either" },
+                  {
+                    value: "email",
+                    text: c.form.preferredContactOptions.email,
+                  },
+                  {
+                    value: "phone",
+                    text: c.form.preferredContactOptions.phone,
+                  },
+                  {
+                    value: "either",
+                    text: c.form.preferredContactOptions.either,
+                  },
                 ]}
               />
             </div>
 
             {/* SUBJECT */}
             <TextField
-              label="Subject *"
+              label={c.form.subjectLabel}
               name="subject"
-              placeholder="Brief description of your inquiry"
+              placeholder={c.form.subjectPlaceholder}
               value={form.subject}
               onChange={handleChange}
               error={errors.subject}
@@ -566,9 +592,9 @@ export default function Contact() {
 
             {/* MESSAGE */}
             <TextAreaField
-              label="Message *"
+              label={c.form.messageLabel}
               name="message"
-              placeholder="Describe your inquiry in detail"
+              placeholder={c.form.messagePlaceholder}
               value={form.message}
               onChange={handleChange}
               error={errors.message}
@@ -578,14 +604,14 @@ export default function Contact() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                disabled={status === 'sending' || emailUsage.isLimitReached}
+                disabled={status === "sending" || emailUsage.isLimitReached}
                 className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 {emailUsage.isLimitReached
-                  ? 'Form Unavailable - Contact Us Directly'
-                  : status === 'sending'
-                  ? 'Sending...'
-                  : 'Send Inquiry'}
+                  ? c.form.unavailableButton
+                  : status === "sending"
+                  ? c.form.sendingButton
+                  : c.form.sendButton}
               </button>
             </div>
           </form>

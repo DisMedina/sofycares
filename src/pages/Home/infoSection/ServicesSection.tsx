@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { livingOptions } from "@/data/content";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function ServicesSection() {
   const navigate = useNavigate();
+  const { t } = useLang();
+
+  const options = [t.livingOptions.independent, t.livingOptions.assisted];
 
   return (
     <section className="bg-gradient-to-br from-sage-50 to-secondary-50 py-20">
@@ -10,21 +13,22 @@ export default function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            {livingOptions.title}
+            {t.livingOptions.title}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            {livingOptions.subtitle}
+            {t.livingOptions.subtitle}
           </p>
         </div>
 
         {/* Living Options Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {livingOptions.options.map((option, index) => (
+          {options.map((option, index) => (
             <LivingOptionCard
               key={index}
               {...option}
               navigate={navigate}
               index={index}
+              learnMoreLabel={t.livingOptions.learnMoreCta}
             />
           ))}
         </div>
@@ -40,6 +44,7 @@ function LivingOptionCard({
   link,
   navigate,
   index,
+  learnMoreLabel,
 }: {
   title: string;
   description: string;
@@ -47,9 +52,9 @@ function LivingOptionCard({
   link: string;
   navigate: (path: string) => void;
   index: number;
+  learnMoreLabel: string;
 }) {
-  const bgColorClass =
-    index === 0 ? "bg-primary-100" : "bg-accent-100";
+  const bgColorClass = index === 0 ? "bg-primary-100" : "bg-accent-100";
   const borderColorClass = index === 0 ? "border-primary-300" : "border-accent-300";
   const buttonColorClass =
     index === 0
@@ -95,7 +100,7 @@ function LivingOptionCard({
         onClick={() => navigate(link)}
         className={`${buttonColorClass} text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 w-full flex items-center justify-center space-x-2 shadow-md hover:shadow-lg`}
       >
-        <span>Learn More</span>
+        <span>{learnMoreLabel}</span>
         <svg
           className="w-5 h-5"
           fill="none"

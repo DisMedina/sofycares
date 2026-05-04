@@ -1,23 +1,25 @@
-import { servicesAndAmenities, trustedProfessionals } from "@/data/content";
 import { FaFacebook } from "react-icons/fa";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function AmenitiesSection() {
+  const { t } = useLang();
+
   return (
     <section className="bg-gradient-to-br from-secondary-50 to-primary-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500 mb-4">
-            {servicesAndAmenities.title}
+            {t.servicesAndAmenities.title}
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            {servicesAndAmenities.subtitle}
+            {t.servicesAndAmenities.subtitle}
           </p>
         </div>
 
         {/* Categories */}
         <div className="space-y-12">
-          {servicesAndAmenities.categories.map((category, index) => (
+          {t.servicesAndAmenities.categories.map((category, index) => (
             <CategorySection key={index} {...category} />
           ))}
         </div>
@@ -26,16 +28,20 @@ export default function AmenitiesSection() {
         <div className="mt-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl lg:text-4xl font-bold font-allura text-primary-500 mb-4">
-              {trustedProfessionals.title}
+              {t.trustedProfessionals.title}
             </h3>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-              {trustedProfessionals.subtitle}
+              {t.trustedProfessionals.subtitle}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {trustedProfessionals.professionals.map((professional, index) => (
-              <ProfessionalCard key={index} {...professional} />
+            {t.trustedProfessionals.professionals.map((professional, index) => (
+              <ProfessionalCard
+                key={index}
+                {...professional}
+                facebookAriaSuffix={t.trustedProfessionals.facebookAriaSuffix}
+              />
             ))}
           </div>
         </div>
@@ -51,6 +57,7 @@ function ProfessionalCard({
   phoneRaw,
   facebook,
   image,
+  facebookAriaSuffix,
 }: {
   name: string;
   specialty: string;
@@ -58,14 +65,11 @@ function ProfessionalCard({
   phoneRaw: string;
   facebook: string;
   image: string;
+  facebookAriaSuffix: string;
 }) {
   return (
     <div className="bg-accent-50 rounded-2xl shadow-lg border border-secondary-300 overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <img
-        src={image}
-        alt={name}
-        className="w-full h-64 object-cover"
-      />
+      <img src={image} alt={name} className="w-full h-64 object-cover" />
       <div className="p-6">
         <h4 className="text-xl font-bold text-text-primary mb-1">{name}</h4>
         <p className="text-text-secondary mb-4">{specialty}</p>
@@ -95,7 +99,7 @@ function ProfessionalCard({
             href={facebook}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${name} on Facebook`}
+            aria-label={`${name} ${facebookAriaSuffix}`}
             className="w-9 h-9 bg-primary-200 hover:bg-primary-300 rounded-lg flex items-center justify-center transition-colors duration-200"
           >
             <FaFacebook className="w-5 h-5 text-primary-700" />

@@ -1,42 +1,28 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function About() {
   const navigate = useNavigate();
-  const images = [
-    { src: "/images/SC_250.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_251.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_252.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_253.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_254.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_255.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_256.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_257.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_258.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_259.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_260.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_261.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_262.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_263.jpg", alt: "Sofy Cares Community" },
-    { src: "/images/SC_264.jpg", alt: "Sofy Cares Community" },
-  ];
+  const { t } = useLang();
+  const about = t.pages.about;
+  const images = about.images;
 
   const [index, setIndex] = useState(0);
 
-  // Auto-rotate every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 pt-24 pb-16">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* 👉 LEFT: IMAGE CAROUSEL */}
+          {/* LEFT: IMAGE CAROUSEL */}
           <div className="sticky top-24 h-[600px]">
             <div className="relative h-full overflow-hidden rounded-2xl shadow-2xl">
               {images.map((img, i) => (
@@ -65,46 +51,39 @@ export default function About() {
             </div>
           </div>
 
-          {/* 👉 RIGHT: COMPANY CONTENT */}
+          {/* RIGHT: COMPANY CONTENT */}
           <div className="bg-secondary-50 rounded-2xl shadow-xl p-8 lg:p-12 border border-secondary-300 space-y-10">
             <h1 className="text-4xl lg:text-5xl font-bold font-allura text-primary-500">
-              About Us
+              {about.title}
             </h1>
 
             {/* Mission */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Mission
+                {about.missionTitle}
               </h2>
               <p className="text-lg text-text-secondary leading-relaxed">
-                At Sofy Cares, our mission is to provide compassionate, personalized care in a safe and home-like environment where every individual is treated with dignity and respect. We are committed to supporting residents' physical, emotional, and social well-being while honoring their independence and personal choices.
+                {about.missionBody}
               </p>
             </section>
 
             {/* Vision */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Vision
+                {about.visionTitle}
               </h2>
               <p className="text-lg text-text-secondary leading-relaxed">
-                We envision Sofy Cares as a place where people feel truly at home-supported by attentive care, meaningful connection, and a strong sense of community. Our goal is to set a standard for senior care that balances professional excellence with warmth, humanity, and trust.
+                {about.visionBody}
               </p>
             </section>
 
             {/* Values */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Values
+                {about.valuesTitle}
               </h2>
               <ul className="space-y-3 text-lg text-text-secondary">
-                {[
-                  { title: "Dignity & Respect", description: "We honor each resident as an individual, valuing their life experiences, preferences, and autonomy." },
-                  { title: "Compassionate Care", description: "We approach every interaction with empathy, patience, and genuine concern." },
-                  { title: "Safety & Trust", description: "We provide a secure environment where residents and families feel confident and at ease." },
-                  { title: "Personalized Attention", description: "Care is never one-size-fits-all; we adapt our services to meet each resident's unique needs." },
-                  { title: "Family & Community", description: "We foster strong relationships with families and encourage connection, involvement, and shared moments." },
-                  { title: "Professional Excellence", description: "Our team upholds high standards of care through experience, training and accountability." },
-                ].map((value, i) => (
+                {about.values.map((value, i) => (
                   <li key={i} className="flex items-start space-x-3">
                     <svg
                       className="w-6 h-6 text-primary-600 mt-0.5 flex-shrink-0"
@@ -128,22 +107,22 @@ export default function About() {
             {/* Story */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Story
+                {about.storyTitle}
               </h2>
 
               <p className="text-lg text-text-secondary leading-relaxed">
-                Sofy Cares was created to offer an alternative to large, impersonal care facilities. From the beginning, our focus has been on building a smaller, more intentional community where residents receive attentive care and feel genuinely supported. By combining professional healthcare practices with a warm, welcoming atmosphere, Sofy Cares provides a space where people can live with comfort, confidence, and peace of mind.
+                {about.storyBody}
               </p>
             </section>
 
             {/* Team */}
             <section>
               <h2 className="text-2xl font-semibold font-allura text-primary-500 mb-4">
-                Our Team
+                {about.teamTitle}
               </h2>
 
               <p className="text-lg text-text-secondary leading-relaxed">
-                Our caregivers and staff are carefully selected for both their professional experience and their commitment to compassionate service. We believe quality care comes from people who are attentive, respectful, and deeply invested in the well-being of those they serve. At Sofy Cares, our team works collaboratively to ensure residents receive consistent, thoughtful care every day.
+                {about.teamBody}
               </p>
             </section>
 
@@ -152,7 +131,7 @@ export default function About() {
               onClick={() => navigate("/contact")}
               className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex items-center space-x-3 w-fit"
             >
-              <span>Contact Us</span>
+              <span>{about.contactCta}</span>
               <svg
                 className="w-6 h-6"
                 fill="none"
