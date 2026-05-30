@@ -31,9 +31,13 @@ EmailJS allows your contact form to send emails directly without needing a backe
 ### Template Settings:
 - **Template Name:** Sofy Cares Contact Form
 - **Subject:** `New Inquiry: {{subject}}`
-- **From Name:** `{{firstName}} {{lastName}}`
+- **From Name:** `{{first_name}} {{last_name}}`
 - **From Email:** Leave default or use `{{email}}`
-- **To Email:** `sofycaressma@gmail.com` (your receiving email)
+- **To Email:** `{{to_email}}` (the form sends this; defaults to `sofycaressma@gmail.com`). You may instead hardcode `sofycaressma@gmail.com` if you prefer.
+
+> **Important:** The variable names below are **snake_case** and must match
+> exactly what the contact form sends (see the reference table at the bottom).
+> If they don't match, emails arrive with blank fields.
 
 ### Template Content (paste this into the editor):
 
@@ -41,13 +45,13 @@ EmailJS allows your contact form to send emails directly without needing a backe
 New Inquiry from Sofy Cares Website
 
 Contact Information:
-Name: {{firstName}} {{lastName}}
+Name: {{first_name}} {{last_name}}
 Email: {{email}}
 Phone: {{phone}}
 
 Service Details:
-Service Type: {{serviceType}}
-Preferred Contact Method: {{preferredContact}}
+Service Type: {{service_type}}
+Preferred Contact Method: {{preferred_contact}}
 
 Subject: {{subject}}
 
@@ -61,35 +65,44 @@ Reply directly to this email to respond to the inquiry.
 
 4. Click **"Save"** and note your **Template ID** (something like `template_xxxxxxx`)
 
-## Step 4: Get Your API Keys
+## Step 4: Get Your Public Key
 
 1. Go to **"Account"** in the left sidebar
-2. Under **"API Keys"**, you'll see:
-   - **Public Key** (something like `xxxxxxxxxxxxxxxx`) - Required for sending emails
-   - **Private Key** (something like `xxxxxxxxxxxxxxxx`) - Optional, for usage tracking
-3. Copy both keys (Private Key is optional but recommended for monitoring usage)
+2. Under **"API Keys"**, copy your **Public Key** (something like `xxxxxxxxxxxxxxxx`) — this is all the form needs to send email.
 
-## Step 5: Update Configuration File
+> This setup is **fully client-side and uses only the public key**. Do **not**
+> use the Private Key anywhere in this project — it must never be exposed in
+> browser code.
 
-1. Open the file: `src/config/emailjs.ts`
-2. Replace the placeholder values with your actual credentials:
+## Step 5: Configure Environment Variables
+
+Credentials are **not** hardcoded. `src/config/emailjs.ts` reads them from
+Vite environment variables (the `VITE_` prefix exposes them to the browser):
 
 ```typescript
 export const EMAILJS_CONFIG = {
-  serviceId: 'service_xxxxxxx',      // From Step 2
-  templateId: 'template_xxxxxxx',    // From Step 3
-  publicKey: 'xxxxxxxxxxxxxxxx',     // From Step 4 (Required)
-  privateKey: 'xxxxxxxxxxxxxxxx'     // From Step 4 (Optional - for usage tracking)
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 };
 ```
 
-**Note:** The `privateKey` is optional but recommended. It allows the contact form to:
-- Display your current email usage
-- Show warnings when approaching the 200 email limit
-- Automatically disable the form when the limit is reached
-- Provide alternative contact methods to users
+**Local development:**
+1. Copy `.env.example` to `.env` in the project root (`.env` is gitignored).
+2. Fill in the three values from the steps above:
 
-If you skip the private key, the form will still work but won't show usage warnings.
+```
+VITE_EMAILJS_SERVICE_ID=service_xxxxxxx     # From Step 2
+VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx    # From Step 3
+VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxx     # From Step 4
+```
+
+3. Restart `npm run dev` so Vite picks up the new values.
+
+**Production (Netlify):** add the **same three variable names** under *Site
+configuration → Environment variables*, then trigger a **fresh deploy** — Vite
+only injects env vars at build time. See the README "Deployment → Netlify"
+section.
 
 ## Step 6: Test the Contact Form
 
@@ -103,16 +116,20 @@ If you skip the private key, the form will still work but won't show usage warni
 
 The following variables are sent from the contact form and can be used in your EmailJS template:
 
+> These are the **exact keys the form sends** (snake_case). Your template
+> variable names must match these character-for-character.
+
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `{{firstName}}` | User's first name | John |
-| `{{lastName}}` | User's last name | Doe |
+| `{{first_name}}` | User's first name | John |
+| `{{last_name}}` | User's last name | Doe |
 | `{{email}}` | User's email address | john@example.com |
-| `{{phone}}` | User's phone number (optional) | +1 234 567 8900 |
+| `{{phone}}` | User's phone number (falls back to "Not provided") | +1 234 567 8900 |
 | `{{subject}}` | Inquiry subject | Question about services |
 | `{{message}}` | User's message | I would like to know more about... |
-| `{{serviceType}}` | Selected service type | Assisted Living |
-| `{{preferredContact}}` | Preferred contact method | Email |
+| `{{service_type}}` | Selected service type (human-readable label) | Assisted Living |
+| `{{preferred_contact}}` | Preferred contact method | Email |
+| `{{to_email}}` | Recipient address sent by the form | sofycaressma@gmail.com |
 
 ## Troubleshooting
 
@@ -120,11 +137,13 @@ The following variables are sent from the contact form and can be used in your E
 - Check your EmailJS dashboard for sent emails and any error logs
 - Verify your Gmail service is still connected
 - Check spam/junk folder in Gmail
-- Ensure all credentials in `src/config/emailjs.ts` are correct
+- Ensure the three `VITE_EMAILJS_*` env vars are set correctly (in `.env` locally, and in the Netlify dashboard for production)
+- If fields arrive **blank**, your template variable names don't match — confirm they use the snake_case names in the reference table above
 
 ### Form shows "Failed to send email"?
 - Open browser console (F12) to see detailed error messages
-- Verify your Public Key is correct
+- Verify `VITE_EMAILJS_PUBLIC_KEY`, `VITE_EMAILJS_SERVICE_ID`, and `VITE_EMAILJS_TEMPLATE_ID` are set (a missing var shows up as `undefined`)
+- After changing env vars, restart `npm run dev` locally or re-deploy on Netlify
 - Check that you haven't exceeded the 200 emails/month limit
 - Ensure your EmailJS account is active and verified
 
@@ -135,7 +154,14 @@ The following variables are sent from the contact form and can be used in your E
 
 ## Email Usage Tracking
 
-The contact form automatically monitors your email usage and displays warnings to users:
+> **Note for this client-only setup:** usage tracking requires a Private Key,
+> which is intentionally **not used** here (it must never be exposed in the
+> browser). With no private key, `src/hooks/useEmailUsage.ts` returns default
+> values, so the warning banners below **never trigger** and the form stays
+> enabled. Monitor your usage in the EmailJS dashboard instead. The UI and
+> thresholds documented below remain in the code for reference only.
+
+The contact form is designed to monitor email usage and display warnings to users:
 
 ### Warning Levels:
 
@@ -173,11 +199,11 @@ export const EMAIL_LIMITS = {
 
 ## Security Notes
 
-- The Public Key is safe to commit to your repository (it's meant to be public)
-- The Private Key is used only for reading usage data (not sending emails)
-- Never expose Private Key in client-side code visible to users
-- Keep your EmailJS account password secure
-- Monitor your usage to stay within the free tier limits
+- The **Public Key**, **Service ID**, and **Template ID** are all safe to expose in the browser — that is exactly how EmailJS client-side sending works.
+- This project uses **no Private Key** and **no backend / serverless function**. Never put a Private Key in client-side code.
+- Real values live in `.env` (gitignored) and in the Netlify dashboard — only `.env.example` (with placeholders) is committed.
+- Keep your EmailJS account password secure.
+- Monitor your usage to stay within the free tier limits.
 
 ## Support
 

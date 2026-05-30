@@ -149,6 +149,23 @@ sofycares/
 2. Upload the `dist` folder
 3. Add redirect rule: `/* /index.html 200`
 
+#### Environment variables (required)
+The contact form sends email via EmailJS directly from the browser. Three
+**public, client-safe** variables must be configured (no private key — see
+[EMAILJS_SETUP.md](EMAILJS_SETUP.md)):
+
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
+**Locally:** copy `.env.example` to `.env` and fill in the values (`.env` is
+gitignored).
+
+**On Netlify:** add the same prefixed names under *Site configuration →
+Environment variables*. Vite injects env vars **only at build time**, so
+**trigger a fresh deploy** after adding or changing them. Never add a private
+key.
+
 ### Vercel
 1. Connect repository to Vercel
 2. Auto-detected Vite configuration
