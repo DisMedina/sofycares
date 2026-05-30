@@ -77,13 +77,15 @@ Reply directly to this email to respond to the inquiry.
 ## Step 5: Configure Environment Variables
 
 Credentials are **not** hardcoded. `src/config/emailjs.ts` reads them from
-Vite environment variables (the `VITE_` prefix exposes them to the browser):
+environment variables. These use the `EMAILJS_` prefix, which `vite.config.ts`
+exposes to the browser via `envPrefix: ["VITE_", "EMAILJS_"]` (Vite would
+otherwise only expose `VITE_`-prefixed vars):
 
 ```typescript
 export const EMAILJS_CONFIG = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  serviceId: import.meta.env.EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.EMAILJS_PUBLIC_KEY,
 };
 ```
 
@@ -92,17 +94,21 @@ export const EMAILJS_CONFIG = {
 2. Fill in the three values from the steps above:
 
 ```
-VITE_EMAILJS_SERVICE_ID=service_xxxxxxx     # From Step 2
-VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx    # From Step 3
-VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxx     # From Step 4
+EMAILJS_SERVICE_ID=service_xxxxxxx     # From Step 2
+EMAILJS_TEMPLATE_ID=template_xxxxxxx    # From Step 3
+EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxx     # From Step 4
 ```
 
 3. Restart `npm run dev` so Vite picks up the new values.
 
 **Production (Netlify):** add the **same three variable names** under *Site
-configuration → Environment variables*, then trigger a **fresh deploy** — Vite
-only injects env vars at build time. See the README "Deployment → Netlify"
-section.
+configuration → Environment variables*, then trigger **"Clear cache and deploy
+site"** — Vite inlines env vars at build time, so a cached build keeps the old
+values. See the README "Deployment → Netlify" section.
+
+> **Security:** the `EMAILJS_` prefix exposes *any* matching var to the browser
+> bundle. Never add `EMAILJS_PRIVATE_KEY` or any secret with this prefix — only
+> the service ID, template ID, and public key (all safe to expose) belong here.
 
 ## Step 6: Test the Contact Form
 
@@ -137,13 +143,13 @@ The following variables are sent from the contact form and can be used in your E
 - Check your EmailJS dashboard for sent emails and any error logs
 - Verify your Gmail service is still connected
 - Check spam/junk folder in Gmail
-- Ensure the three `VITE_EMAILJS_*` env vars are set correctly (in `.env` locally, and in the Netlify dashboard for production)
+- Ensure the three `EMAILJS_*` env vars are set correctly (in `.env` locally, and in the Netlify dashboard for production)
 - If fields arrive **blank**, your template variable names don't match — confirm they use the snake_case names in the reference table above
 
 ### Form shows "Failed to send email"?
 - Open browser console (F12) to see detailed error messages
-- Verify `VITE_EMAILJS_PUBLIC_KEY`, `VITE_EMAILJS_SERVICE_ID`, and `VITE_EMAILJS_TEMPLATE_ID` are set (a missing var shows up as `undefined`)
-- After changing env vars, restart `npm run dev` locally or re-deploy on Netlify
+- Verify `EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`, and `EMAILJS_TEMPLATE_ID` are set (a missing var shows up as `undefined` — the production symptom is "The public key is required")
+- After changing env vars, restart `npm run dev` locally; on Netlify use **"Clear cache and deploy site"** (env values are inlined at build time)
 - Check that you haven't exceeded the 200 emails/month limit
 - Ensure your EmailJS account is active and verified
 
@@ -201,6 +207,7 @@ export const EMAIL_LIMITS = {
 
 - The **Public Key**, **Service ID**, and **Template ID** are all safe to expose in the browser — that is exactly how EmailJS client-side sending works.
 - This project uses **no Private Key** and **no backend / serverless function**. Never put a Private Key in client-side code.
+- `vite.config.ts` exposes the **`EMAILJS_` prefix** to the browser bundle, so *any* env var starting with `EMAILJS_` is shipped to clients. Never name a secret `EMAILJS_PRIVATE_KEY` (or similar) — only the service ID, template ID, and public key may use this prefix.
 - Real values live in `.env` (gitignored) and in the Netlify dashboard — only `.env.example` (with placeholders) is committed.
 - Keep your EmailJS account password secure.
 - Monitor your usage to stay within the free tier limits.

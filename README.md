@@ -154,17 +154,25 @@ The contact form sends email via EmailJS directly from the browser. Three
 **public, client-safe** variables must be configured (no private key — see
 [EMAILJS_SETUP.md](EMAILJS_SETUP.md)):
 
-- `VITE_EMAILJS_SERVICE_ID`
-- `VITE_EMAILJS_TEMPLATE_ID`
-- `VITE_EMAILJS_PUBLIC_KEY`
+- `EMAILJS_SERVICE_ID`
+- `EMAILJS_TEMPLATE_ID`
+- `EMAILJS_PUBLIC_KEY`
+
+These use the `EMAILJS_` prefix, which `vite.config.ts` exposes to client code
+via `envPrefix: ["VITE_", "EMAILJS_"]` (Vite would otherwise only expose
+`VITE_`-prefixed vars).
 
 **Locally:** copy `.env.example` to `.env` and fill in the values (`.env` is
 gitignored).
 
-**On Netlify:** add the same prefixed names under *Site configuration →
-Environment variables*. Vite injects env vars **only at build time**, so
-**trigger a fresh deploy** after adding or changing them. Never add a private
-key.
+**On Netlify:** add the same variable names under *Site configuration →
+Environment variables*. Vite inlines env vars **only at build time**, so after
+adding or changing them trigger **"Clear cache and deploy site"** (Deploys →
+Trigger deploy) — a cached build would keep the old values.
+
+> **Security:** because the `EMAILJS_` prefix is exposed to the browser bundle,
+> never add `EMAILJS_PRIVATE_KEY` (or any secret with this prefix). Only the
+> service ID, template ID, and public key — all safe to expose — may use it.
 
 ### Vercel
 1. Connect repository to Vercel
